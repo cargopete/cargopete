@@ -1,49 +1,37 @@
-# CargoPete CV
+# 👋 Hey, I'm Pete
 
-A terminal-inspired CV website for Pete Pavlovski, Senior Rust Engineer.
+**Senior Rust Engineer** | **Blockchain Developer** | **Rust Maxi 🦀**
 
-## Features
+I've spent the last 7+ years exclusively in the Web3 space, building distributed systems, p2p messaging protocols, testing frameworks, and backend services — yes, all 100% Rust.
 
-- Terminal/CLI aesthetic with custom animations
-- Dark/Light mode toggle
-- Typewriter effect on hero section
-- Smooth scroll animations
-- Fully responsive design
-- Built with modern web technologies
+## 🔧 What I Do
 
-## Tech Stack
+- **Distributed Systems** - Building scalable, fault-tolerant infrastructure
+- **P2P Protocols** - Designed messaging protocols using Rust, Waku, and libp2p
+- **Developer Tools** - Created the first full-fledged testing framework for The Graph subgraphs
+- **Smart Contracts** - Started with Ethereum/Aeternity, now focused on Rust-based chains
 
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- next-themes
+## 💼 Currently
 
-## Local Development
+Senior Rust Engineer at **Fathom.io**, building high-performance DataOps/AI platforms.
 
-```bash
-# Install dependencies
-npm install
+## 🛠️ Tech Stack
 
-# Run development server
-npm run dev
+**Languages:** Rust (primary), TypeScript, Kotlin, AssemblyScript
+**Blockchain:** Ethereum, Solana, The Graph, Polkadot/Substrate
+**Rust Ecosystem:** Tokio, Actix-web, Yew.rs, libp2p, Waku
+**Other:** React, Next.js, Docker, AWS, GraphQL
 
-# Build for production
-npm run build
+## 🌍 Journey
 
-# Start production server
-npm start
-```
+From accountant to Senior Rust Engineer — quite the adventure. The transition taught me the value of precision, systematic thinking, and attention to detail. Started with Ethereum smart contracts and React frontends, fell in love with Rust, and haven't looked back.
 
-## Deployment
+## 📫 Let's Connect
 
-This project is optimized for Vercel deployment:
+- **Website:** [cargopete.com](https://cargopete.com)
+- **Email:** pavlovskipetko@gmail.com
+- **LinkedIn:** [linkedin.com/in/petepavlovski-07486a156](https://linkedin.com/in/petepavlovski-07486a156)
 
-1. Push to GitHub
-2. Import project in Vercel
-3. Configure custom domain (cargopete.com)
-4. Deploy
+---
 
-## License
-
-© 2025 Pete Pavlovski. All rights reserved.
+*Based in Sofia, Bulgaria 🇧🇬 | Working remotely with distributed teams worldwide*
