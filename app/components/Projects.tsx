@@ -25,12 +25,12 @@ const projects = [
     ],
   },
   {
-    title: "subgraph-testing-framework.rs",
+    title: "matchstick",
     role: "Rust Engineer",
     company: "The Graph",
     period: "2021",
     description:
-      "Created and maintained the first (and only) full-fledged testing framework for subgraphs in The Graph ecosystem. Essential developer tooling that became the standard for subgraph development and quality assurance.",
+      "Created and maintained Matchstick, the first (and only) full-fledged testing framework for subgraphs in The Graph ecosystem. Essential developer tooling that became the standard for subgraph development and quality assurance.",
     impact:
       "Became the de facto testing solution for subgraph developers worldwide, used by major projects and protocols.",
     tech: ["Rust", "AssemblyScript", "WebAssembly", "Testing", "DevTools"],
@@ -40,24 +40,6 @@ const projects = [
       "Integrated seamlessly with Graph CLI and deployment pipelines",
       "Adopted by major DeFi protocols and development teams",
       "Set the standard for subgraph quality and reliability",
-    ],
-  },
-  {
-    title: "decentralized-exchange.sol",
-    role: "Junior Software Engineer",
-    company: "WeiChain",
-    period: "2019-2020",
-    description:
-      "Built and deployed a decentralized cryptocurrency exchange on Ethereum and Aeternity blockchains. Also developed an atomic swap widget enabling trustless cross-chain trades.",
-    impact:
-      "Early production deployment of DEX technology, contributing to the DeFi ecosystem's growth.",
-    tech: ["Ethereum", "Aeternity", "Solidity", "React", "Smart Contracts"],
-    link: null,
-    highlights: [
-      "Full-stack development from smart contracts to React frontend",
-      "Implemented atomic swap functionality for cross-chain trading",
-      "Deployed to mainnet and handled real user transactions",
-      "Early experience with DeFi primitives and Web3 UX",
     ],
   },
 ];
