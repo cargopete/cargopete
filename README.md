@@ -30,7 +30,7 @@ From accountant to Senior Rust Engineer — quite the adventure. The transition 
 
 - **Website:** [cargopete.com](https://cargopete.com)
 - **Email:** pavlovskipetko@gmail.com
-- **LinkedIn:** [linkedin.com/in/petepavlovski-07486a156](https://linkedin.com/in/petepavlovski-07486a156)
+- **LinkedIn:** [linkedin.com/in/pete-pavlovski-07486a156](https://www.linkedin.com/in/pete-pavlovski-07486a156/)
 
 ---
 

@@ -27,8 +27,8 @@ export function Contact() {
     {
       icon: Linkedin,
       label: "--linkedin",
-      value: "linkedin.com/in/petepavlovski-07486a156",
-      href: "https://linkedin.com/in/petepavlovski-07486a156",
+      value: "linkedin.com/in/pete-pavlovski-07486a156",
+      href: "https://www.linkedin.com/in/pete-pavlovski-07486a156/",
       color: "text-terminal-blue",
     },
   ];
