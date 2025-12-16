@@ -29,7 +29,7 @@ export function About() {
           <div className="space-y-6 text-foreground/90 leading-relaxed">
             <p className="text-lg md:text-xl">
               <span className="text-rust-orange font-bold">Rust maxi</span> and
-              blockchain developer with 7+ years exclusively in the{" "}
+              blockchain developer with 7+ years (almost) exclusively in the{" "}
               <span className="text-terminal-green font-semibold">
                 Web3 space
               </span>
