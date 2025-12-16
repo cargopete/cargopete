@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
-import { DownloadPDF } from "./DownloadPDF";
 
 export function Hero() {
   return (
@@ -28,7 +27,7 @@ export function Hero() {
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,7 +41,6 @@ export function Hero() {
               <Mail className="w-5 h-5" />
               Get in Touch
             </a>
-            <DownloadPDF />
           </motion.div>
 
           {/* Quick Stats */}
