@@ -16,6 +16,7 @@ const projects = [
     impact:
       "Enabled thousands of developers to build on The Graph protocol with reliable, decentralized P2P communication.",
     tech: ["Rust", "Waku", "libp2p", "Distributed Systems", "Yew.rs"],
+    link: "https://github.com/graphops",
     highlights: [
       "Built production-grade P2P messaging protocol from scratch",
       "Handled millions of messages across distributed global nodes",
@@ -33,6 +34,7 @@ const projects = [
     impact:
       "Became the de facto testing solution for subgraph developers worldwide, used by major projects and protocols.",
     tech: ["Rust", "AssemblyScript", "WebAssembly", "Testing", "DevTools"],
+    link: "https://github.com/LimeChain/matchstick",
     highlights: [
       "First comprehensive testing solution in the entire ecosystem",
       "Integrated seamlessly with Graph CLI and deployment pipelines",
@@ -50,6 +52,7 @@ const projects = [
     impact:
       "Early production deployment of DEX technology, contributing to the DeFi ecosystem's growth.",
     tech: ["Ethereum", "Aeternity", "Solidity", "React", "Smart Contracts"],
+    link: null,
     highlights: [
       "Full-stack development from smart contracts to React frontend",
       "Implemented atomic swap functionality for cross-chain trading",
@@ -105,7 +108,17 @@ export function Projects() {
                       {project.title}
                     </h3>
                   </div>
-                  <ExternalLink className="w-5 h-5 text-foreground/40 group-hover:text-rust-orange transition-colors" />
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-foreground/40 hover:text-rust-orange transition-colors"
+                      aria-label="View project"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
 
                 {/* Role & Company */}
