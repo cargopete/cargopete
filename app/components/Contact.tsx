@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Linkedin, Github, Download } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 
 export function Contact() {
   const ref = useRef(null);
@@ -104,12 +104,12 @@ export function Contact() {
             </div>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
           >
             <a
               href="mailto:pavlovskipetko@gmail.com"
@@ -117,15 +117,6 @@ export function Contact() {
             >
               <Mail className="w-5 h-5" />
               Let&apos;s Work Together
-            </a>
-
-            <a
-              href="/pete-pavlovski-cv.pdf"
-              download
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent hover:bg-card border-2 border-terminal-green text-terminal-green font-mono rounded-lg transition-all hover:scale-105"
-            >
-              <Download className="w-5 h-5" />
-              Download Full CV
             </a>
           </motion.div>
 

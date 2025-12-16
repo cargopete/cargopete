@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export function Hero() {
   return (
@@ -27,7 +27,7 @@ export function Hero() {
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -40,14 +40,6 @@ export function Hero() {
             >
               <Mail className="w-5 h-5" />
               Get in Touch
-            </a>
-            <a
-              href="/pete-pavlovski-cv.pdf"
-              download
-              className="inline-flex items-center gap-2 px-8 py-4 bg-transparent hover:bg-card border-2 border-foreground/20 hover:border-rust-orange text-foreground font-semibold rounded-lg transition-all hover:scale-105"
-            >
-              <Download className="w-5 h-5" />
-              Download CV
             </a>
           </motion.div>
 
