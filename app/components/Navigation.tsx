@@ -46,7 +46,6 @@ export function Navigation() {
           >
             <Terminal className="w-5 h-5 text-rust-orange group-hover:animate-pulse" />
             <span className="hidden sm:block font-bold">cargopete</span>
-            <span className="text-terminal-green">.dev</span>
           </button>
 
           {/* Nav Links - Hidden on mobile, shown on larger screens */}

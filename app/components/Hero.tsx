@@ -67,7 +67,7 @@ export function Hero() {
           {/* Terminal Content */}
           <div className="font-mono text-sm md:text-base space-y-1">
             <pre className="whitespace-pre-wrap text-foreground leading-relaxed">
-              {displayedText}
+              {displayedText || ""}
             </pre>
             {isTyping && (
               <span className="inline-block w-2 h-4 bg-rust-orange cursor-blink"></span>
