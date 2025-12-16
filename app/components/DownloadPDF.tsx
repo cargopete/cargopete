@@ -13,7 +13,9 @@ export function DownloadPDF() {
       const response = await fetch("/api/generate-pdf");
 
       if (!response.ok) {
-        throw new Error("Failed to generate PDF");
+        const errorData = await response.json();
+        console.error("PDF generation failed:", errorData);
+        throw new Error(errorData.details || "Failed to generate PDF");
       }
 
       const blob = await response.blob();
@@ -27,7 +29,7 @@ export function DownloadPDF() {
       document.body.removeChild(a);
     } catch (error) {
       console.error("Error downloading PDF:", error);
-      alert("Failed to generate PDF. Please try again.");
+      alert(`Failed to generate PDF: ${(error as Error).message}`);
     } finally {
       setIsGenerating(false);
     }
