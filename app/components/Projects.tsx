@@ -12,14 +12,15 @@ const projects = [
     company: "GraphOps",
     period: "2022-2024",
     description:
-      "Designed and built a distributed communication protocol for The Graph using Rust and Waku. Core infrastructure enabling decentralized Web3 indexing across global networks.",
+      "Designed and built a distributed communication protocol for The Graph using Rust, Waku, and libp2p. Core infrastructure enabling decentralized Web3 indexing across global networks. Also developed Rust-based backend services and a yew.rs frontend application.",
     impact:
-      "Enabled thousands of developers to build on The Graph protocol with reliable, decentralized communication.",
-    tech: ["Rust", "Waku", "Distributed Systems", "P2P", "WebAssembly"],
+      "Enabled thousands of developers to build on The Graph protocol with reliable, decentralized P2P communication.",
+    tech: ["Rust", "Waku", "libp2p", "Distributed Systems", "Yew.rs"],
     highlights: [
-      "Built from scratch with focus on reliability and performance",
-      "Handled millions of messages across distributed nodes",
-      "Implemented advanced consensus mechanisms",
+      "Built production-grade P2P messaging protocol from scratch",
+      "Handled millions of messages across distributed global nodes",
+      "Implemented fault-tolerant consensus and gossip mechanisms",
+      "Developed complementary backend services and frontend tooling",
     ],
   },
   {
@@ -28,14 +29,32 @@ const projects = [
     company: "The Graph",
     period: "2021",
     description:
-      "Created the first (and only) full-fledged testing framework for subgraphs in The Graph ecosystem. Essential developer tooling used by the entire community.",
+      "Created and maintained the first (and only) full-fledged testing framework for subgraphs in The Graph ecosystem. Essential developer tooling that became the standard for subgraph development and quality assurance.",
     impact:
-      "Became the standard testing solution for subgraph developers worldwide.",
+      "Became the de facto testing solution for subgraph developers worldwide, used by major projects and protocols.",
     tech: ["Rust", "AssemblyScript", "WebAssembly", "Testing", "DevTools"],
     highlights: [
-      "First comprehensive testing solution in the ecosystem",
-      "Integrated with Graph CLI and deployment tools",
-      "Adopted by major projects and development teams",
+      "First comprehensive testing solution in the entire ecosystem",
+      "Integrated seamlessly with Graph CLI and deployment pipelines",
+      "Adopted by major DeFi protocols and development teams",
+      "Set the standard for subgraph quality and reliability",
+    ],
+  },
+  {
+    title: "decentralized-exchange.sol",
+    role: "Junior Software Engineer",
+    company: "WeiChain",
+    period: "2019-2020",
+    description:
+      "Built and deployed a decentralized cryptocurrency exchange on Ethereum and Aeternity blockchains. Also developed an atomic swap widget enabling trustless cross-chain trades.",
+    impact:
+      "Early production deployment of DEX technology, contributing to the DeFi ecosystem's growth.",
+    tech: ["Ethereum", "Aeternity", "Solidity", "React", "Smart Contracts"],
+    highlights: [
+      "Full-stack development from smart contracts to React frontend",
+      "Implemented atomic swap functionality for cross-chain trading",
+      "Deployed to mainnet and handled real user transactions",
+      "Early experience with DeFi primitives and Web3 UX",
     ],
   },
 ];

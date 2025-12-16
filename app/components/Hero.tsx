@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 import { Download, Mail } from "lucide-react";
 
 const commands = [
-  { command: "whoami", output: "Senior Rust Engineer" },
+  { command: "whoami", output: "Senior Rust Engineer (Rust Maxi 🦀)" },
   {
     command: "cat bio.txt",
     output:
-      "Building distributed systems, backend services, and developer tools.\nPassionate about scalable, secure, high-performance solutions.",
+      "7+ years exclusively in Web3 - from Ethereum smart contracts to becoming a Rust maxi.\nBuilding distributed systems, p2p protocols, testing frameworks, and backend services.\n(Yes, all 100% Rust.)",
   },
-  { command: "ls current-role/", output: "Fathom.io - DataOps/AI platforms" },
+  { command: "pwd", output: "/home/fathom/dataops-ai-platforms" },
 ];
 
 export function Hero() {
