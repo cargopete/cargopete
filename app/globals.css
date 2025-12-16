@@ -84,3 +84,84 @@ body {
   animation: scanline 8s linear infinite;
   pointer-events: none;
 }
+
+/* Print Styles for PDF Generation */
+@media print {
+  /* Hide navigation and interactive elements */
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset page margins */
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+
+  /* Optimize spacing for print */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure sections don't break awkwardly */
+  section {
+    page-break-inside: avoid;
+  }
+
+  /* Adjust hero section for print */
+  section:first-of-type {
+    min-height: auto !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Reduce spacing for print */
+  .py-20 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Ensure colors print properly */
+  h1, h2, h3, h4, h5, h6 {
+    color: black !important;
+  }
+
+  /* Keep accent colors but ensure readability */
+  .text-rust-orange {
+    color: #CE422B !important;
+  }
+
+  .text-terminal-green {
+    color: #00b32d !important;
+  }
+
+  .text-terminal-blue {
+    color: #0088cc !important;
+  }
+
+  /* Ensure borders are visible */
+  .border,
+  .border-2 {
+    border-color: #333333 !important;
+  }
+
+  /* Remove backgrounds that might not print well */
+  .bg-card,
+  .bg-card\/30 {
+    background: transparent !important;
+  }
+
+  /* Ensure links are visible */
+  a {
+    text-decoration: underline;
+    color: #0088cc !important;
+  }
+
+  /* Make stats and highlights clear */
+  .font-bold {
+    font-weight: bold !important;
+  }
+}
