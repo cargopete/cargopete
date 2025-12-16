@@ -7,16 +7,16 @@ import { ExternalLink, FileCode } from "lucide-react";
 
 const projects = [
   {
-    title: "distributed-protocol.rs",
+    title: "graphcast",
     role: "Senior Rust Engineer",
     company: "GraphOps",
     period: "2022-2024",
     description:
-      "Designed and built a distributed communication protocol for The Graph using Rust, Waku, and libp2p. Core infrastructure enabling decentralized Web3 indexing across global networks. Also developed Rust-based backend services and a yew.rs frontend application.",
+      "Designed and built Graphcast, a distributed communication protocol for The Graph using Rust, Waku, and libp2p. Core infrastructure enabling decentralized Web3 indexing across global networks. Also developed Rust-based backend services and a yew.rs frontend application.",
     impact:
       "Enabled thousands of developers to build on The Graph protocol with reliable, decentralized P2P communication.",
     tech: ["Rust", "Waku", "libp2p", "Distributed Systems", "Yew.rs"],
-    link: "https://github.com/graphops",
+    link: "https://github.com/graphops/graphcast-sdk",
     highlights: [
       "Built production-grade P2P messaging protocol from scratch",
       "Handled millions of messages across distributed global nodes",
