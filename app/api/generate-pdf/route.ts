@@ -20,8 +20,24 @@ export async function GET(request: NextRequest) {
     // Launch Puppeteer with Chromium for Vercel
     const isProduction = process.env.NODE_ENV === "production";
 
+    // Configure chromium for Vercel
+    if (isProduction) {
+      chromium.setGraphicsMode = false;
+    }
+
     browser = await puppeteer.launch({
-      args: isProduction ? chromium.args : ["--no-sandbox"],
+      args: isProduction
+        ? [
+            ...chromium.args,
+            "--disable-gpu",
+            "--disable-dev-shm-usage",
+            "--disable-setuid-sandbox",
+            "--no-first-run",
+            "--no-sandbox",
+            "--no-zygote",
+            "--single-process",
+          ]
+        : ["--no-sandbox"],
       defaultViewport: {
         width: 1280,
         height: 720,
