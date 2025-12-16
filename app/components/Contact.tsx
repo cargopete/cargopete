@@ -20,8 +20,8 @@ export function Contact() {
     {
       icon: Github,
       label: "--github",
-      value: "github.com/neriumpete",
-      href: "https://github.com/neriumpete",
+      value: "github.com/cargopete",
+      href: "https://github.com/cargopete",
       color: "text-terminal-green",
     },
     {

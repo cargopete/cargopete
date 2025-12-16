@@ -51,13 +51,13 @@ export function Community() {
                 that help developers ship better software.
               </p>
               <a
-                href="https://github.com/neriumpete"
+                href="https://github.com/cargopete"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-terminal-green hover:text-rust-orange transition-colors font-mono text-sm group-hover:gap-3"
               >
                 <Github className="w-4 h-4" />
-                <span>github.com/neriumpete</span>
+                <span>github.com/cargopete</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">
                   →
                 </span>
