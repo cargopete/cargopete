@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
+import { DownloadPDF } from "./DownloadPDF";
 
 export function Hero() {
   return (
@@ -41,6 +42,7 @@ export function Hero() {
               <Mail className="w-5 h-5" />
               Get in Touch
             </a>
+            <DownloadPDF />
           </motion.div>
 
           {/* Quick Stats */}
