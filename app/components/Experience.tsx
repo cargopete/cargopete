@@ -19,30 +19,9 @@ const experiences = [
     ],
   },
   {
-    company: "Audita",
-    role: "Technical Advisor",
-    period: "Apr 2025 - Nov 2025",
-    location: "Remote",
-    highlights: [
-      "Supported smart contract audits with expertise in Rust testing and security best practices",
-      "Identified vulnerabilities and contributed to robust audit processes through test coverage",
-      "Collaborated with auditors to establish secure, maintainable smart contract patterns",
-    ],
-  },
-  {
-    company: "Eiger",
-    role: "Senior Rust Engineer",
-    period: "Aug 2024 - Mar 2025",
-    location: "Remote",
-    highlights: [
-      "Developed and optimized distributed systems and backend services using Rust",
-      "Contributed to Polka Storage - decentralized storage parachain on Polkadot",
-    ],
-  },
-  {
     company: "GraphOps",
     role: "Senior Rust Engineer",
-    period: "Jul 2022 - Aug 2024",
+    period: "Jul 2022 - Apr 2025",
     location: "Remote",
     highlights: [
       "Designed and built distributed communication protocol using Rust, Waku, and libp2p",
