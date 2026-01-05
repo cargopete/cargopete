@@ -5,6 +5,32 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase, MapPin } from "lucide-react";
 
+const monthMap: Record<string, number> = {
+  Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+  Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
+};
+
+function formatPeriodWithDuration(period: string): string {
+  const [startStr, endStr] = period.split(" - ");
+  const [startMonth, startYear] = startStr.split(" ");
+  const startDate = new Date(parseInt(startYear), monthMap[startMonth]);
+
+  let endDate: Date;
+  if (endStr === "Present") {
+    endDate = new Date();
+  } else {
+    const [endMonth, endYear] = endStr.split(" ");
+    endDate = new Date(parseInt(endYear), monthMap[endMonth]);
+  }
+
+  const months =
+    (endDate.getFullYear() - startDate.getFullYear()) * 12 +
+    (endDate.getMonth() - startDate.getMonth()) +
+    1;
+
+  return `${period} (${months} months)`;
+}
+
 const experiences = [
   {
     company: "Fathom.io",
@@ -139,7 +165,7 @@ export function Experience() {
                       )}
                     </h3>
                     <span className="font-mono text-sm text-foreground/60">
-                      {exp.period}
+                      {formatPeriodWithDuration(exp.period)}
                     </span>
                   </div>
 
