@@ -23,8 +23,7 @@ export function Hero() {
               Senior Rust Engineer
             </p>
             <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-              Rust maxi with 7+ years (almost) exclusively in Web3. Building distributed systems,
-              p2p protocols, and backend services — all 100% Rust.
+              Full-stack engineer with 7+ years across backends, distributed systems, mobile, and developer tooling.
             </p>
           </div>
 
