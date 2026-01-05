@@ -23,12 +23,24 @@ function formatPeriodWithDuration(period: string): string {
     endDate = new Date(parseInt(endYear), monthMap[endMonth]);
   }
 
-  const months =
+  const totalMonths =
     (endDate.getFullYear() - startDate.getFullYear()) * 12 +
     (endDate.getMonth() - startDate.getMonth()) +
     1;
 
-  return `${period} (${months} months)`;
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  let duration: string;
+  if (years === 0) {
+    duration = `${months} month${months !== 1 ? "s" : ""}`;
+  } else if (months === 0) {
+    duration = `${years} year${years !== 1 ? "s" : ""}`;
+  } else {
+    duration = `${years} year${years !== 1 ? "s" : ""} ${months} month${months !== 1 ? "s" : ""}`;
+  }
+
+  return `${period} (${duration})`;
 }
 
 const experiences = [
