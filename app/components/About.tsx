@@ -75,10 +75,10 @@ export function About() {
               </div>
               <div className="p-4 bg-card border border-border rounded hover:border-terminal-green transition-colors">
                 <div className="text-3xl font-bold text-terminal-green font-mono">
-                  M+
+                  100%
                 </div>
                 <div className="text-sm text-foreground/70 mt-1">
-                  Messages Handled
+                  Rust Projects
                 </div>
               </div>
               <div className="p-4 bg-card border border-border rounded hover:border-terminal-blue transition-colors">
