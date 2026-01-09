@@ -20,10 +20,10 @@ export function Hero() {
               Pete Pavlovski
             </h1>
             <p className="text-2xl md:text-3xl text-rust-orange font-semibold">
-              Senior Rust Engineer
+              AI Infrastructure Engineer
             </p>
             <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-              Full-stack engineer with 7+ years across backends, distributed systems, mobile, and developer tooling.
+              Building the backend infrastructure that makes AI and data platforms fast, reliable, and scalable.
             </p>
           </div>
 
@@ -55,7 +55,7 @@ export function Hero() {
               <span className="block text-2xl font-bold text-rust-orange">
                 7+
               </span>
-              <span>Years in Web3</span>
+              <span>Years in Rust</span>
             </div>
             <div>
               <span className="block text-2xl font-bold text-terminal-green">

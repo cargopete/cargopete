@@ -28,42 +28,30 @@ export function About() {
           {/* Content */}
           <div className="space-y-6 text-foreground/90 leading-relaxed">
             <p className="text-lg md:text-xl">
-              <span className="text-rust-orange font-bold">Rust maxi</span> and
-              blockchain developer with 7+ years (almost) exclusively in the{" "}
+              <span className="text-rust-orange font-bold">AI Infrastructure Engineer</span>{" "}
+              specializing in{" "}
               <span className="text-terminal-green font-semibold">
-                Web3 space
+                high-performance distributed systems
               </span>
-              . Currently building groundbreaking DataOps/AI products at{" "}
-              <span className="text-terminal-blue font-semibold">
-                Fathom.io
-              </span>
-              .
+              . I build the backend infrastructure that makes AI and data platforms fast, reliable, and scalable.
             </p>
 
             <p>
-              My journey started with{" "}
-              <span className="font-mono text-foreground/70">
-                Ethereum smart contracts
-              </span>{" "}
-              and React frontends, but I quickly fell in love with Rust and
-              haven&apos;t looked back. Since then, I&apos;ve worked on a wild
-              range of projects:{" "}
-              <span className="text-rust-orange">testing frameworks</span>,{" "}
-              <span className="text-rust-orange">p2p messaging protocols</span>
-              ,{" "}
-              <span className="text-rust-orange">
-                frontend apps &amp; backend services
-              </span>{" "}
-              — yes, all 100% Rust.
+              Currently at{" "}
+              <span className="text-terminal-blue font-semibold">Fathom.io</span>{" "}
+              building Rust backend systems for AI-driven data products. Previously designed{" "}
+              <span className="text-rust-orange">Graphcast</span> — a P2P protocol handling millions of messages across global nodes — and created{" "}
+              <span className="text-rust-orange">Matchstick</span>, now the standard testing framework for The Graph ecosystem.
             </p>
 
             <p>
               Before discovering my calling in engineering, I was an accountant.
               The transition from spreadsheets to distributed systems has been
-              quite the adventure, but it&apos;s taught me the value of
-              precision, systematic thinking, and attention to detail —
-              qualities that serve me well when building high-performance,
-              secure systems.
+              quite the adventure, but my background in finance has made me{" "}
+              <span className="text-terminal-green font-semibold">
+                obsessive about correctness and edge cases
+              </span>{" "}
+              — qualities that serve me well when building systems where reliability isn&apos;t optional.
             </p>
 
             <p>
@@ -71,9 +59,8 @@ export function About() {
               <span className="font-mono text-terminal-blue">
                 Sofia, Bulgaria
               </span>
-              , I&apos;ve worked remotely with distributed teams around the
-              world, contributing to open-source projects and helping shape the
-              future of Web3 infrastructure.
+              , I&apos;ve spent 7+ years working remotely with distributed teams around the
+              world, shipping Rust systems that handle real-world scale.
             </p>
 
             {/* Key Highlights */}
@@ -83,15 +70,15 @@ export function About() {
                   7+
                 </div>
                 <div className="text-sm text-foreground/70 mt-1">
-                  Years in Web3
+                  Years in Rust
                 </div>
               </div>
               <div className="p-4 bg-card border border-border rounded hover:border-terminal-green transition-colors">
                 <div className="text-3xl font-bold text-terminal-green font-mono">
-                  100%
+                  M+
                 </div>
                 <div className="text-sm text-foreground/70 mt-1">
-                  Rust Projects
+                  Messages Handled
                 </div>
               </div>
               <div className="p-4 bg-card border border-border rounded hover:border-terminal-blue transition-colors">

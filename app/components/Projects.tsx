@@ -12,14 +12,14 @@ const projects = [
     company: "GraphOps",
     period: "2022-2024",
     description:
-      "Designed and built Graphcast, a distributed communication protocol for The Graph using Rust, Waku, and libp2p. Core infrastructure enabling decentralized Web3 indexing across global networks. Also developed Rust-based backend services and a yew.rs frontend application.",
+      "Designed and built Graphcast, a high-performance distributed P2P messaging protocol using Rust, Waku, and libp2p. Handles real-time communication across globally distributed nodes with fault-tolerant delivery. Also developed Rust backend services and a yew.rs frontend application.",
     impact:
-      "Enabled thousands of developers to build on The Graph protocol with reliable, decentralized P2P communication.",
+      "Production system handling millions of messages across global infrastructure with high reliability.",
     tech: ["Rust", "Waku", "libp2p", "Distributed Systems", "Yew.rs"],
     link: "https://github.com/graphops/graphcast-sdk",
     highlights: [
       "Built production-grade P2P messaging protocol from scratch",
-      "Handled millions of messages across distributed global nodes",
+      "Scaled to millions of messages across distributed global nodes",
       "Implemented fault-tolerant consensus and gossip mechanisms",
       "Developed complementary backend services and frontend tooling",
     ],
@@ -30,16 +30,16 @@ const projects = [
     company: "The Graph",
     period: "2021",
     description:
-      "Created and maintained Matchstick, the first (and only) full-fledged testing framework for subgraphs in The Graph ecosystem. Essential developer tooling that became the standard for subgraph development and quality assurance.",
+      "Created Matchstick, a comprehensive testing framework that became the standard in its ecosystem. Built with Rust and WebAssembly, providing developers with essential tooling for quality assurance and CI/CD integration.",
     impact:
-      "Became the de facto testing solution for subgraph developers worldwide, used by major projects and protocols.",
+      "Became the de facto testing solution adopted by major projects and development teams worldwide.",
     tech: ["Rust", "AssemblyScript", "WebAssembly", "Testing", "DevTools"],
     link: "https://github.com/LimeChain/matchstick",
     highlights: [
       "First comprehensive testing solution in the entire ecosystem",
-      "Integrated seamlessly with Graph CLI and deployment pipelines",
-      "Adopted by major DeFi protocols and development teams",
-      "Set the standard for subgraph quality and reliability",
+      "Seamless CLI integration and deployment pipeline support",
+      "Adopted by major protocols and development teams",
+      "Set the standard for code quality and reliability",
     ],
   },
 ];

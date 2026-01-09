@@ -46,14 +46,14 @@ function formatPeriodWithDuration(period: string): string {
 const experiences = [
   {
     company: "Fathom.io",
-    role: "Senior Rust Engineer",
+    role: "AI Infrastructure Engineer",
     period: "Apr 2025 - Present",
     location: "Remote, UAE",
     current: true,
     highlights: [
-      "Developing scalable, robust backend systems in Rust for high-performance data and AI-driven platforms",
+      "Building scalable Rust backend systems for high-performance AI-driven data platforms",
       "Collaborating cross-functionally with product, design, and engineering to shape requirements",
-      "Refactoring and optimizing legacy systems to boost performance and maintainability",
+      "Refactoring and optimizing systems to boost performance and maintainability",
     ],
   },
   {
@@ -62,24 +62,24 @@ const experiences = [
     period: "Jul 2022 - Apr 2025",
     location: "Remote",
     highlights: [
-      "Designed and built distributed communication protocol using Rust, Waku, and libp2p",
-      "Developed Rust-based backend services for The Graph protocol infrastructure",
+      "Designed and built distributed P2P messaging protocol using Rust, Waku, and libp2p",
+      "Developed high-performance Rust backend services handling millions of messages",
       "Built yew.rs frontend application for developer tooling",
-      "Core developer team working on critical Web3 indexing protocol",
+      "Core developer on critical infrastructure serving global distributed nodes",
     ],
   },
   {
     company: "The Graph",
-    role: "Rust Engineer & Graph Advocate",
+    role: "Rust Engineer & Developer Advocate",
     period: "Mar 2021 - Jul 2024",
     location: "Remote",
-    volunteer: "Graph Advocate (Dec 2021 - Jul 2024)",
+    volunteer: "Developer Advocate (Dec 2021 - Jul 2024)",
     highlights: [
-      "Created and maintained the first (and only) full-fledged testing framework for subgraphs",
+      "Created and maintained the ecosystem's standard testing framework (Matchstick)",
       "Technologies: Rust, AssemblyScript, WebAssembly",
-      "Volunteered as Technical Teacher and Community Care Advocate",
-      "Helped developers actively participate in Web3 and contribute to The Graph",
-      "Assisted with development tooling, subgraph building, and ecosystem growth",
+      "Volunteered as Technical Teacher and Community Advocate",
+      "Mentored developers and contributed to ecosystem tooling",
+      "Grew adoption through documentation, tutorials, and developer support",
     ],
   },
   {

@@ -24,14 +24,14 @@ const techCategories = [
     items: ["Actix-web", "Tokio", "Yew.rs", "libp2p", "Waku"],
   },
   {
-    title: "Blockchain & Web3",
+    title: "Distributed Systems",
     icon: Globe,
     items: [
-      "Ethereum",
-      "Solana",
+      "P2P Protocols",
+      "libp2p",
+      "Message Queues",
+      "Consensus Algorithms",
       "The Graph",
-      "Polkadot/Substrate",
-      "Aeternity",
     ],
   },
   {
@@ -48,10 +48,10 @@ const techCategories = [
     title: "Specialized Skills",
     icon: Cpu,
     items: [
-      "Distributed Systems",
-      "P2P Protocols",
-      "API Testing",
-      "Smart Contracts",
+      "High-Performance Systems",
+      "AI/Data Infrastructure",
+      "API Design & Testing",
+      "System Architecture",
     ],
   },
 ];
@@ -133,10 +133,10 @@ export function TechStack() {
             </h3>
             <div className="flex flex-wrap gap-3">
               {[
-                "AI/ML Integration",
-                "DataOps",
+                "AI/ML Pipelines",
+                "LLM Infrastructure",
+                "Real-time Data Systems",
                 "Advanced Async Patterns",
-                "Zero-Knowledge Proofs",
               ].map((item, index) => (
                 <span
                   key={index}
