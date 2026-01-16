@@ -1,6 +1,6 @@
 # 👋 Hey, I'm Pete
 
-**Senior Rust Engineer** | **Blockchain Developer** | **Rust Maxi 🦀**
+**Senior Rust Engineer**
 
 I've spent the last 7+ years (almost) exclusively in the Web3 space, building distributed systems, p2p messaging protocols, testing frameworks, and backend services — yes, all 100% Rust.
 
