@@ -14,13 +14,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pete Pavlovski | Senior Rust Engineer",
-  description: "Senior Rust Engineer specialized in building distributed systems, backend services, and developer tools. AI, DataOps, Autonomous Systems.",
-  keywords: ["Rust", "Senior Engineer", "Backend", "Distributed Systems", "Web3", "Blockchain", "DataOps"],
-  authors: [{ name: "Pete Pavlovski" }],
+  title: "Petko (Pete) Pavlovski | Senior Software Engineer",
+  description: "Senior Software Engineer specialised in web3 and Rust. Building high-performance distributed systems that handle real-world scale.",
+  keywords: ["Rust", "Senior Engineer", "Backend", "Distributed Systems", "Web3", "Blockchain", "P2P"],
+  authors: [{ name: "Petko (Pete) Pavlovski" }],
   openGraph: {
-    title: "Pete Pavlovski | Senior Rust Engineer",
-    description: "Senior Rust Engineer specialized in building distributed systems, backend services, and developer tools.",
+    title: "Petko (Pete) Pavlovski | Senior Software Engineer",
+    description: "Senior Software Engineer specialised in web3 and Rust. Building high-performance distributed systems.",
     type: "website",
   },
 };

@@ -17,13 +17,13 @@ export function Hero() {
           {/* Name & Title */}
           <div className="space-y-4">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-              Pete Pavlovski
+              Petko (Pete) Pavlovski
             </h1>
             <p className="text-2xl md:text-3xl text-rust-orange font-semibold">
-              AI Infrastructure Engineer
+              Senior Software Engineer
             </p>
             <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto">
-              Building the backend infrastructure that makes AI and data platforms fast, reliable, and scalable.
+              Specialised in web3 and Rust.
             </p>
           </div>
 
@@ -55,7 +55,7 @@ export function Hero() {
               <span className="block text-2xl font-bold text-rust-orange">
                 7+
               </span>
-              <span>Years in Rust</span>
+              <span>Years in Rust and web3</span>
             </div>
             <div>
               <span className="block text-2xl font-bold text-terminal-green">

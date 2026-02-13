@@ -28,12 +28,12 @@ export function About() {
           {/* Content */}
           <div className="space-y-6 text-foreground/90 leading-relaxed">
             <p className="text-lg md:text-xl">
-              <span className="text-rust-orange font-bold">AI Infrastructure Engineer</span>{" "}
-              specializing in{" "}
+              <span className="text-rust-orange font-bold">Senior Software Engineer</span>{" "}
+              specialised in{" "}
               <span className="text-terminal-green font-semibold">
-                high-performance distributed systems
+                web3 and Rust
               </span>
-              . I build the backend infrastructure that makes AI and data platforms fast, reliable, and scalable.
+              . I build high-performance distributed systems that handle real-world scale.
             </p>
 
             <p>
@@ -70,7 +70,7 @@ export function About() {
                   7+
                 </div>
                 <div className="text-sm text-foreground/70 mt-1">
-                  Years in Rust
+                  Years in Rust and web3
                 </div>
               </div>
               <div className="p-4 bg-card border border-border rounded hover:border-terminal-green transition-colors">

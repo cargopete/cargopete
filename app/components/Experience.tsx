@@ -46,7 +46,7 @@ function formatPeriodWithDuration(period: string): string {
 const experiences = [
   {
     company: "Fathom.io",
-    role: "AI Infrastructure Engineer",
+    role: "Senior Software Engineer",
     period: "Apr 2025 - Present",
     location: "Remote, UAE",
     current: true,
@@ -66,6 +66,7 @@ const experiences = [
       "Developed high-performance Rust backend services handling millions of messages",
       "Built yew.rs frontend application for developer tooling",
       "Core developer on critical infrastructure serving global distributed nodes",
+      "Led technical project management: demos, workshops, and direct user engagement",
     ],
   },
   {
@@ -77,9 +78,9 @@ const experiences = [
     highlights: [
       "Created and maintained the ecosystem's standard testing framework (Matchstick)",
       "Technologies: Rust, AssemblyScript, WebAssembly",
+      "Led technical project management: organised demos, workshops, and user feedback sessions",
       "Volunteered as Technical Teacher and Community Advocate",
       "Mentored developers and contributed to ecosystem tooling",
-      "Grew adoption through documentation, tutorials, and developer support",
     ],
   },
   {

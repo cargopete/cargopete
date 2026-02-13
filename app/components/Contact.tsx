@@ -133,7 +133,7 @@ export function Contact() {
               <span className="text-terminal-green">❤</span>
             </p>
             <p className="text-foreground/40 text-xs font-mono mt-2">
-              © {new Date().getFullYear()} Pete Pavlovski
+              © {new Date().getFullYear()} Petko (Pete) Pavlovski
             </p>
           </motion.div>
         </motion.div>
