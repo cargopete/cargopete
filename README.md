@@ -1,4 +1,4 @@
-# 👋 Hey, I'm Pete
+# 👋 Hey, I'm Petko (Pete)
 
 **Senior Rust Engineer**
 
