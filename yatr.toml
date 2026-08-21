@@ -6,12 +6,14 @@ run = ["npm run dev"]
 [tasks.build]
 run = ["npm run build"]
 
-[tasks.start]
-run = ["npm run start"]
+[tasks.check]
+desc = "Astro type and content check"
+run = ["npm run check"]
 
-[tasks.lint]
-run = ["npm run lint"]
+[tasks.favicon]
+desc = "Redraw the favicon set from scripts/make-favicon.py"
+run = ["python3 scripts/make-favicon.py"]
 
 [tasks.ci]
 desc = "CI pipeline"
-depends = ["lint", "build"]
+depends = ["check", "build"]

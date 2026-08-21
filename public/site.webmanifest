@@ -1,0 +1,12 @@
+{
+  "name": "Petko (Pete) Pavlovski",
+  "short_name": "cargopete",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#171614",
+  "background_color": "#171614",
+  "display": "browser",
+  "start_url": "/"
+}

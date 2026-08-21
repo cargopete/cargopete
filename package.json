@@ -1,29 +1,20 @@
 {
-  "name": "cargopete-cv",
-  "version": "0.1.0",
+  "name": "cargopete",
+  "type": "module",
+  "version": "1.0.0",
   "private": true,
+  "description": "Petko (Pete) Pavlovski - senior Rust engineer, Sofia.",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
   "dependencies": {
-    "framer-motion": "^12.23.26",
-    "lucide-react": "^0.561.0",
-    "next": "16.0.10",
-    "next-themes": "^0.4.6",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "astro": "^5.13.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.10",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^5.9.3"
   }
 }

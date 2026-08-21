@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Preload both faces: they are render-blocking for the mono labels and the
+       terminal, which is most of what the page is. -->
+  <link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Favicons, drawn from the same geometry as the nav mark. SVG first for any
+       browser that takes it, .ico for the ones that still ask, PNG for iOS. -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#171614" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Theme, read before first paint so a chosen light theme does not flash dark.
+       Inline and tiny by necessity; everything else on this page is static. -->
+  <script is:inline>
+    try {
+      const t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) { /* private mode, blocked storage: dark is the default anyway */ }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <slot />
+
+  <script is:inline>
+    // The whole client-side budget for this site: copy-to-clipboard and a theme
+    // toggle. No framework, no islands, no third party.
+    document.querySelectorAll('.copyline').forEach((el) => {
+      el.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(el.dataset.copy.trim());
+          el.classList.add('copied');
+          setTimeout(() => el.classList.remove('copied'), 1400);
+        } catch (e) { /* insecure origin or denied: the text is still selectable */ }
+      });
+    });
+
+    const root = document.documentElement;
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+        root.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    });
+
+    // One entrance, below the fold, via IntersectionObserver rather than a
+    // scroll listener. Elements start visible in the markup, so a crawler and a
+    // reduced-motion reader both get the finished page.
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const targets = document.querySelectorAll('[data-reveal]');
+      targets.forEach((el) => el.classList.add('reveal'));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '-40px' });
+      targets.forEach((el) => io.observe(el));
+    }
+  </script>
+</body>
+</html>
