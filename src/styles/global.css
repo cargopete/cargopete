@@ -343,7 +343,7 @@ header {
 .theme-toggle:hover { border-color: var(--border-hi); color: var(--text); }
 
 /* --- hero --------------------------------------------------------------- */
-.hero-grid { display: grid; grid-template-columns: 1.18fr 0.82fr; gap: 48px; align-items: center; }
+.hero-grid { display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 44px; align-items: center; }
 .hero-grid h1 { font-size: clamp(1.85rem, 4.9vw, 3.3rem); }
 
 /* Grid children default to min-width:auto, which means a child containing a
@@ -378,7 +378,7 @@ header {
 .term-dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--border-hi); }
 .term-title { font-family: var(--mono); font-size: 0.72rem; color: var(--text-faint);
               margin-inline: auto; padding-right: 3rem; }
-.term-body { font-family: var(--mono); font-size: clamp(0.7rem, 1.75vw, 0.86rem);
+.term-body { font-family: var(--mono); font-size: clamp(0.68rem, 1.5vw, 0.79rem);
              line-height: 1.85; padding: 1.1rem 1.2rem 1.4rem; color: var(--text); overflow-x: auto; }
 .tline { display: flex; gap: 0.6rem; white-space: pre; min-height: 1.85em; }
 .tline--out { padding-left: 1.2rem; color: var(--text-muted); }
