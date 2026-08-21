@@ -307,6 +307,18 @@ section  { padding-block: clamp(4rem, 9vw, 7rem); }
 /* ==========================================================================
    Site components. Every rule below reaches for a mandated token; not one
    defines a colour of its own. Sourced from cargopete-style/reference/components.md.
+
+   THE TWO ACCENTS HAVE JOBS. The mandated palette is a pair, and a page that
+   spends only one of them is half-built:
+
+     --accent  #8bb8dc   the machine voice. Shell prompts, the nav CTA, links,
+                         focus rings, technical chips, counts in the terminal.
+     --rust    #cd8560   the human voice. Section kickers, stat units, list
+                         markers, the live marker on the timeline, tags for
+                         work that is mine and ongoing, hover states.
+
+   Rule of thumb: if a shell printed it, it is slate. If a person wrote it, it
+   is terracotta.
    ========================================================================== */
 
 /* --- nav ---------------------------------------------------------------- */
@@ -342,6 +354,9 @@ header {
 }
 .theme-toggle:hover { border-color: var(--border-hi); color: var(--text); }
 
+/* The engraved plate above each dial, in the human voice. 6.13:1 on --bg. */
+.kicker { color: var(--rust); }
+
 /* --- hero --------------------------------------------------------------- */
 .hero-grid { display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 44px; align-items: center; }
 .hero-grid h1 { font-size: clamp(1.85rem, 4.9vw, 3.3rem); }
@@ -353,11 +368,12 @@ header {
 .eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
   font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--accent);
-  border: 1px solid var(--border); border-radius: 100px;
+  text-transform: uppercase; color: var(--rust);
+  border: 1px solid color-mix(in srgb, var(--rust) 30%, transparent);
+  border-radius: 100px;
   padding: 6px 13px; margin-bottom: 26px;
 }
-.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rust); }
 .lede { font-size: 1.12rem; color: var(--text-muted); max-width: 34ch; margin: 1.5rem 0 2.2rem; }
 .cta-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
 .ghost { font-size: 15px; color: var(--text-muted); padding: 13px 4px; }
@@ -376,6 +392,7 @@ header {
             border-bottom: 1px solid var(--border); }
 .term-dots { display: inline-flex; gap: 0.45rem; }
 .term-dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--border-hi); }
+.term-dots i:first-child { background: color-mix(in srgb, var(--rust) 70%, transparent); }
 .term-title { font-family: var(--mono); font-size: 0.72rem; color: var(--text-faint);
               margin-inline: auto; padding-right: 3rem; }
 .term-body { font-family: var(--mono); font-size: clamp(0.68rem, 1.5vw, 0.79rem);
@@ -412,7 +429,7 @@ header {
 .stat .n { font-family: var(--display); font-weight: 600;
            font-size: clamp(2.4rem, 4.6vw, 3.4rem);
            line-height: 1; letter-spacing: -0.03em; color: var(--text); }
-.stat .n span { color: var(--accent); }
+.stat .n span { color: var(--rust); }
 .stat .l { color: var(--text-muted); margin-top: 12px; font-size: 0.98rem; max-width: 32ch; }
 
 /* --- bento -------------------------------------------------------------- */
@@ -423,7 +440,7 @@ header {
 .cell:hover { border-color: var(--border-hi); transform: translateY(-3px); }
 .cell h3 { font-family: var(--sans); font-weight: 700; font-size: 1.16rem; margin: 0 0 9px; }
 .cell h3 a { color: var(--text); }
-.cell h3 a:hover { color: var(--accent); text-decoration: none; }
+.cell h3 a:hover { color: var(--rust); text-decoration: none; }
 .cell p { color: var(--text-muted); font-size: 0.97rem; margin: 0; }
 .c-third { grid-column: span 2; }
 .c-mid   { grid-column: span 3; }
@@ -447,7 +464,9 @@ header {
 .job::before { content: ""; position: absolute; left: calc(-2rem - 5px);
                top: 0.5em; width: 9px; height: 9px; border-radius: 50%;
                background: var(--bg); border: 1px solid var(--border-hi); }
-.job--now::before { background: var(--ok); border-color: var(--ok); }
+/* The current role. Terracotta rather than green: this is a marker, not a
+   passing status check, and --ok is spent on the scope panel instead. */
+.job--now::before { background: var(--rust); border-color: var(--rust); }
 .job-head { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
 .job-head h3 { font-size: 1.1rem; margin: 0; }
 .job-role { color: var(--text-muted); font-size: 0.97rem; }
@@ -460,7 +479,7 @@ header {
 .job li { color: var(--text-muted); font-size: 0.97rem; padding-left: 1.2rem;
           position: relative; line-height: 1.55; }
 .job li::before { content: ""; position: absolute; left: 0; top: 0.66em;
-                  width: 7px; height: 1px; background: currentColor; opacity: 0.5; }
+                  width: 7px; height: 1px; background: var(--rust); opacity: 0.75; }
 
 /* --- scope panel -------------------------------------------------------- */
 .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -475,7 +494,7 @@ header {
 .scope-col li { color: var(--text-muted); font-size: 0.97rem; padding-left: 1.2rem;
                 position: relative; line-height: 1.5; }
 .scope-col li::before { content: ""; position: absolute; left: 0; top: 0.62em;
-                        width: 7px; height: 1px; background: currentColor; opacity: 0.5; }
+                        width: 7px; height: 1px; background: var(--rust); opacity: 0.75; }
 .scope-note { color: var(--text-muted); max-width: 56ch; margin-top: 2rem; font-size: 0.97rem; }
 
 /* --- close + footer ----------------------------------------------------- */
@@ -486,7 +505,7 @@ header {
 .links { margin-top: 2.4rem; display: flex; gap: 24px; justify-content: center;
          flex-wrap: wrap; font-size: 15px; color: var(--text-muted); }
 .links a { color: inherit; }
-.links a:hover { color: var(--accent); }
+.links a:hover { color: var(--rust); }
 footer { border-top: 1px solid var(--border); padding-block: 40px; }
 .foot { display: flex; align-items: center; justify-content: space-between;
         gap: 20px; flex-wrap: wrap; color: var(--text-faint); font-size: 14px; }
