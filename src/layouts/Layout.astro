@@ -7,9 +7,19 @@ interface Props {
 }
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/#building', label: 'Building' },
+  { href: '/#shipped', label: 'Shipped' },
+  { href: '/resume/', label: 'Resume' },
+  { href: '/#contact', label: 'Contact' },
+];
 ---
 <!doctype html>
-<html lang="en">
+<!-- Light is the default and is set here, server-side. The script below only
+     has to undo it for a reader who chose dark, which means a reader with
+     JavaScript off gets the intended page rather than the other one. -->
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,25 +38,66 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#171614" />
+  <meta name="theme-color" content="#fbfbfa" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary" />
 
-  <!-- Theme, read before first paint so a chosen light theme does not flash dark.
+  <!-- Read before first paint so a chosen dark theme does not flash light.
        Inline and tiny by necessity; everything else on this page is static. -->
   <script is:inline>
     try {
-      const t = localStorage.getItem('theme');
-      if (t) document.documentElement.dataset.theme = t;
-    } catch (e) { /* private mode, blocked storage: dark is the default anyway */ }
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    } catch (e) { /* private mode, blocked storage: the light default stands */ }
   </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <slot />
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="prompt" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" d="M4 6l5 6-5 6M13 18h7"/>
+    </symbol>
+  </svg>
+
+  <header>
+    <nav class="nav">
+      <a class="brand" href="/"><svg aria-hidden="true"><use href="#prompt"/></svg>cargopete</a>
+      <div class="nav-links">
+        {nav.map((l) => (
+          <a href={l.href} aria-current={l.href === path ? 'page' : undefined}>{l.label}</a>
+        ))}
+      </div>
+      <button class="theme-toggle" aria-label="Switch between the light and dark theme">theme</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <slot />
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <span class="brand" style="font-size:16px"><svg style="width:22px;height:22px" aria-hidden="true"><use href="#prompt"/></svg>cargopete</span>
+        <p class="sig" style="margin-top:10px">Written in Sofia &#127463;&#127468; · no trackers, no third-party requests</p>
+      </div>
+      <div class="foot-links">
+        <a href="/resume/">Resume</a>
+        <a href="https://github.com/cargopete">GitHub</a>
+        <a href="https://github.com/nightswatchhq" rel="external noopener">The Night's Watch</a>
+        <a href="https://nuthatch-indexer.com" rel="external noopener">nuthatch</a>
+        <a href="https://redstart-lang.com" rel="external noopener">redstart</a>
+        <a href="https://yetanothertaskrunner.com" rel="external noopener">yatr</a>
+        <a href="mailto:pavlovskipetko@gmail.com">Mail</a>
+      </div>
+    </div>
+  </footer>
 
   <script is:inline>
     // The whole client-side budget for this site: copy-to-clipboard and a theme
@@ -64,9 +115,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     const root = document.documentElement;
     document.querySelectorAll('.theme-toggle').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-        root.dataset.theme = next;
-        try { localStorage.setItem('theme', next); } catch (e) {}
+        const light = root.getAttribute('data-theme') === 'light';
+        if (light) root.removeAttribute('data-theme');
+        else root.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('theme', light ? 'dark' : 'light'); } catch (e) {}
       });
     });
 

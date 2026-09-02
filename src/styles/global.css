@@ -388,21 +388,24 @@ header {
 .term { background: var(--bg-code); border: 1px solid var(--border);
         border-radius: 12px; overflow: hidden; }
 .term-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.9rem;
-            background: color-mix(in srgb, var(--text) 5%, var(--bg-code));
+            background: var(--bg-inset);
             border-bottom: 1px solid var(--border); }
 .term-dots { display: inline-flex; gap: 0.45rem; }
 .term-dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--border-hi); }
 .term-dots i:first-child { background: color-mix(in srgb, var(--rust) 70%, transparent); }
-.term-title { font-family: var(--mono); font-size: 0.72rem; color: var(--text-faint);
+.term-title { font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted);
               margin-inline: auto; padding-right: 3rem; }
+/* A real <pre>: compressHTML collapses leading whitespace everywhere else, and
+   `uniq -c` right-aligns its counts, so a stack of flex rows renders a shape the
+   command never printed. A pre also keeps the lines pasteable, which is what the
+   caption underneath claims. */
 .term-body { font-family: var(--mono); font-size: clamp(0.68rem, 1.5vw, 0.79rem);
-             line-height: 1.85; padding: 1.1rem 1.2rem 1.4rem; color: var(--text); overflow-x: auto; }
-.tline { display: flex; gap: 0.6rem; white-space: pre; min-height: 1.85em; }
-.tline--out { padding-left: 1.2rem; color: var(--text-muted); }
-.tline-pre { flex-shrink: 0; font-weight: 500; }
+             line-height: 1.85; padding: 1.1rem 1.2rem 1.4rem; color: var(--text);
+             overflow-x: auto; white-space: pre; margin: 0; }
+.term-body .tout { color: var(--text-muted); }
 .pre-cmd { color: var(--accent); }
 .pre-ok { color: var(--ok); }
-.tline .n { color: var(--text); }
+.term-body .n { color: var(--text); }
 .term-cursor { color: var(--accent); animation: blink 1.1s steps(1) infinite; }
 @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
@@ -469,6 +472,8 @@ header {
 .job--now::before { background: var(--rust); border-color: var(--rust); }
 .job-head { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
 .job-head h3 { font-size: 1.1rem; margin: 0; }
+.job-head h3 a { color: var(--text); }
+.job-head h3 a:hover { color: var(--rust); text-decoration: none; }
 .job-role { color: var(--text-muted); font-size: 0.97rem; }
 /* Dates on a CV are load-bearing, so they take --text-muted (6.22:1) rather
    than --text-faint, which the style reserves for things a reader can lose. */
@@ -528,4 +533,78 @@ footer { border-top: 1px solid var(--border); padding-block: 40px; }
   /* the email is 25 characters of monospace and will not shrink on its own */
   .copyline { font-size: 0.8rem; padding: 12px 13px; gap: 10px; }
   .term-title { display: none; }
+}
+
+/* ==========================================================================
+   Index and navigation devices, added for the two-page build.
+   Same contract as everything above: every colour resolves to a mandated
+   token, not one hex is written here.
+   ========================================================================== */
+
+/* --- display type ------------------------------------------------------- */
+.display    { font-size: clamp(2.1rem, 5.4vw, 3.5rem); max-width: 18ch; }
+.display-sm { font-size: clamp(1.7rem, 3.4vw, 2.4rem); max-width: 20ch; }
+
+/* --- buttons ------------------------------------------------------------ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 500;
+  border: 1px solid transparent; border-radius: var(--radius-sm);
+  padding: 12px 18px; cursor: pointer;
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease),
+              opacity 0.18s var(--ease), transform 0.12s var(--ease);
+}
+.btn-primary { background: var(--text); color: var(--bg); }
+.btn-primary:hover { opacity: 0.88; text-decoration: none; }
+.btn-primary:active { transform: scale(0.985); }
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--border-hi); }
+.btn-ghost:hover { background: var(--bg-elev); text-decoration: none; }
+.btn .arrow { color: var(--rust); }
+.btn-primary .arrow { color: var(--bg); }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+/* --- the shelf: an index row, not a card -------------------------------
+   Borrowed from learn-thegraph.com, which runs the same house style. A
+   catalogue reads better as a list of rows with a count on the left than as
+   another grid of boxes; the whitespace does the separating, one hairline
+   does the rest. */
+.shelves { display: flex; flex-direction: column; }
+.shelf { border-top: 1px solid var(--border); padding-block: clamp(1.7rem, 3.4vw, 2.4rem); }
+.shelf:last-child { border-bottom: 1px solid var(--border); }
+.shelf-head { display: flex; align-items: baseline; gap: 1.4rem; }
+.shelf-num {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--rust);
+  flex: 0 0 9.5rem; padding-top: 0.35rem;
+}
+.shelf-body { flex: 1 1 auto; min-width: 0; }
+.shelf-body h3 { font-size: 1.3rem; letter-spacing: -0.015em; margin: 0; }
+.shelf-link { color: var(--text); }
+.shelf-link:hover { color: var(--rust); text-decoration: none; }
+.shelf-note { color: var(--text-muted); font-size: 1rem; margin: 0.7rem 0 0; max-width: 62ch; }
+.shelf-meta {
+  display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 1rem;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+.shelf-meta span, .shelf-meta a {
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 4px 9px; color: inherit;
+}
+.shelf-meta a { color: var(--accent); }
+.shelf-meta a:hover { border-color: var(--border-hi); text-decoration: none; }
+
+
+/* --- nav current page --------------------------------------------------- */
+.nav-links a[aria-current='page'] { color: var(--text); box-shadow: inset 0 -1px 0 var(--rust); }
+
+/* --- footer link column ------------------------------------------------- */
+.foot { align-items: flex-start; }
+.foot-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; color: var(--text-muted); }
+.foot-links a { color: inherit; }
+.foot-links a:hover { color: var(--rust); }
+
+@media (max-width: 700px) {
+  .shelf-head { flex-direction: column; gap: 0.5rem; }
+  .shelf-num { flex: none; padding-top: 0; }
 }

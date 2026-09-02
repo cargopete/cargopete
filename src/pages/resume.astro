@@ -1,0 +1,204 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Work history. Kept as data because the timeline is the mechanism of this
+// page and wants to stay easy to amend.
+const jobs = [
+  {
+    company: 'Dune',
+    role: 'On-chain data wizard',
+    when: 'Sep 2026 - present · Remote',
+    href: 'https://dune.com/home',
+    now: true,
+    points: [
+      'On-chain data, and the pipelines underneath it.',
+    ],
+  },
+  {
+    company: 'Fathom',
+    role: 'Senior Software Engineer',
+    when: 'Apr 2025 - Sep 2026 · Remote, UAE',
+    points: [
+      'Rust backend systems for an AI-driven data platform.',
+      'Multi-workspace monorepo: services, storage, control plane.',
+      'Dataops workflows, and refactoring for performance and for the next person to read.',
+    ],
+  },
+  {
+    company: 'GraphOps',
+    role: 'Senior Rust Engineer',
+    when: 'Jul 2022 - Apr 2025 · Remote',
+    points: [
+      'Designed and built Graphcast, a P2P messaging protocol on Waku and libp2p.',
+      'Backend services carrying the traffic, and a yew.rs frontend for the tooling.',
+      'Ran the demos and workshops, which is how you find out what the protocol is missing.',
+    ],
+  },
+  {
+    company: 'The Graph',
+    role: 'Rust Engineer, then Developer Advocate',
+    when: 'Mar 2021 - Jul 2024 · Remote',
+    points: [
+      'Created Matchstick, the ecosystem’s subgraph testing framework. Rust and WebAssembly.',
+      'Advocate role was volunteer: teaching, mentoring, ecosystem tooling.',
+    ],
+  },
+  {
+    company: 'Kraken',
+    role: 'Rust Engineer',
+    when: 'Dec 2021 - Jul 2022 · Remote',
+    points: [
+      'Developer tooling for testing exchange HTTP APIs.',
+    ],
+  },
+  {
+    company: 'OVO Energy',
+    role: 'Full Stack Engineer',
+    when: 'Jan 2020 - Mar 2021 · Remote, UK',
+    points: [
+      'Scheduling product for field engineer appointments. Kotlin and Quarkus microservices.',
+      'Built the Flutter app from scratch, and the React web client beside it.',
+    ],
+  },
+  {
+    company: 'WeiChain',
+    role: 'Junior Software Engineer',
+    when: 'Jan 2019 - Jan 2020 · Sofia',
+    points: [
+      'Smart contracts on Ethereum and Aeternity.',
+      'Shipped a decentralised exchange to mainnet, plus an atomic swap widget.',
+    ],
+  },
+];
+---
+
+<Layout
+  title="Resume - Petko (Pete) Pavlovski"
+  description="Seven years and eight months shipping in production, Rust for the last five. Dune, Fathom, GraphOps, The Graph, Kraken, OVO Energy. What I take on, and what I don't."
+>
+
+  <section id="top">
+    <div class="wrap">
+      <span class="eyebrow rise rise-1"><span class="dot"></span>Sofia, Bulgaria · remote since 2019</span>
+      <h1 class="display rise rise-2">Where the seven years went.</h1>
+      <p class="lede rise rise-2" style="max-width: 48ch;">
+        Seven years and eight months shipping in production, Rust for the last
+        five. Accountant before that, which is where the habit of checking the
+        number twice comes from.
+      </p>
+      <div class="btn-row rise rise-3">
+        <button class="copyline" data-copy="pavlovskipetko@gmail.com"
+                aria-label="Copy my email address to the clipboard">
+          <span><span class="prompt">$</span> pavlovskipetko@gmail.com</span>
+          <span class="copy">copy</span>
+        </button>
+        <a class="btn btn-ghost" href="/#building">See what I am building</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- HISTORY -->
+  <section id="history">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Work history</p>
+        <h2 class="display-sm">Seven roles, one thread.</h2>
+        <p class="section-lede">
+          Blockchain data infrastructure the whole way through, once the first
+          two years had got the web work out of my system.
+        </p>
+      </div>
+
+      <div class="timeline">
+        {jobs.map((job) => (
+          <div class={job.now ? 'job job--now' : 'job'} data-reveal>
+            <div class="job-head">
+              <h3>{job.href
+                ? <a href={job.href} rel="external noopener">{job.company}</a>
+                : job.company}</h3>
+              <span class="job-role">{job.role}</span>
+            </div>
+            <div class="job-when">{job.when}</div>
+            <ul>{job.points.map((p) => <li>{p}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SCOPE -->
+  <section id="scope">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Before you write</p>
+        <h2 class="display-sm">What I do, and what I don't.</h2>
+        <p class="section-lede">
+          I am not looking for a job. This is here so that if you do write, we
+          both know within a paragraph whether it is going anywhere. The second
+          column is the useful one.
+        </p>
+      </div>
+
+      <div class="scope" data-reveal>
+        <div class="scope-col">
+          <p class="scope-label scope-label--in">In scope</p>
+          <ul>
+            <li>Rust backends, services and CLIs</li>
+            <li>Distributed systems and P2P protocol work</li>
+            <li>Blockchain indexing and data infrastructure</li>
+            <li>Developer tooling, languages and testing frameworks</li>
+            <li>Taking something that half works and making it hold</li>
+            <li>Remote, EET, overlapping most of a European day</li>
+          </ul>
+        </div>
+        <div class="scope-col">
+          <p class="scope-label scope-label--out">Out of scope</p>
+          <ul>
+            <li>Frontend as the main job. I ship React and Flutter when a project needs it, but it is not what you want me for</li>
+            <li>Smart contract auditing. I have written contracts, not audited them for a living</li>
+            <li>ML research. I build the pipelines, not the models</li>
+            <li>Relocation, and full US-hours on-call</li>
+            <li>Work where the architecture is settled and not open to a question</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="scope-note">
+        If the thing you are building has to stay up while somebody else operates
+        it, that is the part I am good at. If it has to look beautiful in a demo
+        next Thursday, there are people better suited than me.
+      </p>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="closer" id="contact">
+    <div class="wrap">
+      <div data-reveal>
+        <p class="kicker">Contact</p>
+        <h2 class="display-sm">Mail is the fastest way.</h2>
+        <p class="section-lede">
+          I read everything. I reply to anything that is not a template.
+        </p>
+        <div class="cta-row">
+          <button class="copyline" data-copy="pavlovskipetko@gmail.com"
+                  aria-label="Copy my email address to the clipboard">
+            <span><span class="prompt">$</span> pavlovskipetko@gmail.com</span>
+            <span class="copy">copy</span>
+          </button>
+          <a class="ghost" href="/">Back to the work <span class="arrow">&rsaquo;</span></a>
+        </div>
+        <div class="links">
+          <a href="https://github.com/cargopete">github.com/cargopete</a>
+          <a href="https://github.com/nightswatchhq" rel="external noopener">The Night's Watch</a>
+          <a href="mailto:pavlovskipetko@gmail.com">pavlovskipetko@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
