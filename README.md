@@ -80,12 +80,42 @@ architecture is settled and not open to a question.
 ## About this repo
 
 This is also the source for [cargopete.com](https://cargopete.com) - a static
-site, two pages, no framework at runtime. Built with Astro, deployed on Vercel,
-apex `www.cargopete.com`.
+site, no framework at runtime. Built with Astro, deployed on Vercel, apex
+`www.cargopete.com`.
 
-`/` is the showcase. `/resume/` carries the work history and the scope panel.
-There is no downloadable CV: a PDF drifts from the site the moment it is written,
-and the last one still pointed at a GitHub handle that had moved on.
+`/` is the showcase. `/blog/` is the writing. `/resume/` carries the work history
+and the scope panel. There is no downloadable CV: a PDF drifts from the site the
+moment it is written, and the last one still pointed at a GitHub handle that had
+moved on.
+
+### Writing
+
+Posts are Markdown under `src/content/blog/`, one file per post, schema in
+`src/content.config.ts`. Frontmatter is `title`, `date`, `description`, optional
+`tags`, optional `draft`.
+
+```markdown
+---
+title: "A title"
+date: "2026-09-02"
+description: "One sentence. It is the listing subtitle and the feed description."
+tags: ["rust", "astro"]
+---
+```
+
+`draft: true` removes a post everywhere at once - the listing, the feed, the
+sitemap and `getStaticPaths` - so it has no URL at all rather than an unlisted
+one. Verified by building with a probe draft and grepping `dist/` for it.
+
+Code blocks go through Shiki with two themes and `defaultColor: false`, so every
+token carries `--shiki-light` and `--shiki-dark` and the theme picks one. With a
+single theme the toggle leaves one set of token colours on the wrong ground.
+
+`/rss.xml` and `/sitemap.xml` are generated endpoints (`src/pages/*.xml.ts`), not
+files in `public/`. Both are hand-rolled rather than pulling in `@astrojs/rss`
+and `@astrojs/sitemap`: the site has two dependencies and this is forty lines of
+XML. The old `public/sitemap.xml` was hand-written, listed the homepage and
+nothing else, and would have gone stale the first time a post was added.
 
 ### Design
 

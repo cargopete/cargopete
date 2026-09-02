@@ -11,6 +11,7 @@ const path = Astro.url.pathname;
 const nav = [
   { href: '/#building', label: 'Building' },
   { href: '/#shipped', label: 'Shipped' },
+  { href: '/blog/', label: 'Writing' },
   { href: '/resume/', label: 'Resume' },
   { href: '/#contact', label: 'Contact' },
 ];
@@ -26,6 +27,7 @@ const nav = [
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  <link rel="alternate" type="application/rss+xml" title="Petko (Pete) Pavlovski" href="/rss.xml" />
 
   <!-- Preload both faces: they are render-blocking for the mono labels and the
        terminal, which is most of what the page is. -->
@@ -70,7 +72,7 @@ const nav = [
       <a class="brand" href="/"><svg aria-hidden="true"><use href="#prompt"/></svg>cargopete</a>
       <div class="nav-links">
         {nav.map((l) => (
-          <a href={l.href} aria-current={l.href === path ? 'page' : undefined}>{l.label}</a>
+          <a href={l.href} aria-current={!l.href.includes('#') && path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
         ))}
       </div>
       <button class="theme-toggle" aria-label="Switch between the light and dark theme">theme</button>

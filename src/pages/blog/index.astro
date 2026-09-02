@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+---
+
+<Layout
+  title="Writing - Petko (Pete) Pavlovski"
+  description="Notes from building indexers, languages and developer tooling in Rust. Short, specific, and only when there is something worth writing down."
+>
+  <section>
+    <div class="wrap">
+      <p class="kicker">Writing</p>
+      <h1 class="display">Notes from the machine room.</h1>
+      <p class="lede" style="max-width: 46ch;">
+        Short and specific, and only when something is worth writing down.
+        Mostly Rust, indexers and the tooling around them.
+      </p>
+
+      {posts.length === 0 ? (
+        <p class="section-lede">Nothing here yet.</p>
+      ) : (
+        <div class="shelves" style="margin-top: 3rem;">
+          {posts.map((p) => (
+            <article class="shelf" data-reveal>
+              <div class="shelf-head">
+                <span class="shelf-num">
+                  <time datetime={p.data.date.toISOString()}>{fmt(p.data.date)}</time>
+                </span>
+                <div class="shelf-body">
+                  <h2><a class="shelf-link" href={`/blog/${p.id}/`}>{p.data.title}</a></h2>
+                  <p class="shelf-note">{p.data.description}</p>
+                  {p.data.tags.length > 0 && (
+                    <div class="shelf-meta">
+                      {p.data.tags.map((t) => <span>{t}</span>)}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+
+      <p class="section-lede" style="margin-top: 2.6rem;">
+        There is a <a href="/rss.xml">feed</a>, because a blog without one is
+        just a website.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* The listing reuses the homepage's `.shelf` index row wholesale. Only the
+     left column differs: a date rather than a count. */
+  h1 { margin-bottom: 0.9rem; }
+  .shelf-head h2 { font-size: 1.3rem; letter-spacing: -0.015em; margin: 0; }
+</style>
