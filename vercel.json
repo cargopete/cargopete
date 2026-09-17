@@ -43,7 +43,7 @@
   "redirects": [
     {
       "source": "/blog/i-budgeted-4000-credits-for-a-job-that-costs-43",
-      "destination": "/blog/wiring-dune-into-lodestar-needs-a-ledger-first",
+      "destination": "/blog",
       "permanent": true
     }
   ]

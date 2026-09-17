@@ -7,10 +7,9 @@ protocols, and the tooling around them. Most of it is still running.
 
 **[cargopete.com](https://cargopete.com)** · **[resume](https://cargopete.com/resume/)** · pavlovskipetko@gmail.com
 
-7 years 8 months shipping in production, Rust for the last five of them. 3,199
-commits across all 90 repositories in [The Night's
-Watch](https://github.com/nightswatchhq). 217 stars on Matchstick. 40 of 93
-public repos in Rust.
+7 years 8 months shipping in production, Rust for the last five of them. 99
+repositories in [The Night's Watch](https://github.com/nightswatchhq). 217 stars
+on Matchstick. 47 of 104 public repos in Rust.
 
 ## Building now
 
@@ -40,16 +39,15 @@ public repos in Rust.
   of The Graph: indexers, gateways, data services, judges and doctors. Lodestar,
   Dispatch, Foghorn, horizon-doctor, Graphite, and
   [learn-thegraph.com](https://learn-thegraph.com).
-- **On-chain data** - at [Dune](https://dune.com/home) since September 2026.
-  Before that, Rust services and dataops workflows behind an AI data platform at
-  Fathom.
+- **[Fathom](https://fathom.io)** - Rust services behind an AI data platform
+  since April 2025: a multi-workspace monorepo, storage and control plane, and
+  the dataops workflows that keep a model fed with something true.
 
 ## History
 
 | Company | Role | When |
 |---|---|---|
-| Dune | On-chain data wizard | Sep 2026 - present, Remote |
-| Fathom | Senior Software Engineer | Apr 2025 - Sep 2026, Remote UAE |
+| Fathom | Senior Software Engineer | Apr 2025 - present, Remote UAE |
 | GraphOps | Senior Rust Engineer | Jul 2022 - Apr 2025, Remote |
 | The Graph | Rust Engineer, then Developer Advocate | Mar 2021 - Jul 2024, Remote |
 | Kraken | Rust Engineer | Dec 2021 - Jul 2022, Remote |
