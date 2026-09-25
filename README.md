@@ -85,9 +85,10 @@ site, no framework at runtime. Built with Astro, deployed on Vercel, apex
 `www.cargopete.com`.
 
 `/` is the showcase. `/blog/` is the writing. `/resume/` carries the work history
-and the scope panel. There is no downloadable CV: a PDF drifts from the site the
-moment it is written, and the last one still pointed at a GitHub handle that had
-moved on.
+and the scope panel. `/resume/petko-pavlovski-resume.pdf` is a one-page snapshot
+of that page, taken on 25 September 2026. It is not generated from the source, so
+a PDF drifts from the site the moment the page changes: when the page changes,
+replace the PDF in `public/resume/` in the same commit.
 
 ### Writing
 
