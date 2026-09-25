@@ -8,9 +8,9 @@ protocols, and the tooling around them. Most of it is still running.
 **[cargopete.com](https://cargopete.com)** · **[resume](https://cargopete.com/resume/)** · pavlovskipetko@gmail.com ·
 [linkedin](https://www.linkedin.com/in/pete-pavlovski-07486a156/)
 
-7 years 8 months shipping in production, Rust for the last five of them. 99
-repositories in [The Night's Watch](https://github.com/nightswatchhq). 217 stars
-on Matchstick. 47 of 104 public repos in Rust.
+7 years 8 months shipping in production, Rust for the last five of them. 96
+public repositories in [The Night's Watch](https://github.com/nightswatchhq). 218
+stars on Matchstick. 39 of 91 public repos in Rust, forks aside.
 
 ## Building now
 
@@ -30,7 +30,7 @@ on Matchstick. 47 of 104 public repos in Rust.
 
 - **[matchstick](https://github.com/LimeChain/matchstick)** (The Graph, 2021) -
   unit testing for subgraphs, in Rust and WebAssembly. The ecosystem standardised
-  on it. 217 stars, 17 forks, still maintained by others.
+  on it. 218 stars, 17 forks, still maintained by others.
 - **[graphcast](https://github.com/graphops/graphcast-sdk)** and
   **[subgraph-radio](https://github.com/graphops/subgraph-radio)** (The Graph,
   2022-2025) - a P2P messaging protocol for The Graph's indexer network, built on
@@ -141,7 +141,7 @@ terminal title bar uses `var(--bg-inset)` rather than a `color-mix` the contrast
 validator cannot see, and the window title runs at `--text-muted` rather than
 `--text-faint`, which measures 2.49 on that bar in light and fails.
 
-The terminal transcript in the hero is real output, run on 2 September 2026. Both
+The terminal transcript in the hero is real output, run on 25 September 2026. Both
 commands can be pasted into a shell and reproduced. If the numbers drift, rerun them
 and update the page rather than rounding.
 
