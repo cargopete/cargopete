@@ -5,7 +5,8 @@ Senior Rust engineer, Sofia, Bulgaria · remote since 2019.
 I write the part that has to stay up. Rust, mostly: indexers, languages, P2P
 protocols, and the tooling around them. Most of it is still running.
 
-**[cargopete.com](https://cargopete.com)** · **[resume](https://cargopete.com/resume/)** · pavlovskipetko@gmail.com
+**[cargopete.com](https://cargopete.com)** · **[resume](https://cargopete.com/resume/)** · pavlovskipetko@gmail.com ·
+[linkedin](https://www.linkedin.com/in/pete-pavlovski-07486a156/)
 
 7 years 8 months shipping in production, Rust for the last five of them. 99
 repositories in [The Night's Watch](https://github.com/nightswatchhq). 217 stars
@@ -31,7 +32,7 @@ on Matchstick. 47 of 104 public repos in Rust.
   unit testing for subgraphs, in Rust and WebAssembly. The ecosystem standardised
   on it. 217 stars, 17 forks, still maintained by others.
 - **[graphcast](https://github.com/graphops/graphcast-sdk)** and
-  **[subgraph-radio](https://github.com/graphops/subgraph-radio)** (GraphOps,
+  **[subgraph-radio](https://github.com/graphops/subgraph-radio)** (The Graph,
   2022-2025) - a P2P messaging protocol for The Graph's indexer network, built on
   Waku and libp2p. Gossip, fault-tolerant delivery, and a radio pattern that lets
   anyone add a message type without touching the core.
@@ -48,9 +49,9 @@ on Matchstick. 47 of 104 public repos in Rust.
 | Company | Role | When |
 |---|---|---|
 | Fathom | Senior Software Engineer | Apr 2025 - present, Remote UAE |
-| GraphOps | Senior Rust Engineer | Jul 2022 - Apr 2025, Remote |
-| The Graph | Rust Engineer, then Developer Advocate | Mar 2021 - Jul 2024, Remote |
+| The Graph | Senior Rust Engineer | Jul 2022 - Apr 2025, Remote |
 | Kraken | Rust Engineer | Dec 2021 - Jul 2022, Remote |
+| The Graph | Rust Engineer | Mar 2021 - Dec 2021, Remote |
 | OVO Energy | Full Stack Engineer | Jan 2020 - Mar 2021, Remote UK |
 | WeiChain | Junior Software Engineer | Jan 2019 - Jan 2020, Sofia |
 
@@ -71,8 +72,7 @@ remote, EET, overlapping most of a European day.
 **Out:** frontend as the main job (I ship React and Flutter when a project needs
 it, but it isn't what you want me for) · smart contract auditing (written
 contracts, not audited them for a living) · ML research (I build the pipelines,
-not the models) · relocation. Overlapping US hours is fine; a full US-hours
-on-call rotation is not · work where the architecture is settled and not open to
+not the models) · relocation (overlapping some US hours is fine) · work where the architecture is settled and not open to
 a question.
 
 ---
