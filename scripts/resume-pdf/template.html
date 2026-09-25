@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+<style>
+  @font-face { font-family: 'Plex Sans'; font-weight: 400; src: url('{{font.sans400}}') format('woff2'); }
+  @font-face { font-family: 'Plex Sans'; font-weight: 600; src: url('{{font.sans600}}') format('woff2'); }
+  @font-face { font-family: 'Plex Mono'; font-weight: 400; src: url('{{font.mono400}}') format('woff2'); }
+  @font-face { font-family: 'Plex Mono'; font-weight: 600; src: url('{{font.mono600}}') format('woff2'); }
+
+  :root {
+    --ground: #fbfbf9;
+    --ink: #1b1b19;
+    --muted: #66665f;
+    --faint: #8b8b84;
+    --rule: #d4d4cd;
+    --spine: #2e6b4c;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--ground); }
+  body {
+    width: 210mm; height: 297mm; position: relative; overflow: hidden;
+    padding: 12mm 15mm 0;
+    font: 400 9pt/1.42 'Plex Sans', sans-serif; color: var(--ink);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .mono { font-family: 'Plex Mono', monospace; }
+  b { font-weight: 600; }
+  ul { list-style: none; }
+  li { position: relative; padding-left: 1.1em; }
+  li::before { content: '–'; position: absolute; left: 0; color: var(--faint); }
+
+  header { display: grid; grid-template-columns: 1fr auto; gap: 8mm; align-items: start; }
+  h1 { font-size: 23pt; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
+  .tagline { margin-top: 2.2mm; font-size: 10.2pt; line-height: 1.4; color: var(--muted); max-width: 118mm; }
+  .tagline span { color: var(--ink); }
+  .contact { font-size: 7.4pt; line-height: 1.6; text-align: right; color: var(--ink); padding-top: 1mm; }
+  .contact .prompt { color: var(--spine); }
+  .contact .loc { color: var(--faint); }
+  .intro { margin-top: 4mm; font-size: 9.2pt; line-height: 1.5; max-width: 158mm; }
+
+  .ledger { margin-top: 4mm; display: grid; grid-template-columns: 30mm 7mm 1fr; }
+  .rail { font-size: 7pt; line-height: 1.5; padding-top: 1px; }
+  .rail .to { color: var(--faint); }
+  .spine { position: relative; }
+  .spine::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1.2px; background: var(--spine); }
+  .spine.tick::after { content: ''; position: absolute; left: -1.4mm; top: 2mm; width: 2.8mm; height: 1.2px; background: var(--spine); }
+  .ledger .body { padding-bottom: 2mm; }
+  .ledger h2 { font-size: 10.2pt; font-weight: 600; }
+  .lede { font-size: 7.8pt; color: var(--faint); line-height: 1.45; margin-top: 0.8mm; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+  .job-head .role { color: var(--muted); }
+  .job-head .where { font-size: 7pt; color: var(--faint); white-space: nowrap; }
+  .job ul { margin-top: 0.4mm; font-size: 8.5pt; line-height: 1.4; }
+  .footing { border-top: 3px double var(--spine); color: var(--spine); font-size: 7.8pt; font-weight: 600; padding-top: 1mm; width: 11mm; }
+  .footing-text { font-size: 8.3pt; color: var(--faint); padding-top: 1mm; }
+
+  section { margin-top: 2.4mm; border-top: 1px solid var(--rule); padding-top: 2.2mm; }
+  section h2 { font-size: 9.8pt; font-weight: 600; margin-bottom: 1.2mm; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8mm; }
+  .project { font-size: 7.9pt; line-height: 1.38; margin-bottom: 1mm; }
+  .project .meta { font-size: 6.7pt; color: var(--faint); }
+  .scope-label { font-size: 7.6pt; font-weight: 600; margin-bottom: 0.8mm; }
+  .scope ul { font-size: 7.6pt; line-height: 1.36; }
+
+  footer { position: absolute; left: 15mm; right: 15mm; bottom: 7mm; display: flex; justify-content: space-between; font-size: 6pt; color: var(--faint); }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>{{name}}</h1>
+      <p class="tagline"><span>{{tagline.lead}}</span> — {{tagline.rest}}</p>
+    </div>
+    <div class="contact mono">
+      <div><span class="prompt">$</span> {{contact.email}}</div>
+      <div>{{contact.site}}</div>
+      <div>{{contact.github}}</div>
+      <div>{{contact.linkedin}}</div>
+      <div class="loc">{{contact.location}}</div>
+    </div>
+  </header>
+
+  <p class="intro">{{intro}}</p>
+
+  <div class="ledger">
+    <div></div><div class="spine"></div>
+    <div class="body"><h2>{{history.heading}}</h2><p class="lede">{{history.lede}}</p></div>
+{{jobs}}
+    <div class="rail mono"><div class="footing">{{footing.figure}}</div></div><div class="spine tick"></div>
+    <div class="footing-text">{{footing.text}}</div>
+  </div>
+
+  <section>
+    <h2>{{openSource.heading}}</h2>
+    <div class="cols">
+      <div>{{openSource.building}}</div>
+      <div>{{openSource.shipped}}</div>
+    </div>
+  </section>
+
+  <section class="scope">
+    <h2>{{scope.heading}}</h2>
+    <div class="cols">
+      <div><p class="scope-label">{{scope.inLabel}}</p><ul>{{scope.in}}</ul></div>
+      <div><p class="scope-label">{{scope.outLabel}}</p><ul>{{scope.out}}</ul></div>
+    </div>
+  </section>
+
+  <footer class="mono">
+    <span>{{pdf.canonical}}</span>
+    <span>{{pdf.generated}} {{date}} · {{pdf.drift}}</span>
+  </footer>
+</body>
+</html>

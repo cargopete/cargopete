@@ -197,6 +197,7 @@ export const resume = {
 
   pdf: {
     canonical: 'Canonical version: cargopete.com/resume',
+    generated: 'Generated',
     drift: 'if the numbers drift, the site is right',
   },
 };
