@@ -28,14 +28,15 @@ stars on Matchstick. 39 of 91 public repos in Rust, forks aside.
 
 ## Shipped, and still running
 
-- **[matchstick](https://github.com/LimeChain/matchstick)** (The Graph, 2021) -
-  unit testing for subgraphs, in Rust and WebAssembly. The ecosystem standardised
-  on it. 218 stars, 17 forks, still maintained by others.
+- **[matchstick](https://github.com/LimeChain/matchstick)** (LimeChain for The
+  Graph, on a Foundation grant, 2021) - unit testing for subgraphs, in Rust and
+  WebAssembly. The ecosystem standardised on it. 218 stars, 17 forks, still
+  maintained by others.
 - **[graphcast](https://github.com/graphops/graphcast-sdk)** and
-  **[subgraph-radio](https://github.com/graphops/subgraph-radio)** (The Graph,
-  2022-2025) - a P2P messaging protocol for The Graph's indexer network, built on
-  Waku and libp2p. Gossip, fault-tolerant delivery, and a radio pattern that lets
-  anyone add a message type without touching the core.
+  **[subgraph-radio](https://github.com/graphops/subgraph-radio)** (GraphOps, a
+  Graph core dev team, 2022-2025) - a P2P messaging protocol for The Graph's
+  indexer network, built on Waku and libp2p. Gossip, fault-tolerant delivery, and
+  a radio pattern that lets anyone add a message type without touching the core.
 - **[The Night's Watch](https://github.com/nightswatchhq)** - the unglamorous half
   of The Graph: indexers, gateways, data services, judges and doctors. Lodestar,
   Dispatch, Foghorn, horizon-doctor, Graphite, and
@@ -49,9 +50,9 @@ stars on Matchstick. 39 of 91 public repos in Rust, forks aside.
 | Company | Role | When |
 |---|---|---|
 | Fathom | Senior Software Engineer | Apr 2025 - present, Remote UAE |
-| The Graph | Senior Rust Engineer | Jul 2022 - Apr 2025, Remote |
+| The Graph (GraphOps) | Senior Rust Engineer | Jul 2022 - Apr 2025, Remote |
 | Kraken | Rust Engineer | Dec 2021 - Jul 2022, Remote |
-| The Graph | Rust Engineer | Mar 2021 - Dec 2021, Remote |
+| The Graph (LimeChain) | Rust Engineer | Mar 2021 - Dec 2021, Remote |
 | OVO Energy | Full Stack Engineer | Jan 2020 - Mar 2021, Remote UK |
 | WeiChain | Junior Software Engineer | Jan 2019 - Jan 2020, Remote Sofia |
 
