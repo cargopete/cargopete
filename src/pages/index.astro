@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 const building = [
   {
     name: 'nuthatch',
-    count: '1,047 commits',
+    count: '1,708 commits',
     href: 'https://nuthatch-indexer.com',
     blurb:
       'Be your own indexer. One Rust binary, one command, and a live indexed API in under two minutes. It follows the chain, seals segments to Parquet, serves SQL and MCP, and has no mandatory third-party data dependency. Built as a public good rather than a business.',
@@ -46,10 +46,10 @@ const building = [
 const shipped = [
   {
     name: 'matchstick',
-    count: '217 stars',
+    count: '218 stars',
     href: 'https://github.com/LimeChain/matchstick',
     blurb:
-      'Unit testing for subgraphs, in Rust and WebAssembly, written at The Graph in 2021. The ecosystem standardised on it and it is still maintained by other people, which is the outcome you want. 217 stars, 17 forks, and I have not touched it in years.',
+      'Unit testing for subgraphs, in Rust and WebAssembly, written at The Graph in 2021. The ecosystem standardised on it and it is still maintained by other people, which is the outcome you want. 218 stars, 17 forks, and I have not touched it in years.',
     meta: [
       { label: 'Rust + WebAssembly', href: null },
       { label: 'The Graph, 2021', href: null },
@@ -105,12 +105,12 @@ const shipped = [
       </div>
 
       <div class="rise rise-3">
-        <div class="term" role="img" aria-label="Terminal transcript. The first command counts my public repositories by language and prints 40 Rust, 13 JavaScript, 7 Python and 7 Dart. The second sums my commits across every repository in the Night's Watch organisation and prints 3199.">
+        <div class="term" role="img" aria-label="Terminal transcript. The first command counts my public repositories by language and prints 39 Rust, 13 JavaScript, 7 Python and 7 Dart. The second sums my commits across every repository in the Night's Watch organisation and prints 4474.">
           <div class="term-bar">
             <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
             <span class="term-title">cargopete - zsh - 88×14</span>
           </div>
-          <!-- Real output, run on 2 September 2026. Not a character is
+          <!-- Real output, run on 25 September 2026. Not a character is
                invented; the only liberty taken is colouring the counts. Both
                commands can be pasted into a shell and reproduced. If the
                numbers drift, rerun them and edit this panel rather than
@@ -125,7 +125,7 @@ const shipped = [
 <pre class="term-body" aria-hidden="true"><span class="pre-cmd">$</span> gh api users/cargopete/repos --paginate \
      --jq '.[]|select(.fork|not)|.language' \
    | sort | uniq -c | sort -rn | head -4
-<span class="tout">  <span class="n">40</span> Rust
+<span class="tout">  <span class="n">39</span> Rust
   <span class="n">13</span> JavaScript
    <span class="n">7</span> Python
    <span class="n">7</span> Dart</span>
@@ -134,11 +134,11 @@ const shipped = [
     gh api repos/nightswatchhq/$r/contributors \
       --jq '.[]|select(.login=="cargopete")|.contributions'
   done | paste -sd+ - | bc
-<span class="tout"><span class="n">3199</span></span>
+<span class="tout"><span class="n">4474</span></span>
 <span class="pre-cmd">$</span> <span class="term-cursor">&#9608;</span></pre>
         </div>
         <p style="font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 12px;">
-          Real output, run on 2 September 2026. Paste either line into a shell.
+          Real output, run on 25 September 2026. Paste either line into a shell.
         </p>
       </div>
     </div>
@@ -148,16 +148,16 @@ const shipped = [
   <section class="proof">
     <div class="wrap proof-grid">
       <div class="stat" data-reveal>
-        <div class="n">3,199<span> commits</span></div>
-        <div class="l">Across all 90 repositories in The Night's Watch. Nuthatch and Lodestar are 2,003 of them.</div>
+        <div class="n">4,474<span> commits</span></div>
+        <div class="l">Across all 96 public repositories in The Night's Watch. Nuthatch and Lodestar are 3,087 of them.</div>
       </div>
       <div class="stat" data-reveal>
-        <div class="n">217<span> stars</span></div>
+        <div class="n">218<span> stars</span></div>
         <div class="l">On Matchstick, the subgraph testing framework I built for The Graph in 2021.</div>
       </div>
       <div class="stat" data-reveal>
-        <div class="n">40<span> of </span>93</div>
-        <div class="l">Public repositories in Rust. The rest are JavaScript, Python, Dart and a little OCaml.</div>
+        <div class="n">39<span> of </span>91</div>
+        <div class="l">Public repositories in Rust, forks aside. The rest are mostly JavaScript, Python and Dart.</div>
       </div>
     </div>
   </section>
@@ -202,7 +202,7 @@ const shipped = [
     <div class="wrap">
       <div class="section-head" data-reveal>
         <p class="kicker">The Night's Watch</p>
-        <h2 class="display-sm">Ninety repositories, and I have touched all of them.</h2>
+        <h2 class="display-sm">Ninety-six repositories, and I have touched all of them.</h2>
         <p class="section-lede">
           A community organisation building the unglamorous half of The Graph:
           indexers, gateways, data services, judges and doctors. It is where
@@ -225,15 +225,15 @@ const shipped = [
             </p>
           </div>
           <div class="flow">
-            <span class="chip">90 repos</span><span class="arrow">→</span>
-            <span class="chip">3,199 commits</span><span class="arrow">→</span>
+            <span class="chip">96 repos</span><span class="arrow">→</span>
+            <span class="chip">4,474 commits</span><span class="arrow">→</span>
             <span class="chip chip--hot">all of it public</span>
           </div>
         </div>
 
         <div class="cell c-third" data-reveal>
           <span class="tag">Lodestar</span>
-          <h3><a href="https://github.com/nightswatchhq/lodestar" rel="external noopener">956 commits</a></h3>
+          <h3><a href="https://github.com/nightswatchhq/lodestar" rel="external noopener">1,379 commits</a></h3>
           <p>
             An indexer dashboard that became an indexer. It runs on nuthatch,
             which is the sort of thing that only happens if both are yours.
