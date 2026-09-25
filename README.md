@@ -53,7 +53,7 @@ stars on Matchstick. 39 of 91 public repos in Rust, forks aside.
 | Kraken | Rust Engineer | Dec 2021 - Jul 2022, Remote |
 | The Graph | Rust Engineer | Mar 2021 - Dec 2021, Remote |
 | OVO Energy | Full Stack Engineer | Jan 2020 - Mar 2021, Remote UK |
-| WeiChain | Junior Software Engineer | Jan 2019 - Jan 2020, Sofia |
+| WeiChain | Junior Software Engineer | Jan 2019 - Jan 2020, Remote Sofia |
 
 Accountant before that, which is where the habit of checking the number twice
 comes from.
