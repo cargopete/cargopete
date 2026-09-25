@@ -59,8 +59,9 @@ comes from.
 
 ## Scope
 
-Not looking for work. This is here so that if you do write, we both know within a
-paragraph whether it is going anywhere.
+Open to senior Rust work, remote, contract or full-time. The lists below are
+here so that if you write, we both know within a paragraph whether it is going
+anywhere.
 
 **In:** Rust backends, services and CLIs · distributed systems and P2P protocol
 work · blockchain indexing and data infrastructure · developer tooling, languages
