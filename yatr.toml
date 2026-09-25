@@ -5,14 +5,23 @@ run = ["npm run dev"]
 
 [tasks.build]
 run = ["npm run build"]
+no_cache = true
 
 [tasks.check]
-desc = "Astro type and content check"
+desc = "Astro type and content check, and the resume PDF against its data"
 run = ["npm run check"]
+# No sources declared, so a cached run keys on the command alone and would
+# replay a pass after src/ changed. A gate must not be served from cache.
+no_cache = true
 
 [tasks.favicon]
 desc = "Redraw the favicon set from scripts/make-favicon.py"
 run = ["python3 scripts/make-favicon.py"]
+
+[tasks.resume-pdf]
+desc = "Rebuild the resume PDF from src/data/resume.ts (needs `npx playwright install chromium` once)"
+run = ["npm run resume-pdf"]
+no_cache = true
 
 [tasks.ci]
 desc = "CI pipeline"
