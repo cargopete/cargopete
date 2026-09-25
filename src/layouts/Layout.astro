@@ -28,6 +28,7 @@ const nav = [
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   <link rel="alternate" type="application/rss+xml" title="Petko (Pete) Pavlovski" href="/rss.xml" />
+  <slot name="head" />
 
   <!-- Preload both faces: they are render-blocking for the mono labels and the
        terminal, which is most of what the page is. -->
