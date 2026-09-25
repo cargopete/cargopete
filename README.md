@@ -72,8 +72,8 @@ remote, EET, overlapping most of a European day.
 **Out:** frontend as the main job (I ship React and Flutter when a project needs
 it, but it isn't what you want me for) · smart contract auditing (written
 contracts, not audited them for a living) · ML research (I build the pipelines,
-not the models) · relocation (overlapping some US hours is fine) · work where the architecture is settled and not open to
-a question.
+not the models) · relocation (overlapping some US hours is fine) · work where
+the architecture is settled and not open to a question.
 
 ---
 
