@@ -156,7 +156,7 @@ export const resume = {
       {
         names: ['The Night’s Watch'],
         text: 'the unglamorous half of The Graph: indexers, gateways, data services, judges and doctors. Lodestar, Dispatch, Foghorn, horizon-doctor, Graphite, and learn-thegraph.com.',
-        meta: 'github.com/nightswatchhq',
+        meta: 'github.com/nuthatch-org',
       },
     ] as Project[],
   },

@@ -9,7 +9,7 @@ protocols, and the tooling around them. Most of it is still running.
 [linkedin](https://www.linkedin.com/in/pete-pavlovski-07486a156/)
 
 7 years 8 months shipping in production, Rust for the last five of them. 96
-public repositories in [The Night's Watch](https://github.com/nightswatchhq). 218
+public repositories in [The Night's Watch](https://github.com/nuthatch-org). 218
 stars on Matchstick. 39 of 91 public repos in Rust, forks aside.
 
 ## Building now
@@ -37,7 +37,7 @@ stars on Matchstick. 39 of 91 public repos in Rust, forks aside.
   Graph core dev team, 2022-2025) - a P2P messaging protocol for The Graph's
   indexer network, built on Waku and libp2p. Gossip, fault-tolerant delivery, and
   a radio pattern that lets anyone add a message type without touching the core.
-- **[The Night's Watch](https://github.com/nightswatchhq)** - the unglamorous half
+- **[The Night's Watch](https://github.com/nuthatch-org)** - the unglamorous half
   of The Graph: indexers, gateways, data services, judges and doctors. Lodestar,
   Dispatch, Foghorn, horizon-doctor, Graphite, and
   [learn-thegraph.com](https://learn-thegraph.com).

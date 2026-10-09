@@ -14,7 +14,7 @@ const building = [
     meta: [
       { label: 'Rust', href: null },
       { label: 'nuthatch-indexer.com', href: 'https://nuthatch-indexer.com' },
-      { label: 'source', href: 'https://github.com/nightswatchhq/nuthatch' },
+      { label: 'source', href: 'https://github.com/nuthatch-org/nuthatch' },
     ],
   },
   {
@@ -26,7 +26,7 @@ const building = [
     meta: [
       { label: 'Rust', href: null },
       { label: 'redstart-lang.com', href: 'https://redstart-lang.com' },
-      { label: 'source', href: 'https://github.com/nightswatchhq/redstart' },
+      { label: 'source', href: 'https://github.com/nuthatch-org/redstart' },
     ],
   },
   {
@@ -129,9 +129,9 @@ const shipped = [
   <span class="n">13</span> JavaScript
    <span class="n">7</span> Python
    <span class="n">7</span> Dart</span>
-<span class="pre-cmd">$</span> for r in $(gh api orgs/nightswatchhq/repos \
+<span class="pre-cmd">$</span> for r in $(gh api orgs/nuthatch-org/repos \
        --paginate --jq '.[].name'); do
-    gh api repos/nightswatchhq/$r/contributors \
+    gh api repos/nuthatch-org/$r/contributors \
       --jq '.[]|select(.login=="cargopete")|.contributions'
   done | paste -sd+ - | bc
 <span class="tout"><span class="n">4474</span></span>
@@ -214,7 +214,7 @@ const shipped = [
         <div class="cell c-feature" data-reveal>
           <div>
             <span class="tag tag--rust">Contributor since 2025</span>
-            <h3><a href="https://github.com/nightswatchhq" rel="external noopener">nightswatchhq</a></h3>
+            <h3><a href="https://github.com/nuthatch-org" rel="external noopener">nuthatch-org</a></h3>
             <p>
               Nuthatch and Lodestar are the two big ones, but the interesting
               work is the long tail: Dispatch, a decentralised JSON-RPC service
@@ -233,7 +233,7 @@ const shipped = [
 
         <div class="cell c-third" data-reveal>
           <span class="tag">Lodestar</span>
-          <h3><a href="https://github.com/nightswatchhq/lodestar" rel="external noopener">1,379 commits</a></h3>
+          <h3><a href="https://github.com/nuthatch-org/lodestar" rel="external noopener">1,379 commits</a></h3>
           <p>
             An indexer dashboard that became an indexer. It runs on nuthatch,
             which is the sort of thing that only happens if both are yours.
@@ -317,7 +317,7 @@ const shipped = [
         </div>
         <div class="links">
           <a href="https://github.com/cargopete">github.com/cargopete</a>
-          <a href="https://github.com/nightswatchhq" rel="external noopener">The Night's Watch</a>
+          <a href="https://github.com/nuthatch-org" rel="external noopener">The Night's Watch</a>
           <a href="mailto:pavlovskipetko@gmail.com">pavlovskipetko@gmail.com</a>
         </div>
       </div>
