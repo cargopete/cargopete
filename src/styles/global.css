@@ -518,7 +518,11 @@ footer { border-top: 1px solid var(--border); padding-block: 40px; }
 
 /* --- responsive --------------------------------------------------------- */
 @media (max-width: 920px) {
-  .nav-links { display: none; }
+  /* The links drop to a second row rather than vanish: there is no menu button to stand in for them. */
+  header { height: auto; }
+  .nav { flex-wrap: wrap; gap: 10px 20px; padding-block: 14px; }
+  .theme-toggle { margin-left: auto; }
+  .nav-links { order: 3; width: 100%; margin-left: 0; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; }
   .hero-grid { grid-template-columns: 1fr; gap: 44px; }
   .proof-grid { grid-template-columns: 1fr; gap: 36px; }
   .bento { grid-template-columns: repeat(2, 1fr); }
