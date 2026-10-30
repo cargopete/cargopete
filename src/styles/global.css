@@ -131,6 +131,37 @@
 
 
 /* ==========================================================================
+   BRICK - the dashboard dialect, from lodestar-dashboard.com.
+   Opt in with data-palette='brick' on <html>. It replaces the two-accent pair
+   with one accent and gives bad news its own red, because a data-dense page
+   has numbers that fall and checks that fail, and terracotta was doing that
+   job and the section labels at once. Surfaces, borders and ink are
+   inherited unchanged. See reference/dashboard.md.
+   Dark only: there is no validated light inversion yet, so do not combine it
+   with data-theme='light'.
+   ========================================================================== */
+
+:root[data-palette='brick'] {
+  /* --- accent: one hue. kickers, labels, links, focus, the lead series --- */
+  --accent:      #d0704f;   /*  5.26 on --bg. brick */
+  --accent-ink:  #f2cbbb;   /* 12.09 on --bg. accent text on an accent wash */
+  --rust:        var(--accent);   /* so landing components still render; do not write it */
+
+  /* --- --bad is the only red, and it never means anything but bad ------- */
+  --bad:         #e36b6b;   /*  5.67 on --bg */
+  --bad-ink:     #f5c4c4;   /* 11.69 on --bg. red text on the red wash */
+
+  /* --- washes: 12% of the hue. Text on a wash is the -ink tone, never the
+         hue itself: brick on its own wash measures 4.10 on --bg-elev and
+         fails AA, its -ink measures 9.41. tools/contrast.py checks the pairs */
+  --pale-accent-bg: rgba(208, 112, 79, 0.12);
+  --pale-bad-bg:    rgba(227, 107, 107, 0.12);
+  --pale-warn-bg:   rgba(205, 176, 106, 0.12);
+  --pale-green-bg:  rgba(134, 181, 146, 0.12);
+}
+
+
+/* ==========================================================================
    ATMOSPHERIC texture - the yatr setting, rendered in the MANDATED palette.
    This block defines NO hues of its own. It is texture only: ambient glow,
    grain, gradients, one shadow, and the serif display face. If you find
@@ -341,7 +372,7 @@ header {
 .nav-cta {
   font-family: var(--mono); font-size: 13.5px; font-weight: 500;
   color: var(--bg); background: var(--accent);
-  padding: 9px 15px; border-radius: 9px;
+  padding: 9px 15px; border-radius: var(--radius-sm);
   transition: transform 0.18s var(--ease), background 0.18s var(--ease);
 }
 .nav-cta:hover { background: var(--accent-ink); transform: translateY(-1px); text-decoration: none; }
@@ -432,7 +463,9 @@ header {
 .stat .n { font-family: var(--display); font-weight: 600;
            font-size: clamp(2.4rem, 4.6vw, 3.4rem);
            line-height: 1; letter-spacing: -0.03em; color: var(--text); }
-.stat .n span { color: var(--rust); }
+.stat .n span { font-family: var(--mono); font-size: 0.3em; font-weight: 400;
+                letter-spacing: 0.1em; text-transform: uppercase;
+                color: var(--rust); margin-inline: 0.45em; }
 .stat .l { color: var(--text-muted); margin-top: 12px; font-size: 0.98rem; max-width: 32ch; }
 
 /* --- bento -------------------------------------------------------------- */
@@ -514,10 +547,15 @@ header {
 footer { border-top: 1px solid var(--border); padding-block: 40px; }
 .foot { display: flex; align-items: center; justify-content: space-between;
         gap: 20px; flex-wrap: wrap; color: var(--text-faint); font-size: 14px; }
-.foot .sig { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; }
+.foot .sig { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; margin-top: 10px; }
+.foot .brand { font-size: 16px; }
+.foot .brand svg { width: 22px; height: 22px; }
+.term-caption { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em;
+                text-transform: uppercase; color: var(--text-muted); margin-top: 12px; }
 
 /* --- responsive --------------------------------------------------------- */
 @media (max-width: 920px) {
+  .nav-cta { order: 2; }
   /* The links drop to a second row rather than vanish: there is no menu button to stand in for them. */
   header { height: auto; }
   .nav { flex-wrap: wrap; gap: 10px 20px; padding-block: 14px; }
@@ -600,7 +638,8 @@ footer { border-top: 1px solid var(--border); padding-block: 40px; }
 
 
 /* --- nav current page --------------------------------------------------- */
-.nav-links a[aria-current='page'] { color: var(--text); box-shadow: inset 0 -1px 0 var(--rust); }
+.nav-links a[aria-current='page'] { color: var(--text); text-decoration: underline;
+  text-decoration-color: var(--rust); text-underline-offset: 6px; }
 
 /* --- footer link column ------------------------------------------------- */
 .foot { align-items: flex-start; }

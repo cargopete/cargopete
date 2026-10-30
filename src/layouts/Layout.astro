@@ -13,14 +13,12 @@ const nav = [
   { href: '/#shipped', label: 'Shipped' },
   { href: '/blog/', label: 'Writing' },
   { href: '/resume/', label: 'Resume' },
-  { href: '/#contact', label: 'Contact' },
 ];
 ---
 <!doctype html>
-<!-- Light is the default and is set here, server-side. The script below only
-     has to undo it for a reader who chose dark, which means a reader with
-     JavaScript off gets the intended page rather than the other one. -->
-<html lang="en" data-theme="light">
+<!-- Dark is the default, so a reader with JavaScript off gets the intended
+     page. The script below only applies light for a reader who chose it. -->
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,21 +39,21 @@ const nav = [
   <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#fbfbfa" />
+  <meta name="theme-color" content="#171614" />
   <meta property="og:type" content="profile" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary" />
 
-  <!-- Read before first paint so a chosen dark theme does not flash light.
+  <!-- Read before first paint so a chosen light theme does not flash dark.
        Inline and tiny by necessity; everything else on this page is static. -->
   <script is:inline>
     try {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.removeAttribute('data-theme');
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
-    } catch (e) { /* private mode, blocked storage: the light default stands */ }
+    } catch (e) { /* private mode, blocked storage: the dark default stands */ }
   </script>
 </head>
 <body>
@@ -76,6 +74,7 @@ const nav = [
           <a href={l.href} aria-current={!l.href.includes('#') && path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
         ))}
       </div>
+      <a class="nav-cta" href="/#contact">contact</a>
       <button class="theme-toggle" aria-label="Switch between the light and dark theme">theme</button>
     </nav>
   </header>
@@ -87,8 +86,8 @@ const nav = [
   <footer>
     <div class="wrap foot">
       <div>
-        <span class="brand" style="font-size:16px"><svg style="width:22px;height:22px" aria-hidden="true"><use href="#prompt"/></svg>cargopete</span>
-        <p class="sig" style="margin-top:10px">Written in Sofia &#127463;&#127468; · no trackers, no third-party requests</p>
+        <span class="brand"><svg aria-hidden="true"><use href="#prompt"/></svg>cargopete</span>
+        <p class="sig">Written in Sofia &#127463;&#127468; · no trackers, no third-party requests</p>
       </div>
       <div class="foot-links">
         <a href="/resume/">Resume</a>
