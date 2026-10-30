@@ -73,11 +73,11 @@ const fmt = (d: Date) =>
     margin: 0 0 1.35rem; padding-left: 1.3rem;
   }
   .prose :global(li) { margin-bottom: 0.5rem; }
-  .prose :global(li::marker) { color: var(--rust); }
+  .prose :global(li::marker) { color: var(--accent); }
   .prose :global(hr) { border: none; border-top: 1px solid var(--border); margin: 2.6rem 0; }
   .prose :global(blockquote) {
     margin: 1.6rem 0; padding: 0.4rem 0 0.4rem 1.2rem;
-    border-left: 3px solid var(--rust); color: var(--text-muted); font-style: italic;
+    border-left: 3px solid var(--accent); color: var(--text-muted); font-style: italic;
   }
   .prose :global(blockquote p) { margin-bottom: 0.5rem; }
   .prose :global(table) { width: 100%; border-collapse: collapse; margin: 0 0 1.6rem;
@@ -89,10 +89,7 @@ const fmt = (d: Date) =>
   .prose :global(th) { color: var(--text); font-family: var(--mono); font-size: 0.72rem;
                        letter-spacing: 0.08em; text-transform: uppercase; }
 
-  /* --- code -------------------------------------------------------------
-     Shiki is configured with two themes and no default, so every token carries
-     --shiki-light and --shiki-dark and the theme picks one. A single theme
-     would leave dark token colours sitting on a near-white ground. */
+  /* --- code ------------------------------------------------------------- */
   .prose :global(code) {
     font-family: var(--mono); font-size: 0.86em; background: var(--bg-inset);
     padding: 0.12em 0.36em; border-radius: 5px; color: var(--text);
@@ -103,7 +100,4 @@ const fmt = (d: Date) =>
     font-size: 0.82rem; line-height: 1.7;
   }
   .prose :global(pre code) { background: none; padding: 0; border-radius: 0; font-size: inherit; }
-  .prose :global(.astro-code), .prose :global(.astro-code span) { color: var(--shiki-dark); }
-  :root[data-theme='light'] .prose :global(.astro-code),
-  :root[data-theme='light'] .prose :global(.astro-code span) { color: var(--shiki-light); }
 </style>

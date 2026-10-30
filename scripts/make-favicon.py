@@ -17,7 +17,7 @@ import zlib
 from pathlib import Path
 
 BG = (0x17, 0x16, 0x14)      # --bg
-FG = (0x8b, 0xb8, 0xdc)      # --accent
+FG = (0xd0, 0x70, 0x4f)      # --accent, brick
 
 # Geometry in the SVG's 64-unit box: a rounded plate, a chevron, an underscore.
 RADIUS = 14.0

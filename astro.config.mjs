@@ -8,13 +8,21 @@ export default defineConfig({
   build: { inlineStylesheets: 'always' },
   compressHTML: true,
   markdown: {
-    // Two themes, neither of them the default: Shiki then emits every token
-    // colour as --shiki-light / --shiki-dark rather than one hard inline
-    // colour, which is what global.css switches on. With a single theme the
-    // dark toggle would leave light-theme token colours on a near-black ground.
+    // Built from the brick tokens, since every stock theme spends blue.
     shikiConfig: {
-      themes: { light: 'github-light', dark: 'github-dark' },
-      defaultColor: false,
+      theme: {
+        name: 'brick',
+        type: 'dark',
+        colors: { 'editor.background': '#1b1a17', 'editor.foreground': '#ece9e3' },
+        tokenColors: [
+          { scope: ['comment', 'punctuation.definition.comment'], settings: { foreground: '#9c978c', fontStyle: 'italic' } },
+          { scope: ['keyword', 'storage', 'storage.type', 'storage.modifier', 'keyword.operator.new'], settings: { foreground: '#d0704f' } },
+          { scope: ['string', 'string.quoted', 'markup.inline.raw'], settings: { foreground: '#86b592' } },
+          { scope: ['constant.numeric', 'constant.language', 'constant.character', 'support.constant'], settings: { foreground: '#cdb06a' } },
+          { scope: ['entity.name.function', 'support.function', 'entity.name.type', 'support.type', 'entity.name.class'], settings: { foreground: '#f2cbbb' } },
+          { scope: ['variable', 'punctuation', 'meta.brace', 'keyword.operator'], settings: { foreground: '#ece9e3' } },
+        ],
+      },
     },
   },
 });

@@ -16,9 +16,7 @@ const nav = [
 ];
 ---
 <!doctype html>
-<!-- Dark is the default, so a reader with JavaScript off gets the intended
-     page. The script below only applies light for a reader who chose it. -->
-<html lang="en">
+<html lang="en" data-palette="brick">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,15 +44,6 @@ const nav = [
   <meta property="og:url" content={canonical} />
   <meta name="twitter:card" content="summary" />
 
-  <!-- Read before first paint so a chosen light theme does not flash dark.
-       Inline and tiny by necessity; everything else on this page is static. -->
-  <script is:inline>
-    try {
-      if (localStorage.getItem('theme') === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    } catch (e) { /* private mode, blocked storage: the dark default stands */ }
-  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -75,7 +64,6 @@ const nav = [
         ))}
       </div>
       <a class="nav-cta" href="/#contact">contact</a>
-      <button class="theme-toggle" aria-label="Switch between the light and dark theme">theme</button>
     </nav>
   </header>
 
@@ -102,8 +90,8 @@ const nav = [
   </footer>
 
   <script is:inline>
-    // The whole client-side budget for this site: copy-to-clipboard and a theme
-    // toggle. No framework, no islands, no third party.
+    // The whole client-side budget for this site: copy-to-clipboard and the
+    // reveal below. No framework, no islands, no third party.
     document.querySelectorAll('.copyline').forEach((el) => {
       el.addEventListener('click', async () => {
         try {
@@ -114,15 +102,6 @@ const nav = [
       });
     });
 
-    const root = document.documentElement;
-    document.querySelectorAll('.theme-toggle').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const light = root.getAttribute('data-theme') === 'light';
-        if (light) root.removeAttribute('data-theme');
-        else root.setAttribute('data-theme', 'light');
-        try { localStorage.setItem('theme', light ? 'dark' : 'light'); } catch (e) {}
-      });
-    });
 
     // One entrance, below the fold, via IntersectionObserver rather than a
     // scroll listener. Elements start visible in the markup, so a crawler and a
