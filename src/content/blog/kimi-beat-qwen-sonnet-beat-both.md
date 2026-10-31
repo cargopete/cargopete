@@ -5,6 +5,8 @@ description: "I ran five models through my own coding agent, 130 runs each, to c
 tags: ["ai", "rust", "benchmarks", "agents"]
 ---
 
+> **Updated, 31 October.** The scorer fault mentioned below is fixed and every run has been rescored. Sonnet 5.5 moves from 96 to 99 and is now clearly ahead of Kimi rather than level with it; Opus reaches 100. Kimi and Qwen are unchanged. The post is kept as first written, with the rescore at the end.
+
 Dino is the coding agent I write for myself, in Rust, and use instead of the commercial ones for my own work. Until this week its default model was Qwen3.7-Max on Alibaba's flat-rate Token Plan, chosen on 25 October from a single run of a single task. That is not a decision so much as a first impression, and the obvious question kept coming back: **is Kimi better than Qwen?** Kimi K3.1 Pro is the open-weights Chinese model people tend to rate highest.
 
 So I measured it properly, alongside Claude Sonnet 5.5, GPT-6.1 Terra and Grok 4.7, with Claude Opus 5.5 as the ceiling. Every model ran inside Dino itself, with the same binary, the same tools and the same prompts, through each vendor's API.
@@ -75,3 +77,20 @@ And one of Sonnet's numbers is wrong in its disfavour. It scored 33 on the secon
 It proves that for my agent, on Rust work of this kind, Kimi K3.1 Pro is better than Qwen3.7-Max, and that Claude Sonnet 5.5 is better and cheaper than both per result.
 
 It does not prove much beyond that. It is one corpus, in one language, scored by a scorer I wrote, which this week turned out to have a bug. The prices are list prices on one day, and Qwen's real cost is a flat fee until the quota runs out. Grok has no result because I stopped it. Kimi's score was taken before the fixes its own failures prompted, so its rerun is the next thing I owe this table, and I will add it here when it exists rather than quietly editing the numbers above.
+
+## Update: the rescore
+
+The fault was more interesting than I had guessed. When the scorer laid the hidden tests over a model's workspace, the copied files kept their original modification times, which were older than the model's own build. Cargo therefore considered the test binary up to date and ran the model's own tests instead of mine. Sonnet had written its own `tests/tables.rs` in four of five trials, so it was marked down for breaking tests that had never actually run. The copy now stamps each file with the current time, and the eval gained a `--rescore` that reruns the hidden tests on the workspaces each run left behind, without calling any model.
+
+| Model | Score (90% interval) | Passed | Cost per pass |
+|---|---|---|---|
+| Claude Opus 5.5 (ceiling) | 100 (99-100) | 130 | $0.29 |
+| Claude Sonnet 5.5 | 99 (99-99) | 128 | $0.12 |
+| Kimi K3.1 Pro | 95 (94-96) | 113 | $0.24 |
+| Qwen3.7-Max | 90 (87-92) | 109 | $0.34 |
+| GPT-6.1 Terra | 74 (68-80) | 96 | $0.06 |
+
+Kimi's one fewer pass is not a change in its work: the ledger case's acceptance tests pick network ports in a way that races, and one of its trials lost the race on the rerun. That test is next on the list.
+
+So the second half of the title is now stronger than when I wrote it. Kimi still clearly beats Qwen, which was the question. Sonnet is clearly the better coding model for Dino, by score, by speed and by cost per result.
+
