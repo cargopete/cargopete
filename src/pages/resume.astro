@@ -15,19 +15,19 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
 
   <section id="top">
     <div class="wrap">
-      <span class="eyebrow rise rise-1"><span class="dot"></span>{contact.location}</span>
+      <span class="fd-badge fd-badge--accent hero-badge rise rise-1"><span class="fd-dot"></span>{contact.location}</span>
       <h1 class="display rise rise-2">{resume.page.headline}</h1>
       <p class="lede rise rise-2" style="max-width: 48ch;">
         {resume.tenure} {resume.accountant}
       </p>
       <div class="btn-row rise rise-3">
-        <button class="copyline" data-copy={contact.email}
+        <button class="fd-install" data-copy={contact.email}
                 aria-label="Copy my email address to the clipboard">
-          <span><span class="prompt">$</span> {contact.email}</span>
-          <span class="copy">copy</span>
+          <span class="p">$</span><span class="c">{contact.email}</span>
+          <span class="h">copy</span>
         </button>
-        <a class="btn btn-ghost" href="/#building">See what I am building</a>
-        <a class="btn btn-ghost" href="/resume/petko-pavlovski-resume.pdf" download>Download resume (PDF)</a>
+        <a class="fd-btn fd-btn--ghost" href="/#building">See what I am building</a>
+        <a class="fd-btn fd-btn--ghost" href="/resume/petko-pavlovski-resume.pdf" download>Download resume (PDF)</a>
       </div>
     </div>
   </section>
@@ -38,9 +38,9 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
   <section id="history">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="kicker">{history.kicker}</p>
-        <h2 class="display-sm">{history.heading}</h2>
-        <p class="section-lede">
+        <p class="fd-kicker">{history.kicker}</p>
+        <h2 class="fd-h1 display-sm">{history.heading}</h2>
+        <p class="fd-lede">
           {history.lede}
         </p>
       </div>
@@ -68,9 +68,9 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
   <section id="scope">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="kicker">{scope.kicker}</p>
-        <h2 class="display-sm">{scope.heading}</h2>
-        <p class="section-lede">
+        <p class="fd-kicker">{scope.kicker}</p>
+        <h2 class="fd-h1 display-sm">{scope.heading}</h2>
+        <p class="fd-lede">
           {scope.lede[0]}
           <a href={contact.linkedinUrl} rel="external noopener">LinkedIn</a> {scope.lede[1]}
         </p>
@@ -97,16 +97,16 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
   <section class="closer" id="contact">
     <div class="wrap">
       <div data-reveal>
-        <p class="kicker">{close.kicker}</p>
-        <h2 class="display-sm">{close.heading}</h2>
-        <p class="section-lede">
+        <p class="fd-kicker">{close.kicker}</p>
+        <h2 class="fd-h1 display-sm">{close.heading}</h2>
+        <p class="fd-lede">
           {close.lede}
         </p>
         <div class="cta-row">
-          <button class="copyline" data-copy={contact.email}
+          <button class="fd-install" data-copy={contact.email}
                   aria-label="Copy my email address to the clipboard">
-            <span><span class="prompt">$</span> {contact.email}</span>
-            <span class="copy">copy</span>
+            <span class="p">$</span><span class="c">{contact.email}</span>
+            <span class="h">copy</span>
           </button>
           <a class="ghost" href="/">Back to the work <span class="arrow">&rsaquo;</span></a>
         </div>
