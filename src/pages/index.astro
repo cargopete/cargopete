@@ -1,11 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-// The hero radio reads this, so it is counted the way the blog lists them:
-// drafts have no URL and are not posts.
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).length;
-const dialMax = (Math.floor(posts / 10) + 1) * 10;
 
 // The showcase, kept as data so a new project is one entry rather than a
 // hunt through markup. `count` is a real figure and must stay one: commit
@@ -90,34 +84,25 @@ const shipped = [
 ---
 
 <Layout
+  ambient
   title="Petko (Pete) Pavlovski - senior Rust engineer"
   description="Senior Rust engineer in Sofia. Building nuthatch, redstart and yatr; contributor across The Night's Watch. Previously Matchstick and Graphcast at The Graph."
 >
 
-  <!-- HERO -->
-  <section id="top">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="fd-badge fd-badge--accent hero-badge rise rise-1"><span class="fd-dot"></span>Sofia, Bulgaria · remote since 2019</span>
-        <h1 class="display rise rise-2">I write the part<br>that has to stay up.</h1>
-        <p class="lede rise rise-2">
-          Rust, mostly. Indexers, languages, P2P protocols and the tooling
-          around them. Most of it is still running.
-        </p>
-        <div class="btn-row rise rise-3">
-          <a class="fd-btn fd-btn--primary" href="#building">See what I am building <span class="arrow">&rsaquo;</span></a>
-          <a class="fd-btn fd-btn--ghost" href="/resume/">Read the resume</a>
-        </div>
-      </div>
-
-      <div class="rise rise-3">
-        <div class="fd-instrument radio-well" id="radio" data-posts={posts} data-max={dialMax}>
-          <div class="fd-instrument-plate">Writing <b>{posts} {posts === 1 ? 'post' : 'posts'} published</b></div>
-          <div class="radio-stage" aria-hidden="true"></div>
-        </div>
-        <p class="radio-note">
-          Counted from <a href="/blog/">the blog</a> when the site is built. Dial 0 to {dialMax}.
-        </p>
+  <!-- HERO: the workbench is scenery behind the copy, not a readout -->
+  <section class="hero" id="top">
+    <canvas class="hero-scene" id="landscape" aria-hidden="true"></canvas>
+    <div class="scan" aria-hidden="true"></div>
+    <div class="wrap hero-copy">
+      <span class="fd-badge fd-badge--accent hero-badge rise rise-1"><span class="fd-dot"></span>Sofia, Bulgaria · remote since 2019</span>
+      <h1 class="display rise rise-2">I write the part<br>that has to stay up.</h1>
+      <p class="lede rise rise-2">
+        Rust, mostly. Indexers, languages, P2P protocols and the tooling
+        around them. Most of it is still running.
+      </p>
+      <div class="btn-row rise rise-3">
+        <a class="fd-btn fd-btn--primary" href="#building">See what I am building <span class="arrow">&rsaquo;</span></a>
+        <a class="fd-btn fd-btn--ghost" href="/resume/">Read the resume</a>
       </div>
     </div>
   </section>
@@ -346,36 +331,5 @@ const shipped = [
       </div>
     </div>
   </section>
-
-  <script is:inline>
-    // The radio costs 600 KB of three.js, so nothing loads until the hero is on
-    // screen. Both files are served from this site; nothing leaves it.
-    (function () {
-      var well = document.getElementById('radio');
-      if (!well) return;
-      var posts = Number(well.dataset.posts), max = Number(well.dataset.max);
-      function load(src) {
-        return new Promise(function (ok, fail) {
-          var s = document.createElement('script');
-          s.src = src; s.onload = ok; s.onerror = fail;
-          document.head.appendChild(s);
-        });
-      }
-      function start() {
-        load('/foundry/three-0.149.0.min.js')
-          .then(function () { return load('/foundry/foundry.js'); })
-          .then(function () {
-            var radio = window.Foundry.ValveRadio(well.querySelector('.radio-stage'), { min: 0, max: max, value: 0, label: 'posts' });
-            radio.set(posts);
-          })
-          .catch(function () { well.classList.add('is-failed'); });
-      }
-      if (!('IntersectionObserver' in window)) return start();
-      var io = new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting) { io.disconnect(); start(); }
-      }, { rootMargin: '200px' });
-      io.observe(well);
-    })();
-  </script>
 
 </Layout>
