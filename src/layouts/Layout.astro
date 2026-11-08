@@ -133,10 +133,8 @@ const nav = [
         try { if (hero) S.createWorkbench(hero); } catch (e) { hero.remove(); }
         try {
           if (ambient) {
-            // createAmbient clears only 0.78 of the width it is given, so give it the
-            // column divided by that, or parts sit behind the first letters of a line.
             const wrap = document.querySelector('main .wrap');
-            S.createAmbient(ambient, { kit: 'workbench', contentWidth: (wrap ? wrap.getBoundingClientRect().width : 1296) / 0.78 });
+            S.createAmbient(ambient, { kit: 'workbench', contentWidth: wrap ? wrap.getBoundingClientRect().width : 1296 });
           }
         } catch (e) { ambient.remove(); }
       }).catch(() => {});
