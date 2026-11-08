@@ -22,12 +22,12 @@ const fmt = (d: Date) =>
     <article class="wrap post prose">
       <a href="/blog/" class="back">&larr; Writing</a>
       <h1>{post.data.title}</h1>
-      <p class="meta">
+      <div class="meta">
         <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
         {post.data.tags.length > 0 && (
           <><span aria-hidden="true"> · </span>{post.data.tags.join(' · ')}</>
         )}
-      </p>
+      </div>
       <Content />
       <hr class="divider" style="margin-top: 3.4rem;" />
       <p class="foot-note">
@@ -43,33 +43,35 @@ const fmt = (d: Date) =>
      a 44rem column crops. Scoped, so none of this prose CSS is inlined into the
      homepage, which has no prose on it. */
   .post { max-width: 52rem; }
-  .back {
-    display: inline-block; font-family: var(--mono); font-size: 0.78rem;
-    color: var(--text-muted); margin-bottom: 1.6rem;
+  .prose .back {
+    display: inline-block; font-family: var(--font-mono); font-size: 0.6875rem;
+    color: var(--text-muted); margin-bottom: 1.6rem; border-bottom: 0;
   }
-  .back:hover { color: var(--text); text-decoration: none; }
-  h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.1;
-       margin-bottom: 0.4rem; letter-spacing: -0.025em; }
-  .meta {
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+  .prose .back:hover { color: var(--text); text-decoration: none; }
+  h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.08;
+       margin-bottom: 0.4rem; letter-spacing: -0.04em; }
+  .prose .meta {
+    font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.12em;
     text-transform: uppercase; color: var(--text-muted); margin: 0.7rem 0 2.6rem;
   }
-  .foot-note { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+  .prose .foot-note { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.02em;
                color: var(--text-muted); margin-top: 1.6rem; }
 
+  /* Scoped under .prose so they outrank the markdown rules below. */
+
   /* --- markdown body --------------------------------------------------- */
-  .prose :global(p) { color: var(--text-muted); font-size: 1.08rem; line-height: 1.75; margin-bottom: 1.35rem; }
+  .prose :global(p) { color: var(--text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 1.35rem; }
   .prose :global(p:first-of-type) { color: var(--text); }
-  .prose :global(h2) { font-size: 1.5rem; letter-spacing: -0.02em; color: var(--text);
+  .prose :global(h2) { font-size: 1.375rem; letter-spacing: -0.03em; color: var(--text);
                        margin: 2.8rem 0 1rem; line-height: 1.25; }
-  .prose :global(h3) { font-size: 1.15rem; letter-spacing: -0.01em; color: var(--text);
+  .prose :global(h3) { font-size: 1.125rem; letter-spacing: -0.03em; color: var(--text);
                        margin: 2rem 0 0.75rem; }
   .prose :global(a) { color: var(--accent);
                       border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
   .prose :global(a:hover) { border-bottom-color: var(--accent); text-decoration: none; }
   .prose :global(strong) { color: var(--text); font-weight: 600; }
   .prose :global(ul), .prose :global(ol) {
-    color: var(--text-muted); font-size: 1.08rem; line-height: 1.7;
+    color: var(--text-muted); font-size: 1rem; line-height: 1.7;
     margin: 0 0 1.35rem; padding-left: 1.3rem;
   }
   .prose :global(li) { margin-bottom: 0.5rem; }
@@ -80,24 +82,25 @@ const fmt = (d: Date) =>
     border-left: 3px solid var(--accent); color: var(--text-muted); font-style: italic;
   }
   .prose :global(blockquote p) { margin-bottom: 0.5rem; }
-  .prose :global(table) { width: 100%; border-collapse: collapse; margin: 0 0 1.6rem;
-                          font-size: 0.95rem; }
+  /* A wide table scrolls inside itself rather than dragging the page sideways. */
+  .prose :global(table) { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 0 0 1.6rem;
+                          font-size: 0.875rem; }
   .prose :global(th), .prose :global(td) {
     border-bottom: 1px solid var(--border); padding: 0.6rem 0.8rem 0.6rem 0;
     text-align: left; color: var(--text-muted);
   }
-  .prose :global(th) { color: var(--text); font-family: var(--mono); font-size: 0.72rem;
-                       letter-spacing: 0.08em; text-transform: uppercase; }
+  .prose :global(th) { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.6875rem;
+                       letter-spacing: 0.02em; text-transform: uppercase; font-weight: 400; }
 
   /* --- code ------------------------------------------------------------- */
   .prose :global(code) {
     font-family: var(--mono); font-size: 0.86em; background: var(--bg-inset);
-    padding: 0.12em 0.36em; border-radius: 5px; color: var(--text);
+    padding: 0.12em 0.36em; border-radius: var(--radius-sm); color: var(--text);
   }
   .prose :global(pre) {
     background: var(--bg-code); border: 1px solid var(--border); border-radius: var(--radius);
     padding: 1rem 1.1rem; overflow-x: auto; margin: 0 0 1.5rem;
-    font-size: 0.82rem; line-height: 1.7;
+    font-size: 0.75rem; line-height: 1.85;
   }
   .prose :global(pre code) { background: none; padding: 0; border-radius: 0; font-size: inherit; }
 </style>

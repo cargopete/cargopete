@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// The hero radio reads this, so it is counted the way the blog lists them:
+// drafts have no URL and are not posts.
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).length;
+const dialMax = (Math.floor(posts / 10) + 1) * 10;
 
 // The showcase, kept as data so a new project is one entry rather than a
 // hunt through markup. `count` is a real figure and must stay one: commit
@@ -92,19 +98,54 @@ const shipped = [
   <section id="top">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow rise rise-1"><span class="dot"></span>Sofia, Bulgaria · remote since 2019</span>
+        <span class="fd-badge fd-badge--accent hero-badge rise rise-1"><span class="fd-dot"></span>Sofia, Bulgaria · remote since 2019</span>
         <h1 class="display rise rise-2">I write the part<br>that has to stay up.</h1>
         <p class="lede rise rise-2">
           Rust, mostly. Indexers, languages, P2P protocols and the tooling
           around them. Most of it is still running.
         </p>
         <div class="btn-row rise rise-3">
-          <a class="btn btn-primary" href="#building">See what I am building <span class="arrow">&rsaquo;</span></a>
-          <a class="btn btn-ghost" href="/resume/">Read the resume</a>
+          <a class="fd-btn fd-btn--primary" href="#building">See what I am building <span class="arrow">&rsaquo;</span></a>
+          <a class="fd-btn fd-btn--ghost" href="/resume/">Read the resume</a>
         </div>
       </div>
 
       <div class="rise rise-3">
+        <div class="fd-instrument radio-well" id="radio" data-posts={posts} data-max={dialMax}>
+          <div class="fd-instrument-plate">Writing <b>{posts} {posts === 1 ? 'post' : 'posts'} published</b></div>
+          <div class="radio-stage" aria-hidden="true"></div>
+        </div>
+        <p class="radio-note">
+          Counted from <a href="/blog/">the blog</a> when the site is built. Dial 0 to {dialMax}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof">
+    <div class="wrap">
+      <p class="fd-kicker">By the numbers</p>
+      <div class="proof-grid">
+        <div class="fd-stats" data-reveal>
+          <div class="fd-stat">
+            <p class="fd-stat-l">The Night's Watch</p>
+            <p class="fd-stat-n">4,474<span class="u">commits</span></p>
+            <p class="fd-stat-s">Across all 96 public repositories in The Night's Watch. Nuthatch and Lodestar are 3,087 of them.</p>
+          </div>
+          <div class="fd-stat">
+            <p class="fd-stat-l">Matchstick</p>
+            <p class="fd-stat-n">218<span class="u">stars</span></p>
+            <p class="fd-stat-s">On Matchstick, the subgraph testing framework I built for The Graph in 2021.</p>
+          </div>
+          <div class="fd-stat">
+            <p class="fd-stat-l">In Rust</p>
+            <p class="fd-stat-n">39<span class="u">of 91</span></p>
+            <p class="fd-stat-s">Public repositories in Rust, forks aside. The rest are mostly JavaScript, Python and Dart.</p>
+          </div>
+        </div>
+
+        <div data-reveal>
         <div class="term" role="img" aria-label="Terminal transcript. The first command counts my public repositories by language and prints 39 Rust, 13 JavaScript, 7 Python and 7 Dart. The second sums my commits across every repository in the Night's Watch organisation and prints 4474.">
           <div class="term-bar">
             <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -144,34 +185,13 @@ const shipped = [
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section class="proof">
-    <div class="wrap">
-      <p class="kicker">By the numbers</p>
-      <div class="proof-grid">
-      <div class="stat" data-reveal>
-        <div class="n">4,474<span> commits</span></div>
-        <div class="l">Across all 96 public repositories in The Night's Watch. Nuthatch and Lodestar are 3,087 of them.</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="n">218<span> stars</span></div>
-        <div class="l">On Matchstick, the subgraph testing framework I built for The Graph in 2021.</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="n">39<span> of </span>91</div>
-        <div class="l">Public repositories in Rust, forks aside. The rest are mostly JavaScript, Python and Dart.</div>
-      </div>
-      </div>
-    </div>
-  </section>
-
   <!-- BUILDING -->
   <section id="building">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="kicker">Building now</p>
-        <h2 class="display-sm">Three things I use every day.</h2>
-        <p class="section-lede">
+        <p class="fd-kicker">Building now</p>
+        <h2 class="fd-h1 display-sm">Three things I use every day.</h2>
+        <p class="fd-lede">
           All three exist because the tool did not, all three are one binary,
           and all three are public. None of them is a business.
         </p>
@@ -187,8 +207,8 @@ const shipped = [
                 <p class="shelf-note">{p.blurb}</p>
                 <div class="shelf-meta">
                   {p.meta.map((m) => (m.href
-                    ? <a href={m.href} rel="external noopener">{m.label}</a>
-                    : <span>{m.label}</span>))}
+                    ? <a class="fd-badge" href={m.href} rel="external noopener">{m.label}</a>
+                    : <span class="fd-badge">{m.label}</span>))}
                 </div>
               </div>
             </div>
@@ -204,9 +224,9 @@ const shipped = [
   <section id="watch">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="kicker">The Night's Watch</p>
-        <h2 class="display-sm">Ninety-six repositories, and I have touched all of them.</h2>
-        <p class="section-lede">
+        <p class="fd-kicker">The Night's Watch</p>
+        <h2 class="fd-h1 display-sm">Ninety-six repositories, and I have touched all of them.</h2>
+        <p class="fd-lede">
           A community organisation building the unglamorous half of The Graph:
           indexers, gateways, data services, judges and doctors. It is where
           most of my week goes.
@@ -216,7 +236,7 @@ const shipped = [
       <div class="bento">
         <div class="cell c-feature" data-reveal>
           <div>
-            <span class="tag tag--rust">Contributor since 2025</span>
+            <span class="fd-badge fd-badge--accent">Contributor since 2025</span>
             <h3><a href="https://github.com/nuthatch-org" rel="external noopener">nuthatch-org</a></h3>
             <p>
               Nuthatch and Lodestar are the two big ones, but the interesting
@@ -235,7 +255,7 @@ const shipped = [
         </div>
 
         <div class="cell c-third" data-reveal>
-          <span class="tag">Lodestar</span>
+          <span class="fd-badge">Lodestar</span>
           <h3><a href="https://github.com/nuthatch-org/lodestar" rel="external noopener">1,379 commits</a></h3>
           <p>
             An indexer dashboard that became an indexer. It runs on nuthatch,
@@ -244,7 +264,7 @@ const shipped = [
         </div>
 
         <div class="cell c-mid" data-reveal>
-          <span class="tag">Learn The Graph</span>
+          <span class="fd-badge">Learn The Graph</span>
           <h3><a href="https://learn-thegraph.com" rel="external noopener">graph-academy</a></h3>
           <p>
             A community learning site where every protocol number carries the
@@ -254,7 +274,7 @@ const shipped = [
         </div>
 
         <div class="cell c-mid" data-reveal>
-          <span class="tag">Also in there</span>
+          <span class="fd-badge">Also in there</span>
           <h3>Judges and doctors</h3>
           <p>
             Foghorn, horizon-doctor, swissindexingknife, indexer-gateway-auth.
@@ -272,9 +292,9 @@ const shipped = [
   <section id="shipped">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="kicker">Shipped, and still running</p>
-        <h2 class="display-sm">Work other people now maintain.</h2>
-        <p class="section-lede">
+        <p class="fd-kicker">Shipped, and still running</p>
+        <h2 class="fd-h1 display-sm">Work other people now maintain.</h2>
+        <p class="fd-lede">
           The measure of a tool is whether it survives you leaving. These did.
         </p>
       </div>
@@ -289,8 +309,8 @@ const shipped = [
                 <p class="shelf-note">{p.blurb}</p>
                 <div class="shelf-meta">
                   {p.meta.map((m) => (m.href
-                    ? <a href={m.href} rel="external noopener">{m.label}</a>
-                    : <span>{m.label}</span>))}
+                    ? <a class="fd-badge" href={m.href} rel="external noopener">{m.label}</a>
+                    : <span class="fd-badge">{m.label}</span>))}
                 </div>
               </div>
             </div>
@@ -304,17 +324,17 @@ const shipped = [
   <section class="closer" id="contact">
     <div class="wrap">
       <div data-reveal>
-        <p class="kicker">Contact</p>
-        <h2 class="display-sm">Mail is the fastest way.</h2>
-        <p class="section-lede">
+        <p class="fd-kicker">Contact</p>
+        <h2 class="fd-h1 display-sm">Mail is the fastest way.</h2>
+        <p class="fd-lede">
           Not looking for work. Always happy to talk about indexers, subgraph
           tooling, or anything in the list above.
         </p>
         <div class="cta-row">
-          <button class="copyline" data-copy="pavlovskipetko@gmail.com"
+          <button class="fd-install" data-copy="pavlovskipetko@gmail.com"
                   aria-label="Copy my email address to the clipboard">
-            <span><span class="prompt">$</span> pavlovskipetko@gmail.com</span>
-            <span class="copy">copy</span>
+            <span class="p">$</span><span class="c">pavlovskipetko@gmail.com</span>
+            <span class="h">copy</span>
           </button>
           <a class="ghost" href="/resume/">Read the resume <span class="arrow">&rsaquo;</span></a>
         </div>
@@ -326,5 +346,36 @@ const shipped = [
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    // The radio costs 600 KB of three.js, so nothing loads until the hero is on
+    // screen. Both files are served from this site; nothing leaves it.
+    (function () {
+      var well = document.getElementById('radio');
+      if (!well) return;
+      var posts = Number(well.dataset.posts), max = Number(well.dataset.max);
+      function load(src) {
+        return new Promise(function (ok, fail) {
+          var s = document.createElement('script');
+          s.src = src; s.onload = ok; s.onerror = fail;
+          document.head.appendChild(s);
+        });
+      }
+      function start() {
+        load('/foundry/three-0.149.0.min.js')
+          .then(function () { return load('/foundry/foundry.js'); })
+          .then(function () {
+            var radio = window.Foundry.ValveRadio(well.querySelector('.radio-stage'), { min: 0, max: max, value: 0, label: 'posts' });
+            radio.set(posts);
+          })
+          .catch(function () { well.classList.add('is-failed'); });
+      }
+      if (!('IntersectionObserver' in window)) return start();
+      var io = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { io.disconnect(); start(); }
+      }, { rootMargin: '200px' });
+      io.observe(well);
+    })();
+  </script>
 
 </Layout>

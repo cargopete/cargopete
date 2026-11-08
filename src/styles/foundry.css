@@ -1,0 +1,49 @@
+/* Foundry components, ported from foundry/foundry.css with every font size in rem
+   at the 112.5% root. Only the parts this site uses: the readout, sidebar and
+   gauge rules are left out. Every colour, size and radius comes from the tokens. */
+
+/* kicker + heading: the stamped plate above every section */
+.fd-kicker { font-family: var(--font-mono); font-size: 0.625rem; line-height: 1.4; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.625rem; display: flex; align-items: center; gap: 8px; }
+.fd-h1 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 3.4vw, 1.875rem); line-height: 1.12; letter-spacing: -0.04em; margin: 0 0 0.75rem; text-wrap: balance; }
+.fd-lede { color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin: 0; max-width: 60ch; }
+
+/* buttons */
+.fd-btn { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border-radius: var(--radius-sm); border: 1px solid transparent; cursor: pointer; text-decoration: none; transition: border-color 160ms, background 160ms, color 160ms, transform 120ms; }
+.fd-btn:hover { text-decoration: none; }
+.fd-btn:active { transform: scale(0.98); }
+.fd-btn--primary { background: var(--accent); color: var(--on-accent); }
+.fd-btn--primary:hover { background: var(--accent-ink); color: var(--bg); }
+.fd-btn--ghost { background: transparent; color: var(--text); border-color: var(--border-hi); }
+.fd-btn--ghost:hover { border-color: var(--accent); color: var(--accent); }
+.fd-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+
+/* badges: the one place a pill radius is allowed */
+.fd-badge { font-family: var(--font-mono); font-size: 0.6875rem; line-height: 1.3; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: var(--radius-pill); background: var(--bg-inset); color: var(--text-muted); white-space: nowrap; }
+.fd-badge--accent { background: var(--pale-accent-bg); color: var(--accent-ink); }
+.fd-badge--ok { background: var(--bg-inset); color: var(--ok); }
+.fd-badge--warn { background: var(--bg-inset); color: var(--warn); }
+.fd-badge--bad { background: var(--pale-bad-bg); color: var(--bad-ink); }
+.fd-dot { width: 7px; height: 7px; border-radius: var(--radius-pill); background: currentColor; flex: none; }
+
+/* stat grid: cells drawn by hairlines, not boxes */
+.fd-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+.fd-stat { background: var(--bg-elev); padding: 16px 18px; min-width: 0; }
+.fd-stat-l { font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+.fd-stat-n { font-family: var(--font-display); font-weight: 500; font-size: 2.3rem; letter-spacing: -0.035em; line-height: 1.05; margin: 0; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fd-stat-n .u { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.02em; margin-left: 4px; }
+.fd-stat-s { color: var(--text-muted); font-size: 0.75rem; line-height: 1.5; margin: 4px 0 0; }
+.fd-stat-n.is-unavailable { color: var(--bad); font-size: 1rem; }
+
+/* install line: a button, so it is focusable and copies on Enter */
+.fd-install { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text); background: var(--bg-code); border: 1px solid var(--border-hi); border-radius: var(--radius-sm); padding: 11px 14px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; max-width: 100%; overflow: hidden; white-space: nowrap; transition: border-color 160ms; }
+.fd-install:hover { border-color: var(--accent); }
+.fd-install .p { color: var(--accent); }
+.fd-install .c { overflow: hidden; text-overflow: ellipsis; }
+.fd-install .h { color: var(--text-muted); border-left: 1px solid var(--border); padding-left: 10px; }
+
+/* instruments: every one sits on a plate that names what it reads */
+.fd-instrument { position: relative; background: var(--bg-code); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+.fd-instrument-plate { position: absolute; left: 12px; top: 10px; z-index: 1; font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: flex; gap: 8px; align-items: center; }
+.fd-instrument-plate b { color: var(--text); font-weight: 400; letter-spacing: 0.02em; }
+.fd-stage { position: relative; width: 100%; height: 100%; min-height: 160px; }
+.fd-stage-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }

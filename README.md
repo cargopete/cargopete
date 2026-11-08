@@ -122,31 +122,31 @@ nothing else, and would have gone stale the first time a post was added.
 
 ### Design
 
-Built to the [cargopete-style](https://github.com/cargopete/cargopete-style)
-house skill. That means the palette is mandated rather than chosen:
-`src/styles/global.css` carries the skill's `reference/tokens.css` verbatim between
-two `MANDATED` markers. **Edit those tokens in the skill and re-copy them here** -
-never in this repo - so every site in the house style stays identical.
+Built to Foundry, the house style shared with Lodestar and nuthatch-indexer.com.
+`src/styles/global.css` carries Foundry's `tokens.css` verbatim between two `FOUNDRY`
+markers. **Edit those tokens in Foundry and re-copy them here**, never in this repo,
+so every site in the house style stays identical. The pre-Foundry token names are
+kept as aliases below the block. `src/styles/foundry.css` is Foundry's component
+sheet with its font sizes in rem; the root is 112.5% and nothing is sized in px.
 
-Texture is flat: no gradients, no shadows, hairline borders and whitespace doing the
-structural work. **Light by default**, with the dark theme a faithful inversion of
-it. Light is set as `data-theme="light"` on `<html>` server-side, so the inline
-script only has to undo it for a reader who chose dark, and a reader with
-JavaScript off gets the intended page rather than the other one.
+Dark, flat: no gradients, no card shadows, hairline borders and whitespace doing the
+structural work. Foundry's light values are in the token block, but the site sets no
+`data-theme` and has no toggle, so it renders dark.
+
+The hero instrument is Foundry's `ValveRadio`, and its dial reads the number of
+published posts, counted from the content collection at build time (drafts are not
+posts). The dial runs from 0 to the next multiple of ten above the count. three.js
+and `foundry.js` are served from `public/foundry/` and load only when the hero comes
+into view; `foundry.js` is copied from Foundry, so re-copy it when Foundry changes.
 
 The index rows on the homepage (`.shelf`) are borrowed from
 [learn-thegraph.com](https://learn-thegraph.com), which runs the same house style.
 A catalogue reads better as a list of rows with a count on the left than as
 another grid of boxes.
 
-Two light-theme contrast fixes are carried over from that site's design notes: the
-terminal title bar uses `var(--bg-inset)` rather than a `color-mix` the contrast
-validator cannot see, and the window title runs at `--text-muted` rather than
-`--text-faint`, which measures 2.49 on that bar in light and fails.
-
-The terminal transcript in the hero is real output, run on 25 September 2026. Both
-commands can be pasted into a shell and reproduced. If the numbers drift, rerun them
-and update the page rather than rounding.
+The terminal transcript under the stat band is real output, run on 25 September
+2026. Both commands can be pasted into a shell and reproduced. If the numbers drift,
+rerun them and update the page rather than rounding.
 
 ### Develop
 
@@ -167,7 +167,8 @@ file.
 ### Assets
 
 Fonts are self-hosted, subset with `fonttools` to the glyphs the page uses. Together
-they are 35KB, which is most of the page weight. Do not add a font CDN.
+they are 35KB. Do not add a font CDN. The one heavier file is three.js (600KB),
+fetched only when the hero radio scrolls into view.
 
 The favicon set is drawn, not imported. `public/favicon.svg` is the source of truth;
 `scripts/make-favicon.py` reproduces the same geometry as PNG and ICO with no

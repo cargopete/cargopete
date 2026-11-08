@@ -63,7 +63,7 @@ const nav = [
           <a href={l.href} aria-current={!l.href.includes('#') && path.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
         ))}
       </div>
-      <a class="nav-cta" href="/#contact">contact</a>
+      <a class="nav-cta fd-btn fd-btn--primary" href="/#contact">Contact</a>
     </nav>
   </header>
 
@@ -75,7 +75,7 @@ const nav = [
     <div class="wrap foot">
       <div>
         <span class="brand"><svg aria-hidden="true"><use href="#prompt"/></svg>cargopete</span>
-        <p class="sig">Written in Sofia &#127463;&#127468; · no trackers, no third-party requests</p>
+        <p class="sig">Written in Sofia ·no trackers, no third-party requests</p>
       </div>
       <div class="foot-links">
         <a href="/resume/">Resume</a>
@@ -92,12 +92,14 @@ const nav = [
   <script is:inline>
     // The whole client-side budget for this site: copy-to-clipboard and the
     // reveal below. No framework, no islands, no third party.
-    document.querySelectorAll('.copyline').forEach((el) => {
+    document.querySelectorAll('.fd-install[data-copy]').forEach((el) => {
+      const hint = el.querySelector('.h');
       el.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(el.dataset.copy.trim());
           el.classList.add('copied');
-          setTimeout(() => el.classList.remove('copied'), 1400);
+          hint.textContent = 'copied';
+          setTimeout(() => { el.classList.remove('copied'); hint.textContent = 'copy'; }, 1400);
         } catch (e) { /* insecure origin or denied: the text is still selectable */ }
       });
     });
