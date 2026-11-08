@@ -129,15 +129,16 @@ so every site in the house style stays identical. The pre-Foundry token names ar
 kept as aliases below the block. `src/styles/foundry.css` is Foundry's component
 sheet with its font sizes in rem; the root is 112.5% and nothing is sized in px.
 
-Dark, flat: no gradients, no card shadows, hairline borders and whitespace doing the
+Dark, flat: no gradients outside the hero scene, no card shadows, hairline borders and whitespace doing the
 structural work. Foundry's light values are in the token block, but the site sets no
 `data-theme` and has no toggle, so it renders dark.
 
-The hero instrument is Foundry's `ValveRadio`, and its dial reads the number of
-published posts, counted from the content collection at build time (drafts are not
-posts). The dial runs from 0 to the next multiple of ten above the count. three.js
-and `foundry.js` are served from `public/foundry/` and load only when the hero comes
-into view; `foundry.js` is copied from Foundry, so re-copy it when Foundry changes.
+The 3D work is scenery and shows no figures. The home hero draws Foundry's
+workbench behind the copy, and the home, writing and resume pages carry an ambient
+layer of workbench parts in the side margins; posts do not. Both come from
+`public/foundry/scenes.js`, Foundry's `scenes/dist/scenes.min.js` copied as is, so
+re-copy it when Foundry changes. It is imported after first paint, and if WebGL or
+the import fails the page is already complete without it.
 
 The index rows on the homepage (`.shelf`) are borrowed from
 [learn-thegraph.com](https://learn-thegraph.com), which runs the same house style.
@@ -167,8 +168,8 @@ file.
 ### Assets
 
 Fonts are self-hosted, subset with `fonttools` to the glyphs the page uses. Together
-they are 35KB. Do not add a font CDN. The one heavier file is three.js (600KB),
-fetched only when the hero radio scrolls into view.
+they are 35KB. Do not add a font CDN. The one heavier file is the scenes module (730KB),
+imported only after the page has painted.
 
 The favicon set is drawn, not imported. `public/favicon.svg` is the source of truth;
 `scripts/make-favicon.py` reproduces the same geometry as PNG and ICO with no

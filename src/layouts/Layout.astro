@@ -4,8 +4,10 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  /** Workbench parts drifting in the page margins. Not on posts: prose wants a still page. */
+  ambient?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, ambient = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const path = Astro.url.pathname;
 const nav = [
@@ -46,6 +48,7 @@ const nav = [
 
 </head>
 <body>
+  {ambient && <canvas class="ambient" id="ambient" aria-hidden="true"></canvas>}
   <a class="skip" href="#main">Skip to content</a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -117,6 +120,29 @@ const nav = [
         });
       }, { rootMargin: '-40px' });
       targets.forEach((el) => io.observe(el));
+    }
+  </script>
+
+  <script is:inline type="module">
+    // Scenery, never content: loaded after first paint from this site, and if
+    // WebGL or the import fails the page is already complete without it.
+    const hero = document.getElementById('landscape');
+    const ambient = document.getElementById('ambient');
+    if (hero || ambient) {
+      const go = () => import('/foundry/scenes.js').then((S) => {
+        try { if (hero) S.createWorkbench(hero); } catch (e) { hero.remove(); }
+        try {
+          if (ambient) {
+            // createAmbient clears only 0.78 of the width it is given, so give it the
+            // column divided by that, or parts sit behind the first letters of a line.
+            const wrap = document.querySelector('main .wrap');
+            S.createAmbient(ambient, { kit: 'workbench', contentWidth: (wrap ? wrap.getBoundingClientRect().width : 1296) / 0.78 });
+          }
+        } catch (e) { ambient.remove(); }
+      }).catch(() => {});
+      const later = () => requestAnimationFrame(() => setTimeout(go));
+      if (document.readyState === 'complete') later();
+      else addEventListener('load', later, { once: true });
     }
   </script>
 </body>

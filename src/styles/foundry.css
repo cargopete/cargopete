@@ -1,6 +1,6 @@
 /* Foundry components, ported from foundry/foundry.css with every font size in rem
-   at the 112.5% root. Only the parts this site uses: the readout, sidebar and
-   gauge rules are left out. Every colour, size and radius comes from the tokens. */
+   at the 112.5% root. Only the parts this site uses: the readout, sidebar, gauge and
+   instrument rules are left out. Every colour, size and radius comes from the tokens. */
 
 /* kicker + heading: the stamped plate above every section */
 .fd-kicker { font-family: var(--font-mono); font-size: 0.625rem; line-height: 1.4; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.625rem; display: flex; align-items: center; gap: 8px; }
@@ -41,9 +41,3 @@
 .fd-install .c { overflow: hidden; text-overflow: ellipsis; }
 .fd-install .h { color: var(--text-muted); border-left: 1px solid var(--border); padding-left: 10px; }
 
-/* instruments: every one sits on a plate that names what it reads */
-.fd-instrument { position: relative; background: var(--bg-code); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
-.fd-instrument-plate { position: absolute; left: 12px; top: 10px; z-index: 1; font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); display: flex; gap: 8px; align-items: center; }
-.fd-instrument-plate b { color: var(--text); font-weight: 400; letter-spacing: 0.02em; }
-.fd-stage { position: relative; width: 100%; height: 100%; min-height: 160px; }
-.fd-stage-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
