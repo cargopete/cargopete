@@ -8,8 +8,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check && node scripts/resume-pdf/check.mjs",
-    "resume-pdf": "node scripts/resume-pdf/build.mjs"
+    "check": "astro check && node scripts/profile.mjs --check && node scripts/resume-pdf/check.mjs",
+    "resume-pdf": "node scripts/resume-pdf/build.mjs",
+    "profile": "node scripts/profile.mjs",
+    "social-card": "node scripts/social-card.mjs"
   },
   "dependencies": {
     "astro": "^5.13.0"

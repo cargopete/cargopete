@@ -29,7 +29,7 @@ const job = (j) => `
     </div>`;
 
 const project = (p) => `
-        <p class="project">${p.names.map((n) => `<b>${esc(n)}</b>`).join(' and ')} — ${esc(p.text)} <span class="meta mono">${esc(p.meta)}</span></p>`;
+        <p class="project">${p.names.map((n) => `<b>${esc(n)}</b>`).join(' and ')} - ${esc(p.text)} <span class="meta mono">${esc(p.meta)}</span></p>`;
 
 const { contact, history, openSource, scope, footing, pdf } = resume;
 const fields = {

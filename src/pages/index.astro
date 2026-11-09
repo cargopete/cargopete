@@ -1,335 +1,127 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// The showcase, kept as data so a new project is one entry rather than a
-// hunt through markup. `count` is a real figure and must stay one: commit
-// counts come from the GitHub contributors API, stars from the repo itself.
-const building = [
-  {
-    name: 'nuthatch',
-    count: '1,708 commits',
-    href: 'https://nuthatch-indexer.com',
-    blurb:
-      'Be your own indexer. One Rust binary, one command, and a live indexed API in under two minutes. It follows the chain, seals segments to Parquet, serves SQL and MCP, and has no mandatory third-party data dependency. Built as a public good rather than a business.',
-    meta: [
-      { label: 'Rust', href: null },
-      { label: 'nuthatch-indexer.com', href: 'https://nuthatch-indexer.com' },
-      { label: 'source', href: 'https://github.com/nuthatch-org/nuthatch' },
-    ],
-  },
-  {
-    name: 'redstart',
-    count: '104 commits',
-    href: 'https://redstart-lang.com',
-    blurb:
-      'A language for authoring subgraphs, and the sexiest way to do it. Schema, manifest and mappings collapse into one typed source that compiles to AssemblyScript the canonical toolchain builds unmodified. The whole family of AssemblyScript footguns becomes unrepresentable: if it compiles, it works.',
-    meta: [
-      { label: 'Rust', href: null },
-      { label: 'redstart-lang.com', href: 'https://redstart-lang.com' },
-      { label: 'source', href: 'https://github.com/nuthatch-org/redstart' },
-    ],
-  },
-  {
-    name: 'yatr',
-    count: '62 commits',
-    href: 'https://yetanothertaskrunner.com',
-    blurb:
-      'The best task runner ever, and a single binary. Its cache is content-addressed and signed, so a shared cache entry can be trusted rather than hoped about, and it speaks REAPI so the remote execution you already run will talk to it.',
-    meta: [
-      { label: 'Rust', href: null },
-      { label: 'yetanothertaskrunner.com', href: 'https://yetanothertaskrunner.com' },
-      { label: 'source', href: 'https://github.com/cargopete/yatr' },
-    ],
-  },
-];
-
-const shipped = [
-  {
-    name: 'matchstick',
-    count: '218 stars',
-    href: 'https://github.com/LimeChain/matchstick',
-    blurb:
-      'Unit testing for subgraphs, in Rust and WebAssembly, written at The Graph in 2021. The ecosystem standardised on it and it is still maintained by other people, which is the outcome you want. 218 stars, 17 forks, and I have not touched it in years.',
-    meta: [
-      { label: 'Rust + WebAssembly', href: null },
-      { label: 'The Graph, 2021', href: null },
-      { label: 'source', href: 'https://github.com/LimeChain/matchstick' },
-    ],
-  },
-  {
-    name: 'graphcast, and subgraph-radio',
-    count: '2022 - 2025',
-    href: 'https://github.com/graphops/graphcast-sdk',
-    blurb:
-      'A P2P messaging protocol for The Graph indexer network, built on Waku and libp2p at The Graph. Gossip, fault-tolerant delivery, and a radio pattern that let anyone add a message type without touching the core. Subgraph Radio was the first radio built on it, gossiping subgraph health between indexers.',
-    meta: [
-      { label: 'Rust, libp2p, Waku', href: null },
-      { label: 'graphcast-sdk', href: 'https://github.com/graphops/graphcast-sdk' },
-      { label: 'subgraph-radio', href: 'https://github.com/graphops/subgraph-radio' },
-    ],
-  },
-  {
-    name: 'The platform an AI data product runs on',
-    count: 'Apr 2025 -',
-    href: 'https://fathom.io',
-    blurb:
-      'Senior Rust engineer at Fathom: a multi-workspace monorepo of services, storage and control plane, and the dataops workflows that keep a model fed with something true. Lately a transactional outbox and the relay that drains it, so an event and the row it describes commit together or not at all.',
-    meta: [
-      { label: 'Rust', href: null },
-      { label: 'fathom.io', href: 'https://fathom.io' },
-      { label: 'the full history', href: '/resume/' },
-    ],
-  },
-];
+import { portfolio } from '../data/portfolio';
+import { resume } from '../data/resume';
+const { contact } = resume;
 ---
-
 <Layout
   ambient
-  title="Petko (Pete) Pavlovski - senior Rust engineer"
-  description="Senior Rust engineer in Sofia. Building nuthatch, redstart and yatr; contributor across The Night's Watch. Previously Matchstick and Graphcast at The Graph."
+  title="Petko Pavlovski | Senior Rust Engineer | Backend & Distributed Systems"
+  description="Senior Rust engineer at Fathom. Creator of Matchstick, builder of nuthatch and Graphcast. Production software since 2019. Sofia, remote."
 >
-
-  <!-- HERO: the workbench is scenery behind the copy, not a readout -->
-  <section class="hero" id="top">
+  <section id="top" class="portfolio-hero hero">
     <canvas class="hero-scene" id="landscape" aria-hidden="true"></canvas>
     <div class="scan" aria-hidden="true"></div>
-    <div class="wrap hero-copy">
-      <span class="fd-badge fd-badge--accent hero-badge rise rise-1"><span class="fd-dot"></span>Sofia, Bulgaria · remote since 2019</span>
-      <h1 class="display rise rise-2">I write the part<br>that has to stay up.</h1>
-      <p class="lede rise rise-2">
-        Rust, mostly. Indexers, languages, P2P protocols and the tooling
-        around them. Most of it is still running.
-      </p>
-      <div class="btn-row rise rise-3">
-        <a class="fd-btn fd-btn--primary" href="#building">See what I am building <span class="arrow">&rsaquo;</span></a>
-        <a class="fd-btn fd-btn--ghost" href="/resume/">Read the resume</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROOF -->
-  <section class="proof">
     <div class="wrap">
-      <p class="fd-kicker">By the numbers</p>
-      <div class="proof-grid">
-        <div class="fd-stats" data-reveal>
-          <div class="fd-stat">
-            <p class="fd-stat-l">The Night's Watch</p>
-            <p class="fd-stat-n">4,474<span class="u">commits</span></p>
-            <p class="fd-stat-s">Across all 96 public repositories in The Night's Watch. Nuthatch and Lodestar are 3,087 of them.</p>
+      <div class="hero-heading rise rise-1">
+        <p class="fd-kicker">Petko (Pete) Pavlovski</p>
+        <span class="hero-location">Sofia, Bulgaria · remote since 2019</span>
+      </div>
+      <div class="portfolio-grid">
+        <div>
+          <p class="hero-role rise rise-1">{portfolio.role}</p>
+          <h1 class="portfolio-title rise rise-2">I write the part<br>that has to <span>stay up.</span></h1>
+          <p class="portfolio-intro rise rise-2">{portfolio.summary}</p>
+          <div class="btn-row rise rise-3">
+            <a class="fd-btn fd-btn--primary" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
+            <a class="fd-btn fd-btn--ghost" href="/resume/petko-pavlovski-resume.pdf" download>Download CV <span class="mono">PDF</span></a>
           </div>
-          <div class="fd-stat">
-            <p class="fd-stat-l">Matchstick</p>
-            <p class="fd-stat-n">218<span class="u">stars</span></p>
-            <p class="fd-stat-s">On Matchstick, the subgraph testing framework I built for The Graph in 2021.</p>
-          </div>
-          <div class="fd-stat">
-            <p class="fd-stat-l">In Rust</p>
-            <p class="fd-stat-n">39<span class="u">of 91</span></p>
-            <p class="fd-stat-s">Public repositories in Rust, forks aside. The rest are mostly JavaScript, Python and Dart.</p>
-          </div>
+          <p class="hero-contact rise rise-3"><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={`https://${contact.github}`}>GitHub</a><a href={contact.linkedinUrl}>LinkedIn</a></p>
         </div>
-
-        <div data-reveal>
-        <div class="term" role="img" aria-label="Terminal transcript. The first command counts my public repositories by language and prints 39 Rust, 13 JavaScript, 7 Python and 7 Dart. The second sums my commits across every repository in the Night's Watch organisation and prints 4474.">
-          <div class="term-bar">
-            <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="term-title">cargopete - zsh - 88×14</span>
-          </div>
-          <!-- Real output, run on 25 September 2026. Not a character is
-               invented; the only liberty taken is colouring the counts. Both
-               commands can be pasted into a shell and reproduced. If the
-               numbers drift, rerun them and edit this panel rather than
-               rounding it.
-
-               This is a real pre element, not a stack of flex rows. `uniq -c` right
-               aligns its counts, and Astro's compressHTML collapses leading
-               whitespace everywhere except inside a pre, which quietly turned
-               that column into a left-aligned lie. A pre also means the lines
-               paste into a shell as written, which is the whole claim the
-               caption makes. -->
-<pre class="term-body" aria-hidden="true"><span class="pre-cmd">$</span> gh api users/cargopete/repos --paginate \
-     --jq '.[]|select(.fork|not)|.language' \
-   | sort | uniq -c | sort -rn | head -4
-<span class="tout">  <span class="n">39</span> Rust
-  <span class="n">13</span> JavaScript
-   <span class="n">7</span> Python
-   <span class="n">7</span> Dart</span>
-<span class="pre-cmd">$</span> for r in $(gh api orgs/nuthatch-org/repos \
-       --paginate --jq '.[].name'); do
-    gh api repos/nuthatch-org/$r/contributors \
-      --jq '.[]|select(.login=="cargopete")|.contributions'
-  done | paste -sd+ - | bc
-<span class="tout"><span class="n">4474</span></span>
-<span class="pre-cmd">$</span> <span class="term-cursor">&#9608;</span></pre>
-        </div>
-        <p class="term-caption">
-          Real output, run on 25 September 2026. Paste either line into a shell.
-        </p>
+        <aside class="work-index rise rise-3" aria-label="Selected work index">
+          <div class="index-heading"><span>Selected systems</span><span>01 / 03</span></div>
+          {portfolio.selected.map((project, index) => (
+            <a href={`#${project.id}`} class="index-entry">
+              <span class="index-number">0{index + 1}</span>
+              <span><strong>{project.name}</strong><small>{project.label}</small></span>
+              <span class="index-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+          <p class="index-foot">Code, context and my contribution below.</p>
+        </aside>
+      </div>
+      <div class="career-strip">
+        <p><span class="strip-label">Now</span><a href="https://fathom.io">Fathom</a><span>Rust backend · AI data platform</span></p>
+        <p><span class="strip-label">Previously</span><span>The Graph / GraphOps</span><span>Kraken</span><span>OVO Energy</span></p>
       </div>
     </div>
   </section>
-
-  <!-- BUILDING -->
-  <section id="building">
+  <section id="work" class="selected-work">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="fd-kicker">Building now</p>
-        <h2 class="fd-h1 display-sm">Three things I use every day.</h2>
-        <p class="fd-lede">
-          All three exist because the tool did not, all three are one binary,
-          and all three are public. None of them is a business.
-        </p>
+        <p class="fd-kicker">Selected work</p>
+        <h2 class="fd-h1 display-sm">The work, with the source attached.</h2>
+        <p class="fd-lede">A testing framework, an indexer and a messaging protocol. Different systems, the same concern: what happens when somebody else has to rely on them.</p>
       </div>
-
-      <div class="shelves">
-        {building.map((p) => (
-          <div class="shelf" data-reveal>
-            <div class="shelf-head">
-              <span class="shelf-num">{p.count}</span>
-              <div class="shelf-body">
-                <h3><a class="shelf-link" href={p.href} rel="external noopener">{p.name}</a></h3>
-                <p class="shelf-note">{p.blurb}</p>
-                <div class="shelf-meta">
-                  {p.meta.map((m) => (m.href
-                    ? <a class="fd-badge" href={m.href} rel="external noopener">{m.label}</a>
-                    : <span class="fd-badge">{m.label}</span>))}
-                </div>
-              </div>
-            </div>
+      {portfolio.selected.map((project, index) => (
+        <article id={project.id} class="case-study" data-reveal>
+          <div class="case-identity">
+            <span class="case-number" aria-hidden="true">0{index + 1}</span>
+            <p class="fd-kicker">{project.label}</p>
+            <h3>{project.name}</h3>
+            <p class="case-context">{project.context}</p>
+            <ul class="case-tags" aria-label="Technologies">{project.tags.map(tag => <li>{tag}</li>)}</ul>
           </div>
+          <div class="case-content">
+            <h4>{project.title}</h4>
+            <dl class="case-details">
+              <div><dt>The problem</dt><dd>{project.problem}</dd></div>
+              <div><dt>My work</dt><dd>{project.contribution}</dd></div>
+              <div><dt>The result</dt><dd>{project.result}</dd></div>
+            </dl>
+            <div class="evidence-links">{project.links.map(link => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section id="building" class="more-work">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="fd-kicker">Also building</p>
+        <h2 class="fd-h1 display-sm">Tools I wanted to exist.</h2>
+        <p class="fd-lede">Independent projects, built in public. From the compiler to the operator’s screen.</p>
+      </div>
+      <div class="project-grid">
+        {portfolio.building.map(project => (
+          <article class="project-note" data-reveal>
+            <p class="fd-kicker">{project.kind}</p>
+            <h3><a href={project.href}>{project.name}</a></h3>
+            <p>{project.text}</p>
+            <span class="project-stack">{project.tags}</span>
+            <div class="evidence-links"><a href={project.href}>Visit project <span aria-hidden="true">↗</span></a><a href={project.source}>Source <span aria-hidden="true">↗</span></a></div>
+          </article>
         ))}
       </div>
+      <p class="community-note">More operator tools in <a href="https://github.com/nuthatch-org">The Night’s Watch</a>, and protocol explainers at <a href="https://learn-thegraph.com">Learn The Graph</a>.</p>
     </div>
   </section>
-
-  <hr class="divider" />
-
-  <!-- THE NIGHT'S WATCH -->
-  <section id="watch">
-    <div class="wrap">
+  <section id="experience" class="experience-summary">
+    <div class="wrap experience-grid">
       <div class="section-head" data-reveal>
-        <p class="fd-kicker">The Night's Watch</p>
-        <h2 class="fd-h1 display-sm">Ninety-six repositories, and I have touched all of them.</h2>
-        <p class="fd-lede">
-          A community organisation building the unglamorous half of The Graph:
-          indexers, gateways, data services, judges and doctors. It is where
-          most of my week goes.
-        </p>
+        <p class="fd-kicker">In production since 2019</p>
+        <h2 class="fd-h1 display-sm">From the test harness to the service.</h2>
+        <p class="fd-lede">{portfolio.current}</p>
+        <a class="text-link" href="/resume/">Full experience & CV <span aria-hidden="true">↗</span></a>
       </div>
-
-      <div class="bento">
-        <div class="cell c-feature" data-reveal>
-          <div>
-            <span class="fd-badge fd-badge--accent">Contributor since 2025</span>
-            <h3><a href="https://github.com/nuthatch-org" rel="external noopener">nuthatch-org</a></h3>
-            <p>
-              Nuthatch and Lodestar are the two big ones, but the interesting
-              work is the long tail: Dispatch, a decentralised JSON-RPC service
-              on Horizon. Foghorn, a network-quality judge that catches indexers
-              serving confident, well-formed garbage. Horizon-doctor, which turns
-              a startup panic into an explained gate. Graphite, a Rust SDK for
-              subgraphs.
-            </p>
-          </div>
-          <div class="flow">
-            <span class="chip">96 repos</span><span class="arrow">→</span>
-            <span class="chip">4,474 commits</span><span class="arrow">→</span>
-            <span class="chip chip--hot">all of it public</span>
-          </div>
-        </div>
-
-        <div class="cell c-third" data-reveal>
-          <span class="fd-badge">Lodestar</span>
-          <h3><a href="https://github.com/nuthatch-org/lodestar" rel="external noopener">1,379 commits</a></h3>
-          <p>
-            An indexer dashboard that became an indexer. It runs on nuthatch,
-            which is the sort of thing that only happens if both are yours.
-          </p>
-        </div>
-
-        <div class="cell c-mid" data-reveal>
-          <span class="fd-badge">Learn The Graph</span>
-          <h3><a href="https://learn-thegraph.com" rel="external noopener">graph-academy</a></h3>
-          <p>
-            A community learning site where every protocol number carries the
-            date somebody last checked it, and the build goes red when one
-            goes stale.
-          </p>
-        </div>
-
-        <div class="cell c-mid" data-reveal>
-          <span class="fd-badge">Also in there</span>
-          <h3>Judges and doctors</h3>
-          <p>
-            Foghorn, horizon-doctor, swissindexingknife, indexer-gateway-auth.
-            Small tools for operators, written because somebody was doing it by
-            hand.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider" />
-
-  <!-- SHIPPED -->
-  <section id="shipped">
-    <div class="wrap">
-      <div class="section-head" data-reveal>
-        <p class="fd-kicker">Shipped, and still running</p>
-        <h2 class="fd-h1 display-sm">Work other people now maintain.</h2>
-        <p class="fd-lede">
-          The measure of a tool is whether it survives you leaving. These did.
-        </p>
-      </div>
-
-      <div class="shelves">
-        {shipped.map((p) => (
-          <div class="shelf" data-reveal>
-            <div class="shelf-head">
-              <span class="shelf-num">{p.count}</span>
-              <div class="shelf-body">
-                <h3><a class="shelf-link" href={p.href} rel="external noopener">{p.name}</a></h3>
-                <p class="shelf-note">{p.blurb}</p>
-                <div class="shelf-meta">
-                  {p.meta.map((m) => (m.href
-                    ? <a class="fd-badge" href={m.href} rel="external noopener">{m.label}</a>
-                    : <span class="fd-badge">{m.label}</span>))}
-                </div>
-              </div>
-            </div>
-          </div>
+      <ol class="career-list" aria-label="Recent experience">
+        {resume.jobs.slice(0, 4).map(job => (
+          <li><span class="career-dates">{job.from} - {job.to}</span><h3>{job.company}{job.org && <span> / {job.org}</span>}</h3><p>{job.role}</p></li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
-
-  <!-- CLOSE -->
   <section class="closer" id="contact">
     <div class="wrap">
-      <div data-reveal>
-        <p class="fd-kicker">Contact</p>
-        <h2 class="fd-h1 display-sm">Mail is the fastest way.</h2>
-        <p class="fd-lede">
-          Not looking for work. Always happy to talk about indexers, subgraph
-          tooling, or anything in the list above.
-        </p>
-        <div class="cta-row">
-          <button class="fd-install" data-copy="pavlovskipetko@gmail.com"
-                  aria-label="Copy my email address to the clipboard">
-            <span class="p">$</span><span class="c">pavlovskipetko@gmail.com</span>
-            <span class="h">copy</span>
-          </button>
-          <a class="ghost" href="/resume/">Read the resume <span class="arrow">&rsaquo;</span></a>
-        </div>
-        <div class="links">
-          <a href="https://github.com/cargopete">github.com/cargopete</a>
-          <a href="https://github.com/nuthatch-org" rel="external noopener">The Night's Watch</a>
-          <a href="mailto:pavlovskipetko@gmail.com">pavlovskipetko@gmail.com</a>
-        </div>
+      <p class="fd-kicker">Let’s talk systems</p>
+      <h2 class="fd-h1 display-sm">What are you building?</h2>
+      <p class="fd-lede">{portfolio.contact}</p>
+      <p class="contact-location">Sofia · remote · European working hours</p>
+      <div class="cta-row">
+        <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>Email Pete <span aria-hidden="true">↗</span></a>
+        <a class="fd-btn fd-btn--ghost" href="/resume/">Read the CV</a>
       </div>
+      <div class="links"><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={contact.linkedinUrl}>LinkedIn</a><a href={`https://${contact.github}`}>GitHub</a></div>
     </div>
   </section>
-
 </Layout>

@@ -22,11 +22,7 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
         {resume.tenure} {resume.accountant}
       </p>
       <div class="btn-row rise rise-3">
-        <button class="fd-install" data-copy={contact.email}
-                aria-label="Copy my email address to the clipboard">
-          <span class="p">$</span><span class="c">{contact.email}</span>
-          <span class="h">copy</span>
-        </button>
+        <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>Email Pete</a>
         <a class="fd-btn fd-btn--ghost" href="/#building">See what I am building</a>
         <a class="fd-btn fd-btn--ghost" href="/resume/petko-pavlovski-resume.pdf" download>Download resume (PDF)</a>
       </div>
@@ -53,7 +49,7 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
               <h3>{job.href
                 ? <a href={job.href} rel="external noopener">{job.company}</a>
                 : job.company}</h3>
-              <span class="job-role">{job.role}</span>
+              <span class="job-role">{job.role}{job.org && ` · ${job.org}`}</span>
             </div>
             <div class="job-when">{job.when}</div>
             <ul>{job.points.map((p) => <li>{p}</li>)}</ul>
@@ -104,11 +100,7 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
           {close.lede}
         </p>
         <div class="cta-row">
-          <button class="fd-install" data-copy={contact.email}
-                  aria-label="Copy my email address to the clipboard">
-            <span class="p">$</span><span class="c">{contact.email}</span>
-            <span class="h">copy</span>
-          </button>
+          <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>{contact.email}</a>
           <a class="ghost" href="/">Back to the work <span class="arrow">&rsaquo;</span></a>
         </div>
         <div class="links">

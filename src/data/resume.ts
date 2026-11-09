@@ -23,10 +23,10 @@ export interface Project {
 export const resume = {
   name: 'Petko (Pete) Pavlovski',
   tagline: ['Senior Rust engineer', 'indexers, languages, P2P protocols, and the tooling around them.'],
-  intro: 'I write the part that has to stay up. Most of it is still running.',
-  tenure: 'Seven years and eight months shipping in production, Rust for the last five.',
+  intro: 'I write the part that has to stay up.',
+  tenure: 'Shipping production software since 2019. Building in Rust since 2021.',
   accountant: 'Accountant before that, which is where the habit of checking the number twice comes from.',
-  footing: { figure: '7y 8m', text: 'Seven years and eight months in production, Rust for the last five.' },
+  footing: { figure: '2019', text: 'In production since 2019. Rust since 2021.' },
 
   contact: {
     email: 'pavlovskipetko@gmail.com',
@@ -40,14 +40,14 @@ export const resume = {
   page: {
     title: 'Resume - Petko (Pete) Pavlovski',
     description:
-      "Seven years and eight months shipping in production, Rust for the last five. Fathom, The Graph, Kraken, OVO Energy. What I take on, and what I don't.",
-    headline: 'Where the seven years went.',
+      "Senior Rust engineer at Fathom. Production software since 2019, Rust since 2021. Previously The Graph, Kraken and OVO Energy.",
+    headline: 'Rust engineer. Systems builder.',
   },
 
   history: {
     kicker: 'Work history',
-    heading: 'Six roles, one thread.',
-    lede: 'Blockchain data infrastructure the whole way through, once the first two years had got the web work out of my system.',
+    heading: 'From developer tools to data platforms.',
+    lede: 'Backend services, distributed protocols and the tools around them. Remote since 2019.',
   },
 
   jobs: [
@@ -62,7 +62,7 @@ export const resume = {
       points: [
         'Rust backend systems for an AI-driven data platform.',
         'Multi-workspace monorepo: services, storage, control plane.',
-        'Dataops workflows, and refactoring for performance and for the next person to read.',
+        'Transactional outbox and event relay, keeping database writes and event publication consistent.',
       ],
     },
     {
@@ -76,7 +76,7 @@ export const resume = {
         'At GraphOps, one of The Graph’s core developer teams.',
         'Designed and built Graphcast, a P2P messaging protocol on Waku and libp2p.',
         'Backend services carrying the traffic, and a yew.rs frontend for the tooling.',
-        'Ran the demos and workshops, which is how you find out what the protocol is missing.',
+        'Delivered protocol demos and developer workshops.',
       ],
     },
     {
@@ -128,24 +128,24 @@ export const resume = {
     building: [
       {
         names: ['nuthatch'],
-        text: 'be your own indexer. One Rust binary, one command, a live indexed API in under two minutes. Follows the chain, seals segments to Parquet, serves SQL and MCP, and has no mandatory third-party data dependency. A public good rather than a business.',
+        text: 'a self-hosted blockchain indexer in Rust. Follows the chain, seals history into Parquet and serves SQL and MCP.',
         meta: 'nuthatch-indexer.com',
       },
       {
         names: ['redstart'],
-        text: 'a language for authoring subgraphs. Schema, manifest and mappings collapse into one typed source that transpiles to AssemblyScript the canonical toolchain builds unmodified. The whole family of AssemblyScript footguns becomes unrepresentable. If it compiles, it works.',
+        text: 'a typed language for subgraphs. Emits schema, manifest and AssemblyScript mappings for the existing Graph toolchain.',
         meta: 'redstart-lang.com',
       },
       {
         names: ['yatr'],
-        text: 'a single-binary task runner whose cache is content-addressed and signed, so a shared cache entry can be trusted rather than hoped about. Speaks REAPI.',
+        text: 'a Rust task runner with content-addressed caching, optional native cache signing and REAPI HTTP cache support.',
         meta: 'yetanothertaskrunner.com',
       },
     ] as Project[],
     shipped: [
       {
         names: ['matchstick'],
-        text: 'unit testing for subgraphs, in Rust and WebAssembly. The ecosystem standardised on it. 218 stars, 17 forks, still maintained by others.',
+        text: 'a Rust and WebAssembly subgraph testing framework I created at LimeChain. Documented in The Graph’s official tooling and invoked through graph test.',
         meta: 'LimeChain for The Graph, on a Foundation grant, 2021',
       },
       {
@@ -163,14 +163,14 @@ export const resume = {
 
   scope: {
     kicker: 'Before you write',
-    heading: "What I do, and what I don't.",
+    heading: 'Where I can help.',
     // The page links "LinkedIn" between these two halves.
     lede: [
       'If you want to talk, reach me on',
-      'or by email. This is here so that if you do write, we both know within a paragraph whether it is going anywhere. The second column is the useful one.',
+      'or by email. My focus is Rust backend engineering, distributed systems and developer tooling.',
     ],
     inLabel: 'In scope',
-    outLabel: 'Out of scope',
+    outLabel: 'Working preferences',
     in: [
       'Rust backends, services and CLIs',
       'Distributed systems and P2P protocol work',
@@ -180,19 +180,18 @@ export const resume = {
       'Remote, EET, overlapping most of a European day',
     ],
     out: [
-      'Frontend as the main job. I ship React and Flutter when a project needs it, but it is not what you want me for',
-      'Smart contract auditing. I have written contracts, not audited them for a living',
-      'ML research. I build the pipelines, not the models',
-      'Relocation. Overlapping some US hours is fine',
-      'Work where the architecture is settled and not open to a question',
+      'Remote from Sofia, Bulgaria',
+      'European working hours, with some US overlap',
+      'Backend and infrastructure as the main responsibility',
+      'Room to question a design and take ownership of the result',
     ],
-    note: 'If the thing you are building has to stay up while somebody else operates it, that is the part I am good at. If it has to look beautiful in a demo next Thursday, there are people better suited than me.',
+    note: 'Send me the problem, the team and the constraints. That is a useful starting point.',
   },
 
   close: {
     kicker: 'Contact',
     heading: 'Mail is the fastest way.',
-    lede: 'I read everything. I reply to anything that is not a template.',
+    lede: 'For Rust backend, distributed systems or developer tooling work, send me the problem, the team and the constraints.',
   },
 
   pdf: {

@@ -1,21 +1,29 @@
 ---
 import '../styles/global.css';
+import { resume } from '../data/resume';
 
 interface Props {
   title: string;
   description: string;
-  /** Workbench parts drifting in the page margins. Not on posts: prose wants a still page. */
   ambient?: boolean;
 }
 const { title, description, ambient = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const path = Astro.url.pathname;
 const nav = [
-  { href: '/#building', label: 'Building' },
-  { href: '/#shipped', label: 'Shipped' },
+  { href: '/#work', label: 'Selected work' },
+  { href: '/#experience', label: 'Experience' },
   { href: '/blog/', label: 'Writing' },
   { href: '/resume/', label: 'Resume' },
 ];
+const person = {
+  '@context': 'https://schema.org', '@type': 'Person',
+  name: 'Petko Pavlovski', alternateName: ['Pete Pavlovski', 'cargopete'],
+  url: Astro.site?.href, jobTitle: 'Senior Rust Engineer',
+  worksFor: { '@type': 'Organization', name: 'Fathom', url: 'https://fathom.io' },
+  sameAs: [`https://${resume.contact.github}`, resume.contact.linkedinUrl],
+  knowsAbout: ['Rust', 'Distributed systems', 'Blockchain indexing', 'Developer tooling'],
+};
 ---
 <!doctype html>
 <html lang="en" data-palette="brick">
@@ -44,7 +52,13 @@ const nav = [
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="Petko Pavlovski" />
+  <meta property="og:image" content={new URL('/social-card.png', Astro.site).href} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Petko Pavlovski. Senior Rust engineer. I write the part that has to stay up. Matchstick, nuthatch, Graphcast." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(person).replace(/</g, '\\u003c')} />
 
 </head>
 <body>
@@ -78,7 +92,7 @@ const nav = [
     <div class="wrap foot">
       <div>
         <span class="brand"><svg aria-hidden="true"><use href="#prompt"/></svg>cargopete</span>
-        <p class="sig">Written in Sofia ·no trackers, no third-party requests</p>
+        <p class="sig">Written in Sofia · no trackers, no third-party requests</p>
       </div>
       <div class="foot-links">
         <a href="/resume/">Resume</a>
@@ -93,21 +107,6 @@ const nav = [
   </footer>
 
   <script is:inline>
-    // The whole client-side budget for this site: copy-to-clipboard and the
-    // reveal below. No framework, no islands, no third party.
-    document.querySelectorAll('.fd-install[data-copy]').forEach((el) => {
-      const hint = el.querySelector('.h');
-      el.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(el.dataset.copy.trim());
-          el.classList.add('copied');
-          hint.textContent = 'copied';
-          setTimeout(() => { el.classList.remove('copied'); hint.textContent = 'copy'; }, 1400);
-        } catch (e) { /* insecure origin or denied: the text is still selectable */ }
-      });
-    });
-
-
     // One entrance, below the fold, via IntersectionObserver rather than a
     // scroll listener. Elements start visible in the markup, so a crawler and a
     // reduced-motion reader both get the finished page.
@@ -122,7 +121,6 @@ const nav = [
       targets.forEach((el) => io.observe(el));
     }
   </script>
-
   <script is:inline type="module">
     // Scenery, never content: loaded after first paint from this site, and if
     // WebGL or the import fails the page is already complete without it.
