@@ -38,10 +38,10 @@ export const resume = {
   },
 
   page: {
-    title: 'Resume - Petko (Pete) Pavlovski',
+    title: 'CV - Petko (Pete) Pavlovski',
     description:
       "Senior Rust engineer at Fathom. Production software since 2019, Rust since 2021. Previously The Graph, Kraken and OVO Energy.",
-    headline: 'Rust engineer. Systems builder.',
+    headline: 'Senior Rust engineer.',
   },
 
   history: {
@@ -185,7 +185,6 @@ export const resume = {
       'Backend and infrastructure as the main responsibility',
       'Room to question a design and take ownership of the result',
     ],
-    note: 'Send me the problem, the team and the constraints. That is a useful starting point.',
   },
 
   close: {

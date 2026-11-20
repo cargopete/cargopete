@@ -8,7 +8,6 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
 ---
 
 <Layout
-  ambient
   title={resume.page.title}
   description={resume.page.description}
 >
@@ -16,15 +15,14 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
 
   <section id="top">
     <div class="wrap">
-      <span class="fd-badge fd-badge--accent hero-badge rise rise-1"><span class="fd-dot"></span>{contact.location}</span>
+      <p class="fd-kicker rise rise-1">{contact.location}</p>
       <h1 class="display rise rise-2">{resume.page.headline}</h1>
       <p class="lede rise rise-2" style="max-width: 48ch;">
         {resume.tenure} {resume.accountant}
       </p>
       <div class="btn-row rise rise-3">
-        <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>Email Pete</a>
-        <a class="fd-btn fd-btn--ghost" href="/#building">See what I am building</a>
-        <a class="fd-btn fd-btn--ghost" href="/resume/petko-pavlovski-resume.pdf" download>Download resume (PDF)</a>
+        <a class="fd-btn fd-btn--primary" href="/resume/petko-pavlovski-resume.pdf" download>Download CV <span class="mono">PDF</span></a>
+        <a class="fd-btn fd-btn--ghost" href="/#building">See what I am building <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -83,10 +81,6 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
           <ul>{scope.out.map((item) => <li>{item}</li>)}</ul>
         </div>
       </div>
-
-      <p class="scope-note">
-        {scope.note}
-      </p>
     </div>
   </section>
 
@@ -101,13 +95,10 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
         </p>
         <div class="cta-row">
           <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>{contact.email}</a>
-          <a class="ghost" href="/">Back to the work <span class="arrow">&rsaquo;</span></a>
         </div>
         <div class="links">
           <a href={`https://${contact.github}`}>{contact.github}</a>
           <a href="https://github.com/nuthatch-org" rel="external noopener">The Night's Watch</a>
-          <a href={contact.linkedinUrl} rel="external noopener">LinkedIn</a>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
         </div>
       </div>
     </div>

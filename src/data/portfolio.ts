@@ -2,7 +2,13 @@ export const portfolio = {
   role: 'Senior Rust engineer',
   headline: 'I write the part that has to stay up.',
   summary: 'I created Matchstick, The Graph’s subgraph testing framework. I build Rust backends, indexers and P2P protocols. Production software since 2019. Rust since 2021.',
-  current: 'At Fathom, I build Rust services for an AI data platform. Previously The Graph, Kraken and OVO Energy.',
+  current: 'At Fathom, I build Rust services for an AI data platform.',
+  // The hero's stat panel. Each case study's result carries a different figure, so none repeats.
+  figures: [
+    { name: 'Matchstick', figure: '684,284', text: 'npm downloads of matchstick-as in the year to 19 Nov 2026' },
+    { name: 'nuthatch', figure: '136', text: 'releases, from v0.0.1 on 14 Jul 2026 to v5.23.0 on 18 Nov 2026' },
+    { name: 'Graphcast', figure: '53,119', text: 'crates.io downloads of graphcast-sdk, as of Nov 2026' },
+  ],
   contact: 'For Rust backend, distributed systems or developer tooling work, send me the problem, the team and the constraints.',
   selected: [
     {
@@ -11,7 +17,7 @@ export const portfolio = {
       title: 'Test a subgraph before it meets the chain.',
       problem: 'Subgraph mappings need tests for event handlers and the entities they write.',
       contribution: 'Created a testing framework in Rust and WebAssembly at LimeChain, on a Graph Foundation grant.',
-      result: 'The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test.',
+      result: 'The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test. The matchstick-as package had 85,536 npm downloads in the 30 days to 19 November 2026, and LimeChain/matchstick has 217 GitHub stars.',
       tags: ['Rust', 'WebAssembly', 'Developer tooling'],
       links: [
         { label: 'Official Graph documentation', href: 'https://thegraph.com/docs/en/subgraphs/tooling/unit-testing-framework/' },
@@ -24,7 +30,7 @@ export const portfolio = {
       title: 'From chain events to a queryable data service.',
       problem: 'Applications need indexed blockchain data without depending on a hosted indexing provider.',
       contribution: 'Built a Rust indexer that follows the chain, seals data into Parquet and serves queries through SQL and MCP.',
-      result: 'A self-hosted indexing system, with its runtime, storage and query interfaces available as public source.',
+      result: 'A self-hosted indexing system, with its runtime, storage and query interfaces available as public source. It is the data source behind lodestar-dashboard.com.',
       tags: ['Rust', 'Parquet', 'SQL', 'MCP'],
       links: [
         { label: 'Project & documentation', href: 'https://nuthatch-indexer.com' },
@@ -37,7 +43,7 @@ export const portfolio = {
       title: 'Let indexers talk to one another.',
       problem: 'Indexers need to exchange information across a decentralised network.',
       contribution: 'Designed and built Graphcast at GraphOps, using Rust, Waku and libp2p. Built Subgraph Radio to exchange subgraph information.',
-      result: 'A public SDK for gossip-powered applications, with Subgraph Radio as a concrete implementation.',
+      result: 'A public SDK for gossip-powered applications, with Subgraph Radio as a concrete implementation. The subgraph-radio crate has 13,047 downloads across 30 releases, as of November 2026.',
       tags: ['Rust', 'P2P', 'Waku', 'libp2p'],
       links: [
         { label: 'Graphcast SDK', href: 'https://github.com/graphops/graphcast-sdk' },
