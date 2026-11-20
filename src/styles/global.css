@@ -362,7 +362,6 @@ header { position: sticky; z-index: 30; }
                 position: relative; line-height: 1.5; }
 .scope-col li::before { content: ""; position: absolute; left: 0; top: 0.62em;
                         width: 7px; height: 1px; background: var(--accent); opacity: 0.75; }
-.scope-note { color: var(--text-muted); max-width: 56ch; margin-top: 2rem; font-size: 0.875rem; }
 
 /* --- close + footer ----------------------------------------------------- */
 .closer { text-align: center; }

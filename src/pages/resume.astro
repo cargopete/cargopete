@@ -82,10 +82,6 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
           <ul>{scope.out.map((item) => <li>{item}</li>)}</ul>
         </div>
       </div>
-
-      <p class="scope-note">
-        {scope.note}
-      </p>
     </div>
   </section>
 
@@ -105,8 +101,6 @@ const jobs = resume.jobs.map((job) => ({ ...job, when: `${job.from} - ${job.to} 
         <div class="links">
           <a href={`https://${contact.github}`}>{contact.github}</a>
           <a href="https://github.com/nuthatch-org" rel="external noopener">The Night's Watch</a>
-          <a href={contact.linkedinUrl} rel="external noopener">LinkedIn</a>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
         </div>
       </div>
     </div>

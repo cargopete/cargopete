@@ -8,25 +8,25 @@ I write the part that has to stay up. I created Matchstick, The Graph’s subgra
 
 ## Now
 
-At Fathom, I build Rust services for an AI data platform. Previously The Graph, Kraken and OVO Energy.
+At Fathom, I build Rust services for an AI data platform.
 
 ## Selected work
 
 ### Matchstick | Testing infrastructure
 
-Created a testing framework in Rust and WebAssembly at LimeChain, on a Graph Foundation grant. The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test.
+Created a testing framework in Rust and WebAssembly at LimeChain, on a Graph Foundation grant. The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test. The matchstick-as package had 85,536 npm downloads in the 30 days to 19 November 2026, and LimeChain/matchstick has 217 GitHub stars.
 
 [Official Graph documentation](https://thegraph.com/docs/en/subgraphs/tooling/unit-testing-framework/) · [Source](https://github.com/LimeChain/matchstick)
 
 ### nuthatch | Data infrastructure
 
-Built a Rust indexer that follows the chain, seals data into Parquet and serves queries through SQL and MCP. A self-hosted indexing system, with its runtime, storage and query interfaces available as public source.
+Built a Rust indexer that follows the chain, seals data into Parquet and serves queries through SQL and MCP. A self-hosted indexing system, with its runtime, storage and query interfaces available as public source. It is the data source behind lodestar-dashboard.com.
 
 [Project & documentation](https://nuthatch-indexer.com) · [Source](https://github.com/nuthatch-org/nuthatch)
 
 ### Graphcast | Distributed systems
 
-Designed and built Graphcast at GraphOps, using Rust, Waku and libp2p. Built Subgraph Radio to exchange subgraph information. A public SDK for gossip-powered applications, with Subgraph Radio as a concrete implementation.
+Designed and built Graphcast at GraphOps, using Rust, Waku and libp2p. Built Subgraph Radio to exchange subgraph information. A public SDK for gossip-powered applications, with Subgraph Radio as a concrete implementation. The subgraph-radio crate has 13,047 downloads across 30 releases, as of November 2026.
 
 [Graphcast SDK](https://github.com/graphops/graphcast-sdk) · [Subgraph Radio](https://github.com/graphops/subgraph-radio)
 

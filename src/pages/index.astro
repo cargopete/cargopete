@@ -107,10 +107,9 @@ const { contact } = resume;
       <p class="fd-lede">{portfolio.contact}</p>
       <p class="contact-location">Sofia · remote · European working hours</p>
       <div class="cta-row">
-        <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>Email Pete <span aria-hidden="true">↗</span></a>
-        <a class="fd-btn fd-btn--ghost" href="/resume/">Read the CV</a>
+        <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>{contact.email}</a>
       </div>
-      <div class="links"><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={contact.linkedinUrl}>LinkedIn</a><a href={`https://${contact.github}`}>GitHub</a></div>
+      <div class="links"><a href={contact.linkedinUrl}>LinkedIn</a><a href={`https://${contact.github}`}>GitHub</a></div>
     </div>
   </section>
 </Layout>
