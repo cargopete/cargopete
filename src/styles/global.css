@@ -342,7 +342,8 @@ header { position: sticky; z-index: 30; }
           display: flex; flex-direction: column; gap: 0.5rem; }
 .job li { color: var(--text-muted); font-size: 0.889rem; padding-left: 1.2rem;
           position: relative; line-height: 1.55; }
-.job li::before { content: ""; position: absolute; left: 0; top: 0.66em;
+/* Whole pixels: a 1px dash at a fractional offset smears across two rows at half strength. */
+.job li::before { content: ""; position: absolute; left: 0; top: 12px;
                   width: 7px; height: 1px; background: var(--accent); opacity: 0.75; }
 
 /* --- scope panel -------------------------------------------------------- */
@@ -357,7 +358,7 @@ header { position: sticky; z-index: 30; }
                 display: flex; flex-direction: column; gap: 0.7rem; }
 .scope-col li { color: var(--text-muted); font-size: 0.889rem; padding-left: 1.2rem;
                 position: relative; line-height: 1.5; }
-.scope-col li::before { content: ""; position: absolute; left: 0; top: 0.62em;
+.scope-col li::before { content: ""; position: absolute; left: 0; top: 12px;
                         width: 7px; height: 1px; background: var(--accent); opacity: 0.75; }
 
 /* --- close + footer ----------------------------------------------------- */
