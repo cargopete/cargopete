@@ -2,7 +2,13 @@ export const portfolio = {
   role: 'Senior Rust engineer',
   headline: 'I write the part that has to stay up.',
   summary: 'I created Matchstick, The Graph’s subgraph testing framework. I build Rust backends, indexers and P2P protocols. Production software since 2019. Rust since 2021.',
-  current: 'At Fathom, I build Rust services for an AI data platform. Previously The Graph, Kraken and OVO Energy.',
+  current: 'At Fathom, I build Rust services for an AI data platform.',
+  // The hero's stat panel. Each case study's result carries a different figure, so none repeats.
+  figures: [
+    { name: 'Matchstick', figure: '684,284', text: 'npm downloads of matchstick-as in the year to 19 Nov 2026' },
+    { name: 'nuthatch', figure: '136', text: 'releases, from v0.0.1 on 14 Jul 2026 to v5.23.0 on 18 Nov 2026' },
+    { name: 'Graphcast', figure: '53,119', text: 'crates.io downloads of graphcast-sdk, as of Nov 2026' },
+  ],
   contact: 'For Rust backend, distributed systems or developer tooling work, send me the problem, the team and the constraints.',
   selected: [
     {

@@ -26,23 +26,12 @@ const { contact } = resume;
             <a class="fd-btn fd-btn--primary" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
             <a class="fd-btn fd-btn--ghost" href="/resume/petko-pavlovski-resume.pdf" download>Download CV <span class="mono">PDF</span></a>
           </div>
-          <p class="hero-contact rise rise-3"><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={`https://${contact.github}`}>GitHub</a><a href={contact.linkedinUrl}>LinkedIn</a></p>
         </div>
-        <aside class="work-index rise rise-3" aria-label="Selected work index">
-          <div class="index-heading"><span>Selected systems</span><span>01 / 03</span></div>
-          {portfolio.selected.map((project, index) => (
-            <a href={`#${project.id}`} class="index-entry">
-              <span class="index-number">0{index + 1}</span>
-              <span><strong>{project.name}</strong><small>{project.label}</small></span>
-              <span class="index-arrow" aria-hidden="true">↗</span>
-            </a>
+        <aside class="fd-stats hero-stats rise rise-3" aria-label="Selected work in figures">
+          {portfolio.figures.map(f => (
+            <div class="fd-stat"><p class="fd-stat-l">{f.name}</p><p class="fd-stat-n">{f.figure}</p><p class="fd-stat-s">{f.text}</p></div>
           ))}
-          <p class="index-foot">Code, context and my contribution below.</p>
         </aside>
-      </div>
-      <div class="career-strip">
-        <p><span class="strip-label">Now</span><a href="https://fathom.io">Fathom</a><span>Rust backend · AI data platform</span></p>
-        <p><span class="strip-label">Previously</span><span>The Graph / GraphOps</span><span>Kraken</span><span>OVO Energy</span></p>
       </div>
     </div>
   </section>
