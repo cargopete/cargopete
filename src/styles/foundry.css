@@ -33,11 +33,3 @@
 .fd-stat-n .u { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.02em; margin-left: 4px; }
 .fd-stat-s { color: var(--text-muted); font-size: 0.889rem; line-height: 1.5; margin: 4px 0 0; }
 .fd-stat-n.is-unavailable { color: var(--bad); font-size: 1rem; }
-
-/* install line: a button, so it is focusable and copies on Enter */
-.fd-install { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text); background: var(--bg-code); border: 1px solid var(--border-hi); border-radius: var(--radius-sm); padding: 11px 14px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; max-width: 100%; overflow: hidden; white-space: nowrap; transition: border-color 160ms; }
-.fd-install:hover { border-color: var(--accent); }
-.fd-install .p { color: var(--accent); }
-.fd-install .c { overflow: hidden; text-overflow: ellipsis; }
-.fd-install .h { color: var(--text-muted); border-left: 1px solid var(--border); padding-left: 10px; }
-
