@@ -7,6 +7,8 @@ const profile = `# ${resume.name}
 
 ${portfolio.role} · Sofia, Bulgaria · remote since 2019.
 
+**${portfolio.tagline}**
+
 ${portfolio.headline} ${portfolio.summary}
 
 [Portfolio](https://www.cargopete.com/) · [CV](https://www.cargopete.com/resume/) · [Download PDF](https://www.cargopete.com/resume/petko-pavlovski-resume.pdf) · [LinkedIn](${contact.linkedinUrl}) · [${contact.email}](mailto:${contact.email})
@@ -20,7 +22,7 @@ ${portfolio.current}
 ${portfolio.selected.map(p => `### ${p.name} | ${p.label}
 
 ${p.contribution} ${p.result}
-
+${p.install ? `\n\`\`\`sh\n${p.install}\n\`\`\`\n` : ''}
 ${p.links.map(l => `[${l.label}](${l.href})`).join(' · ')}`).join('\n\n')}
 
 ## Also building

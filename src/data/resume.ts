@@ -22,7 +22,7 @@ export interface Project {
 
 export const resume = {
   name: 'Petko (Pete) Pavlovski',
-  tagline: ['Senior Rust engineer', 'indexers, languages, P2P protocols, and the tooling around them.'],
+  tagline: ['Senior Rust engineer', 'AI dev tooling, indexers, P2P protocols, and the tooling around them.'],
   intro: 'I write the part that has to stay up.',
   tenure: 'Shipping production software since 2019. Building in Rust since 2021.',
   accountant: 'Accountant before that, which is where the habit of checking the number twice comes from.',
@@ -40,7 +40,7 @@ export const resume = {
   page: {
     title: 'CV - Petko (Pete) Pavlovski',
     description:
-      "Senior Rust engineer at Fathom. Production software since 2019, Rust since 2021. Previously The Graph, Kraken and OVO Energy.",
+      "Senior Rust engineer at Fathom, building kitbag and nuthatch. Production software since 2019, Rust since 2021. Previously The Graph, Kraken and OVO Energy.",
     headline: 'Senior Rust engineer.',
   },
 
@@ -127,6 +127,11 @@ export const resume = {
     heading: 'Building now, and shipped and still running.',
     building: [
       {
+        names: ['kitbag'],
+        text: 'a Rust CLI that carries AI agent setups (MCP servers, rules, skills) between Claude Code, Cursor, Codex, Gemini CLI and Claude Desktop. Secrets become env refs; every apply is undoable.',
+        meta: 'github.com/cargopete/kitbag',
+      },
+      {
         names: ['nuthatch'],
         text: 'a self-hosted blockchain indexer in Rust. Follows the chain, seals history into Parquet and serves SQL and MCP.',
         meta: 'nuthatch-indexer.com',
@@ -167,11 +172,12 @@ export const resume = {
     // The page links "LinkedIn" between these two halves.
     lede: [
       'If you want to talk, reach me on',
-      'or by email. My focus is Rust backend engineering, distributed systems and developer tooling.',
+      'or by email. My focus is AI and developer tooling, Rust backend engineering and distributed systems.',
     ],
     inLabel: 'In scope',
     outLabel: 'Working preferences',
     in: [
+      'AI dev tooling: agent setups, MCP and the CLIs around them',
       'Rust backends, services and CLIs',
       'Distributed systems and P2P protocol work',
       'Blockchain indexing and data infrastructure',
@@ -190,7 +196,7 @@ export const resume = {
   close: {
     kicker: 'Contact',
     heading: 'Mail is the fastest way.',
-    lede: 'For Rust backend, distributed systems or developer tooling work, send me the problem, the team and the constraints.',
+    lede: 'For AI dev tooling, Rust backend or distributed systems work, send me the problem, the team and the constraints.',
   },
 
   pdf: {

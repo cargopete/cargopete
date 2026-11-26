@@ -1,7 +1,8 @@
 export const portfolio = {
-  role: 'Senior Rust engineer',
+  role: 'Senior Rust engineer · AI dev tooling',
+  tagline: 'making ai agents accessible to humans ❤️',
   headline: 'I write the part that has to stay up.',
-  summary: 'I created Matchstick, The Graph’s subgraph testing framework. I build Rust backends, indexers and P2P protocols. Production software since 2019. Rust since 2021.',
+  summary: 'I build kitbag, a Rust CLI that carries AI agent setups between coding tools, and nuthatch, an open-source Rust EVM indexer. I created Matchstick, The Graph’s subgraph testing framework. Production software since 2019. Rust since 2021.',
   current: 'At Fathom, I build Rust services for an AI data platform.',
   // The hero's stat panel. Each case study's result carries a different figure, so none repeats.
   figures: [
@@ -9,19 +10,19 @@ export const portfolio = {
     { name: 'nuthatch', figure: '136', text: 'releases, from v0.0.1 on 14 Jul 2026 to v5.23.0 on 18 Nov 2026' },
     { name: 'Graphcast', figure: '53,119', text: 'crates.io downloads of graphcast-sdk, as of Nov 2026' },
   ],
-  contact: 'For Rust backend, distributed systems or developer tooling work, send me the problem, the team and the constraints.',
+  contact: 'For AI dev tooling, Rust backend or distributed systems work, send me the problem, the team and the constraints.',
   selected: [
     {
-      id: 'matchstick', name: 'Matchstick', label: 'Testing infrastructure',
-      context: 'The Graph · LimeChain · 2021',
-      title: 'Test a subgraph before it meets the chain.',
-      problem: 'Subgraph mappings need tests for event handlers and the entities they write.',
-      contribution: 'Created a testing framework in Rust and WebAssembly at LimeChain, on a Graph Foundation grant.',
-      result: 'The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test. The matchstick-as package had 85,536 npm downloads in the 30 days to 19 November 2026, and LimeChain/matchstick has 217 GitHub stars.',
-      tags: ['Rust', 'WebAssembly', 'Developer tooling'],
+      id: 'kitbag', name: 'kitbag', label: 'AI dev tooling',
+      context: 'Independent open source · 2026',
+      title: 'One agent setup, every coding tool.',
+      problem: 'Every AI coding tool starts empty. MCP servers, rules and skills get re-added by hand in each one, in its own format, with API keys pasted into yet another config file.',
+      contribution: 'Built a Rust CLI that captures an agent setup into a small, git-friendly profile and applies it to Claude Code, Cursor, Codex, Gemini CLI and Claude Desktop, in each tool’s native format.',
+      result: 'Secrets are redacted to environment variable references on capture. Every apply shows its plan, backs up each file it touches and can be reverted with kitbag undo. A single static binary for macOS, Linux and Windows, MIT licensed, in early release.',
+      install: 'curl -fsSL https://raw.githubusercontent.com/cargopete/kitbag/main/install.sh | sh',
+      tags: ['Rust', 'CLI', 'MCP', 'AI agents'],
       links: [
-        { label: 'Official Graph documentation', href: 'https://thegraph.com/docs/en/subgraphs/tooling/unit-testing-framework/' },
-        { label: 'Source', href: 'https://github.com/LimeChain/matchstick' },
+        { label: 'Source & documentation', href: 'https://github.com/cargopete/kitbag' },
       ],
     },
     {
@@ -35,6 +36,19 @@ export const portfolio = {
       links: [
         { label: 'Project & documentation', href: 'https://nuthatch-indexer.com' },
         { label: 'Source', href: 'https://github.com/nuthatch-org/nuthatch' },
+      ],
+    },
+    {
+      id: 'matchstick', name: 'Matchstick', label: 'Testing infrastructure',
+      context: 'The Graph · LimeChain · 2021',
+      title: 'Test a subgraph before it meets the chain.',
+      problem: 'Subgraph mappings need tests for event handlers and the entities they write.',
+      contribution: 'Created a testing framework in Rust and WebAssembly at LimeChain, on a Graph Foundation grant.',
+      result: 'The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test. The matchstick-as package had 85,536 npm downloads in the 30 days to 19 November 2026, and LimeChain/matchstick has 217 GitHub stars.',
+      tags: ['Rust', 'WebAssembly', 'Developer tooling'],
+      links: [
+        { label: 'Official Graph documentation', href: 'https://thegraph.com/docs/en/subgraphs/tooling/unit-testing-framework/' },
+        { label: 'Source', href: 'https://github.com/LimeChain/matchstick' },
       ],
     },
     {
