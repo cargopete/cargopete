@@ -6,8 +6,8 @@ const { contact } = resume;
 ---
 <Layout
   ambient
-  title="Petko Pavlovski | Senior Rust Engineer | Backend & Distributed Systems"
-  description="Senior Rust engineer at Fathom. Creator of Matchstick, builder of nuthatch and Graphcast. Production software since 2019. Sofia, remote."
+  title="Petko Pavlovski | making ai agents accessible to humans | kitbag, Rust"
+  description="Petko (Pete) Pavlovski, senior Rust engineer building AI dev tooling. kitbag carries AI agent setups between coding tools. Also nuthatch, Matchstick and Graphcast. Sofia, remote."
 >
   <section id="top" class="portfolio-hero hero">
     <canvas class="hero-scene" id="landscape" aria-hidden="true"></canvas>
@@ -20,10 +20,12 @@ const { contact } = resume;
       <div class="portfolio-grid">
         <div>
           <p class="hero-role rise rise-1">{portfolio.role}</p>
-          <h1 class="portfolio-title rise rise-2">I write the part<br>that has to <span>stay up.</span></h1>
+          <h1 class="portfolio-title rise rise-2">making ai agents<br><span>accessible to humans&nbsp;<span class="heart">❤️</span></span></h1>
+          <p class="portfolio-headline rise rise-2">{portfolio.headline}</p>
           <p class="portfolio-intro rise rise-2">{portfolio.summary}</p>
           <div class="btn-row rise rise-3">
-            <a class="fd-btn fd-btn--primary" href="#work">Explore selected work</a>
+            <a class="fd-btn fd-btn--primary" href="#kitbag">Try kitbag</a>
+            <a class="fd-btn fd-btn--ghost" href="#work">Selected work</a>
             <a class="fd-btn fd-btn--ghost" href="/resume/petko-pavlovski-resume.pdf" download>Download CV <span class="mono">PDF</span></a>
           </div>
         </div>
@@ -40,7 +42,7 @@ const { contact } = resume;
       <div class="section-head" data-reveal>
         <p class="fd-kicker">Selected work</p>
         <h2 class="fd-h1 display-sm">The work, with the source attached.</h2>
-        <p class="fd-lede">A testing framework, an indexer and a messaging protocol. Different systems, the same concern: what happens when somebody else has to rely on them.</p>
+        <p class="fd-lede">An agent-setup CLI, an indexer, a testing framework and a messaging protocol. Different systems, the same concern: what happens when somebody else has to rely on them.</p>
       </div>
       {portfolio.selected.map((project, index) => (
         <article id={project.id} class="case-study" data-reveal>
@@ -58,6 +60,12 @@ const { contact } = resume;
               <div><dt>My work</dt><dd>{project.contribution}</dd></div>
               <div><dt>The result</dt><dd>{project.result}</dd></div>
             </dl>
+            {project.install && (
+              <div class="install">
+                <p class="install-label">Install</p>
+                <pre class="install-cmd"><code>{project.install}</code></pre>
+              </div>
+            )}
             <div class="evidence-links">{project.links.map(link => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</div>
           </div>
         </article>

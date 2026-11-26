@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Petko (Pete) Pavlovski - senior Rust engineer, Sofia.",
+  "description": "Petko (Pete) Pavlovski - senior Rust engineer building AI dev tooling (kitbag), Sofia.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

@@ -22,7 +22,7 @@ const person = {
   url: Astro.site?.href, jobTitle: 'Senior Rust Engineer',
   worksFor: { '@type': 'Organization', name: 'Fathom', url: 'https://fathom.io' },
   sameAs: [`https://${resume.contact.github}`, resume.contact.linkedinUrl],
-  knowsAbout: ['Rust', 'Distributed systems', 'Blockchain indexing', 'Developer tooling'],
+  knowsAbout: ['Rust', 'AI developer tooling', 'AI coding agents', 'Model Context Protocol', 'Distributed systems', 'Blockchain indexing', 'Developer tooling'],
 };
 ---
 <!doctype html>
@@ -56,7 +56,7 @@ const person = {
   <meta property="og:image" content={new URL('/social-card.png', Astro.site).href} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Petko Pavlovski. Senior Rust engineer. I write the part that has to stay up. Matchstick, nuthatch, Graphcast." />
+  <meta property="og:image:alt" content="Petko Pavlovski. Senior Rust engineer, AI dev tooling. making ai agents accessible to humans. kitbag, nuthatch, Matchstick, Graphcast." />
   <meta name="twitter:card" content="summary_large_image" />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(person).replace(/</g, '\\u003c')} />
 
@@ -97,6 +97,7 @@ const person = {
       <div class="foot-links">
         <a href="/resume/">CV</a>
         <a href="https://github.com/cargopete">GitHub</a>
+        <a href="https://github.com/cargopete/kitbag" rel="external noopener">kitbag</a>
         <a href="https://github.com/nuthatch-org" rel="external noopener">The Night's Watch</a>
         <a href="https://nuthatch-indexer.com" rel="external noopener">nuthatch</a>
         <a href="https://redstart-lang.com" rel="external noopener">redstart</a>

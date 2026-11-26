@@ -1,8 +1,10 @@
 # Petko (Pete) Pavlovski
 
-Senior Rust engineer · Sofia, Bulgaria · remote since 2019.
+Senior Rust engineer · AI dev tooling · Sofia, Bulgaria · remote since 2019.
 
-I write the part that has to stay up. I created Matchstick, The Graph’s subgraph testing framework. I build Rust backends, indexers and P2P protocols. Production software since 2019. Rust since 2021.
+**making ai agents accessible to humans ❤️**
+
+I write the part that has to stay up. I build kitbag, a Rust CLI that carries AI agent setups between coding tools, and nuthatch, an open-source Rust EVM indexer. I created Matchstick, The Graph’s subgraph testing framework. Production software since 2019. Rust since 2021.
 
 [Portfolio](https://www.cargopete.com/) · [CV](https://www.cargopete.com/resume/) · [Download PDF](https://www.cargopete.com/resume/petko-pavlovski-resume.pdf) · [LinkedIn](https://www.linkedin.com/in/pete-pavlovski-07486a156/) · [pavlovskipetko@gmail.com](mailto:pavlovskipetko@gmail.com)
 
@@ -12,17 +14,27 @@ At Fathom, I build Rust services for an AI data platform.
 
 ## Selected work
 
-### Matchstick | Testing infrastructure
+### kitbag | AI dev tooling
 
-Created a testing framework in Rust and WebAssembly at LimeChain, on a Graph Foundation grant. The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test. The matchstick-as package had 85,536 npm downloads in the 30 days to 19 November 2026, and LimeChain/matchstick has 217 GitHub stars.
+Built a Rust CLI that captures an agent setup into a small, git-friendly profile and applies it to Claude Code, Cursor, Codex, Gemini CLI and Claude Desktop, in each tool’s native format. Secrets are redacted to environment variable references on capture. Every apply shows its plan, backs up each file it touches and can be reverted with kitbag undo. A single static binary for macOS, Linux and Windows, MIT licensed, in early release.
 
-[Official Graph documentation](https://thegraph.com/docs/en/subgraphs/tooling/unit-testing-framework/) · [Source](https://github.com/LimeChain/matchstick)
+```sh
+curl -fsSL https://raw.githubusercontent.com/cargopete/kitbag/main/install.sh | sh
+```
+
+[Source & documentation](https://github.com/cargopete/kitbag)
 
 ### nuthatch | Data infrastructure
 
 Built a Rust indexer that follows the chain, seals data into Parquet and serves queries through SQL and MCP. A self-hosted indexing system, with its runtime, storage and query interfaces available as public source. It is the data source behind lodestar-dashboard.com.
 
 [Project & documentation](https://nuthatch-indexer.com) · [Source](https://github.com/nuthatch-org/nuthatch)
+
+### Matchstick | Testing infrastructure
+
+Created a testing framework in Rust and WebAssembly at LimeChain, on a Graph Foundation grant. The Graph documents Matchstick as its subgraph unit testing framework. Developers run it through graph test. The matchstick-as package had 85,536 npm downloads in the 30 days to 19 November 2026, and LimeChain/matchstick has 217 GitHub stars.
+
+[Official Graph documentation](https://thegraph.com/docs/en/subgraphs/tooling/unit-testing-framework/) · [Source](https://github.com/LimeChain/matchstick)
 
 ### Graphcast | Distributed systems
 
@@ -53,7 +65,7 @@ Accountant before that, which is where the habit of checking the number twice co
 
 ## Get in touch
 
-For Rust backend, distributed systems or developer tooling work, send me the problem, the team and the constraints. Remote from Sofia, with European working hours and some US overlap.
+For AI dev tooling, Rust backend or distributed systems work, send me the problem, the team and the constraints. Remote from Sofia, with European working hours and some US overlap.
 
 [pavlovskipetko@gmail.com](mailto:pavlovskipetko@gmail.com) · [Full experience & CV](https://www.cargopete.com/resume/)
 
