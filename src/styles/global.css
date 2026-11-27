@@ -492,6 +492,8 @@ section[id], article[id] { scroll-margin-top: 140px; }
 .user-quote blockquote { margin: 0; }
 .user-quote blockquote p { color: var(--text); font-size: 0.889rem; }
 .user-quote-meta { margin-top: 0; justify-content: flex-end; }
+.discord-quotes .user-quote { grid-template-columns: 1fr; gap: 6px; }
+.discord-quotes .user-quote-meta { justify-content: flex-start; }
 .credit-row { margin-top: var(--space-12); }
 .credit-row > .fd-kicker { font-weight: 400; }
 .credits {

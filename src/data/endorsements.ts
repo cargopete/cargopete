@@ -9,6 +9,8 @@ export type Endorsement = {
   date: string;
   datetime: string;
   href: string;
+  /** Visible link text. Defaults to "Source". */
+  sourceLabel?: string;
 };
 
 export const featured: Endorsement[] = [
@@ -104,6 +106,73 @@ export const matchstickUsers: Endorsement[] = [
     date: 'October 2021',
     datetime: '2021-10-28',
     href: 'https://github.com/LimeChain/matchstick/issues/211',
+  },
+];
+
+export const discord: Endorsement[] = [
+  {
+    quote: 'Thank you so much for this much needed tool. Event though I had to learn it today, I still think I saved some time developing my subgraph because I did not had to deploy->wait->check error message->blind-fix->redeploy->repeat 🙈.',
+    author: 'Simon | Edge & Node',
+    date: 'August 2021',
+    datetime: '2021-08-06',
+    href: 'https://discord.com/channels/438038660412342282/869962833528512543/873285066338480189',
+    sourceLabel: 'The Graph Discord, #unit-testing',
+  },
+  {
+    quote: 'Also there are some video tutorials thanks to @petko',
+    author: 'Maks',
+    date: 'February 2022',
+    datetime: '2022-02-01',
+    href: 'https://discord.com/channels/438038660412342282/869962833528512543/938145464799334450',
+    sourceLabel: 'The Graph Discord, #unit-testing',
+  },
+  {
+    quote: "Petko is a long-time contributor in The Graph - he's been around since the early days!",
+    author: 'GRTiQ',
+    date: 'June 2023',
+    datetime: '2023-06-16',
+    href: 'https://discord.com/channels/438038660412342282/438038660412342284/1119314555059838998',
+    sourceLabel: 'The Graph Discord, #general',
+  },
+  {
+    quote: "don't get my comment wrong, and take anything away @petko , you have been hardcore rocking 🚀 😁",
+    author: 'c.j. | Graph Foundation',
+    date: 'May 2026',
+    datetime: '2026-05-14',
+    href: 'https://discord.com/channels/982756528924807170/982756990419861514/1504523718695850186',
+    sourceLabel: 'LFG Capital Discord, #gurt',
+  },
+  {
+    quote: '@petko you are my hero)',
+    author: 'stake-machine.eth',
+    date: 'September 2026',
+    datetime: '2026-09-13',
+    href: 'https://discord.com/channels/438038660412342282/791444480628490290/1548737121337090180',
+    sourceLabel: 'The Graph Discord, #indexer-software',
+  },
+  {
+    quote: '@petko sir you dropped this 👑',
+    author: 'chris.eth',
+    date: 'October 2026',
+    datetime: '2026-10-01',
+    href: 'https://discord.com/channels/1512380261101338624/1527974048624279662/1555157949394059294',
+    sourceLabel: 'Nuthatch Discord, #nuthatch',
+  },
+  {
+    quote: 'nice work petko!',
+    author: 'mindstyle | pops.one',
+    date: 'October 2026',
+    datetime: '2026-10-07',
+    href: 'https://discord.com/channels/438038660412342282/1536289347513356318/1557407551946235996',
+    sourceLabel: 'The Graph Discord, #indexers',
+  },
+  {
+    quote: 'Thank you for your work here 🙌',
+    author: 'Slimchance (Ørjan)',
+    date: 'October 2026',
+    datetime: '2026-10-20',
+    href: 'https://discord.com/channels/1512380261101338624/1562162520922529882/1562185386720100424',
+    sourceLabel: 'Nuthatch Discord, #the-pond',
   },
 ];
 

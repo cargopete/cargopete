@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { credits, featured, matchstickUsers } from '../data/endorsements';
+import { credits, discord, featured, matchstickUsers } from '../data/endorsements';
 import { portfolio } from '../data/portfolio';
 import { resume } from '../data/resume';
 const { contact } = resume;
@@ -147,6 +147,23 @@ const { contact } = resume;
                 <span>{item.author}</span>
                 <time datetime={item.datetime}>{item.date}</time>
                 <a href={item.href} rel="external noopener" aria-label={`Source, ${item.author}, ${item.date}`}>Source <span aria-hidden="true">↗</span></a>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="user-cluster" data-reveal>
+        <h3 class="fd-kicker">From the community on Discord</h3>
+        <ul class="user-quotes discord-quotes">
+          {discord.map((item) => (
+            <li class="user-quote">
+              <blockquote>
+                <p>{item.quote}</p>
+              </blockquote>
+              <p class="user-quote-meta">
+                <span>{item.author}</span>
+                <time datetime={item.datetime}>{item.date}</time>
+                <a href={item.href} rel="external noopener" aria-label={`${item.sourceLabel}, ${item.author}, ${item.date}`}>{item.sourceLabel} <span aria-hidden="true">↗</span></a>
               </p>
             </li>
           ))}
