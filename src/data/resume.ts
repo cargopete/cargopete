@@ -24,9 +24,9 @@ export const resume = {
   name: 'Petko (Pete) Pavlovski',
   tagline: ['Senior Rust engineer', 'AI dev tooling, indexers, P2P protocols, and the tooling around them.'],
   intro: 'I write the part that has to stay up.',
-  tenure: 'Shipping production software since 2019. Building in Rust since 2021.',
+  tenure: 'Shipping production software since 2019.',
   accountant: 'Accountant before that, which is where the habit of checking the number twice comes from.',
-  footing: { figure: '2019', text: 'In production since 2019. Rust since 2021.' },
+  footing: { figure: '2019', text: 'In production since 2019.' },
 
   contact: {
     email: 'pavlovskipetko@gmail.com',
@@ -40,7 +40,7 @@ export const resume = {
   page: {
     title: 'CV - Petko (Pete) Pavlovski',
     description:
-      "Senior Rust engineer at Fathom, building kitbag and nuthatch. Production software since 2019, Rust since 2021. Previously The Graph, Kraken and OVO Energy.",
+      "Senior Rust engineer at Fathom, building kitbag and nuthatch. Production software since 2019. Previously The Graph, Kraken and OVO Energy.",
     headline: 'Senior Rust engineer.',
   },
 
@@ -187,7 +187,7 @@ export const resume = {
     ],
     out: [
       'Remote from Sofia, Bulgaria',
-      'European working hours, with some US overlap',
+      'EU hours, flexible for US overlap',
       'Backend and infrastructure as the main responsibility',
       'Room to question a design and take ownership of the result',
     ],
