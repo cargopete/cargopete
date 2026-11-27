@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { featured, matchstickUsers } from '../data/endorsements';
+import { credits, featured, matchstickUsers } from '../data/endorsements';
 import { portfolio } from '../data/portfolio';
 import { resume } from '../data/resume';
 const { contact } = resume;
@@ -115,7 +115,7 @@ const { contact } = resume;
       <div class="section-head" data-reveal>
         <p class="fd-kicker">Kind words</p>
         <h2 class="fd-h1 display-sm">Said in public.</h2>
-        <p class="fd-lede">From The Graph forum, GitHub and X. Quoted as written, with the source attached.</p>
+        <p class="fd-lede">Quoted as written, with the source attached.</p>
       </div>
       <div class="quote-grid">
         {featured.map((item) => (
@@ -148,6 +148,21 @@ const { contact } = resume;
                 <time datetime={item.datetime}>{item.date}</time>
                 <a href={item.href} rel="external noopener" aria-label={`Source, ${item.author}, ${item.date}`}>Source <span aria-hidden="true">↗</span></a>
               </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="credit-row" data-reveal>
+        <h3 class="fd-kicker">Recognized by</h3>
+        <ul class="credits">
+          {credits.map((item) => (
+            <li>
+              <span class="credit-source">{item.source}</span>
+              <span class="credit-detail">{item.detail}</span>
+              <span class="quote-meta">
+                <time datetime={item.datetime}>{item.date}</time>
+                <a href={item.href} rel="external noopener" aria-label={`Source, ${item.source}, ${item.date}`}>Source <span aria-hidden="true">↗</span></a>
+              </span>
             </li>
           ))}
         </ul>

@@ -492,6 +492,27 @@ section[id], article[id] { scroll-margin-top: 140px; }
 .user-quote blockquote { margin: 0; }
 .user-quote blockquote p { color: var(--text); font-size: 0.889rem; }
 .user-quote-meta { margin-top: 0; justify-content: flex-end; }
+.credit-row { margin-top: var(--space-12); }
+.credit-row > .fd-kicker { font-weight: 400; }
+.credits {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+.credits li {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.credit-source { color: var(--text); font-size: 0.889rem; }
+.credit-detail { color: var(--text-muted); font-size: 0.75rem; line-height: 1.45; }
+.credits .quote-meta { margin-top: 4px; }
 @media (max-width: 1000px) {
   .portfolio-grid { gap: 36px; grid-template-columns: 1.3fr 0.8fr; }
   .case-study { gap: 36px; }
@@ -505,11 +526,12 @@ section[id], article[id] { scroll-margin-top: 140px; }
   .quote-grid { gap: 28px; }
   .user-quote { grid-template-columns: 1fr; gap: 8px; }
   .user-quote-meta { justify-content: flex-start; }
+  .credits { grid-template-columns: 1fr; gap: 20px; }
 }
 @media print {
   header, footer, .hero-stats, .btn-row, .cta-row, .links { display: none; }
   body { background: white; color: black; }
   section { padding-block: 20px; }
   .reveal { opacity: 1; transform: none; }
-  .case-study, .project-note, .quote-card, .user-quote { break-inside: avoid; }
+  .case-study, .project-note, .quote-card, .user-quote, .credits li { break-inside: avoid; }
 }
