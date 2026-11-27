@@ -4,7 +4,7 @@ Senior Rust engineer · AI dev tooling · Sofia, Bulgaria · remote since 2019.
 
 **making ai agents accessible to humans ❤️**
 
-I write the part that has to stay up. I build kitbag, a Rust CLI that carries AI agent setups between coding tools, and nuthatch, an open-source Rust EVM indexer. I created Matchstick, The Graph’s subgraph testing framework. Production software since 2019. Rust since 2021.
+I write the part that has to stay up. I build kitbag, a Rust CLI that carries AI agent setups between coding tools, and nuthatch, an open-source Rust EVM indexer. I created Matchstick, The Graph’s subgraph testing framework. Production software since 2019.
 
 [Portfolio](https://www.cargopete.com/) · [CV](https://www.cargopete.com/resume/) · [Download PDF](https://www.cargopete.com/resume/petko-pavlovski-resume.pdf) · [LinkedIn](https://www.linkedin.com/in/pete-pavlovski-07486a156/) · [pavlovskipetko@gmail.com](mailto:pavlovskipetko@gmail.com)
 
@@ -65,7 +65,7 @@ Accountant before that, which is where the habit of checking the number twice co
 
 ## Get in touch
 
-For AI dev tooling, Rust backend or distributed systems work, send me the problem, the team and the constraints. Remote from Sofia, with European working hours and some US overlap.
+For AI dev tooling, Rust backend or distributed systems work, send me the problem, the team and the constraints. Remote from Sofia, EU hours, flexible for US overlap.
 
 [pavlovskipetko@gmail.com](mailto:pavlovskipetko@gmail.com) · [Full experience & CV](https://www.cargopete.com/resume/)
 

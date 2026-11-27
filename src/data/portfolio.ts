@@ -1,13 +1,14 @@
 export const portfolio = {
-  role: 'Senior Rust engineer · AI dev tooling',
+  role: 'Senior Rust engineer',
+  focus: 'AI dev tooling',
   tagline: 'making ai agents accessible to humans ❤️',
   headline: 'I write the part that has to stay up.',
-  summary: 'I build kitbag, a Rust CLI that carries AI agent setups between coding tools, and nuthatch, an open-source Rust EVM indexer. I created Matchstick, The Graph’s subgraph testing framework. Production software since 2019. Rust since 2021.',
+  summary: 'I build kitbag, a Rust CLI that carries AI agent setups between coding tools, and nuthatch, an open-source Rust EVM indexer. I created Matchstick, The Graph’s subgraph testing framework. Production software since 2019.',
   current: 'At Fathom, I build Rust services for an AI data platform.',
   // The hero's stat panel. Each case study's result carries a different figure, so none repeats.
   figures: [
     { name: 'Matchstick', figure: '684,284', text: 'npm downloads of matchstick-as in the year to 19 Nov 2026' },
-    { name: 'nuthatch', figure: '136', text: 'releases, from v0.0.1 on 14 Jul 2026 to v5.23.0 on 18 Nov 2026' },
+    { name: 'nuthatch', figure: '137', text: 'releases, from v0.0.1 on 14 Jul 2026 to v5.24.1 on 26 Nov 2026' },
     { name: 'Graphcast', figure: '53,119', text: 'crates.io downloads of graphcast-sdk, as of Nov 2026' },
   ],
   contact: 'For AI dev tooling, Rust backend or distributed systems work, send me the problem, the team and the constraints.',

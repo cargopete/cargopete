@@ -6,8 +6,8 @@ const { contact } = resume;
 ---
 <Layout
   ambient
-  title="Petko Pavlovski | making ai agents accessible to humans | kitbag, Rust"
-  description="Petko (Pete) Pavlovski, senior Rust engineer building AI dev tooling. kitbag carries AI agent setups between coding tools. Also nuthatch, Matchstick and Graphcast. Sofia, remote."
+  title="Petko Pavlovski | Senior Rust engineer | AI dev tooling"
+  description="Petko (Pete) Pavlovski, senior Rust engineer. Making AI agents accessible to humans. kitbag carries AI agent setups between coding tools. Also nuthatch, Matchstick and Graphcast. Sofia, remote."
 >
   <section id="top" class="portfolio-hero hero">
     <canvas class="hero-scene" id="landscape" aria-hidden="true"></canvas>
@@ -19,8 +19,9 @@ const { contact } = resume;
       </div>
       <div class="portfolio-grid">
         <div>
-          <p class="hero-role rise rise-1">{portfolio.role}</p>
-          <h1 class="portfolio-title rise rise-2">making ai agents<br><span>accessible to humans&nbsp;<span class="heart">❤️</span></span></h1>
+          <p class="hero-role rise rise-1">{portfolio.focus}</p>
+          <h1 class="portfolio-title rise rise-2">{portfolio.role}</h1>
+          <p class="portfolio-tagline rise rise-2">making ai agents<br><span>accessible to humans&nbsp;<span class="heart">❤️</span></span></p>
           <p class="portfolio-headline rise rise-2">{portfolio.headline}</p>
           <p class="portfolio-intro rise rise-2">{portfolio.summary}</p>
           <div class="btn-row rise rise-3">
@@ -113,7 +114,7 @@ const { contact } = resume;
       <p class="fd-kicker">Let’s talk systems</p>
       <h2 class="fd-h1 display-sm">What are you building?</h2>
       <p class="fd-lede">{portfolio.contact}</p>
-      <p class="contact-location">Sofia · remote · European working hours</p>
+      <p class="contact-location">Sofia · remote · EU hours, flexible for US overlap</p>
       <div class="cta-row">
         <a class="fd-btn fd-btn--primary" href={`mailto:${contact.email}`}>{contact.email}</a>
       </div>

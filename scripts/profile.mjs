@@ -5,7 +5,7 @@ import { portfolio } from '../src/data/portfolio.ts';
 const { contact } = resume;
 const profile = `# ${resume.name}
 
-${portfolio.role} · Sofia, Bulgaria · remote since 2019.
+${portfolio.role} · ${portfolio.focus} · Sofia, Bulgaria · remote since 2019.
 
 **${portfolio.tagline}**
 
@@ -41,7 +41,7 @@ ${resume.accountant}
 
 ## Get in touch
 
-${portfolio.contact} Remote from Sofia, with European working hours and some US overlap.
+${portfolio.contact} Remote from Sofia, EU hours, flexible for US overlap.
 
 [${contact.email}](mailto:${contact.email}) · [Full experience & CV](https://www.cargopete.com/resume/)
 

@@ -10,9 +10,10 @@ try {
     @font-face { font-family: Space; src: url(data:font/woff2;base64,${font}); }
     * { box-sizing: border-box; } body { margin: 0; padding: 60px 72px; width: 1200px; height: 630px; background: #171614; color: #ece9e3; font-family: Space, 'Noto Color Emoji', sans-serif; }
     .top { display:flex; justify-content:space-between; color:#d0704f; font-size:23px; padding-bottom:26px; border-bottom:1px solid #3b3832; }
-    .role { color:#9c978c; font-size:24px; margin:58px 0 18px; } h1 { font-size:76px; line-height:1.05; letter-spacing:-3px; margin:0; font-weight:600; }
-    h1 span { color:#d0704f; } .sub { color:#ece9e3; font-size:30px; margin:28px 0 0; letter-spacing:-0.5px; } .bottom { display:flex; justify-content:space-between; color:#9c978c; font-size:22px; margin-top:48px; padding-top:24px; border-top:1px solid #3b3832; }
-  </style><div class="top"><span>Petko (Pete) Pavlovski</span><span>cargopete.com</span></div><p class="role">${portfolio.role}</p><h1>making ai agents<br><span>accessible to humans ❤️</span></h1><p class="sub">I write the part that has to stay up.</p><div class="bottom"><span>kitbag / nuthatch / Matchstick / Graphcast</span><span>Sofia · remote</span></div>`);
+    .role { color:#9c978c; font-size:24px; margin:48px 0 14px; } h1 { font-size:84px; line-height:1.02; letter-spacing:-3px; margin:0; font-weight:600; }
+    .sub { color:#ece9e3; font-size:34px; line-height:1.25; margin:26px 0 0; letter-spacing:-0.5px; } .sub span { color:#d0704f; white-space:nowrap; }
+    .bottom { display:flex; justify-content:space-between; color:#9c978c; font-size:22px; margin-top:48px; padding-top:24px; border-top:1px solid #3b3832; }
+  </style><div class="top"><span>Petko (Pete) Pavlovski</span><span>cargopete.com</span></div><p class="role">${portfolio.focus}</p><h1>${portfolio.role}</h1><p class="sub">making ai agents<br><span>accessible to humans ❤️</span></p><div class="bottom"><span>kitbag / nuthatch / Matchstick / Graphcast</span><span>Sofia · remote</span></div>`);
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: new URL('../public/social-card.png', import.meta.url).pathname });
   console.log('Wrote public/social-card.png (1200 × 630).');
