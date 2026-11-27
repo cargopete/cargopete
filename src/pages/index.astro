@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { credits, discord, featured, matchstickUsers } from '../data/endorsements';
 import { portfolio } from '../data/portfolio';
 import { resume } from '../data/resume';
 const { contact } = resume;
@@ -107,6 +108,82 @@ const { contact } = resume;
           <li><span class="career-dates">{job.from} - {job.to}</span><h3>{job.company}{job.org && <span> / {job.org}</span>}</h3><p>{job.role}</p></li>
         ))}
       </ol>
+    </div>
+  </section>
+  <section id="kind-words" class="kind-words">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="fd-kicker">Kind words</p>
+        <h2 class="fd-h1 display-sm">Said in public.</h2>
+        <p class="fd-lede">Quoted as written, with the source attached.</p>
+      </div>
+      <div class="quote-grid">
+        {featured.map((item) => (
+          <figure class="quote-card" data-reveal>
+            {item.about && <p class="quote-about fd-kicker">{item.about}</p>}
+            <blockquote>
+              <p>{item.quote}</p>
+            </blockquote>
+            <figcaption>
+              <span class="quote-author">{item.author}</span>
+              {item.role && <span class="quote-role">{item.role}</span>}
+              <span class="quote-meta">
+                <time datetime={item.datetime}>{item.date}</time>
+                <a href={item.href} rel="external noopener" aria-label={`Source, ${item.author}, ${item.date}`}>Source <span aria-hidden="true">↗</span></a>
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="user-cluster" data-reveal>
+        <h3 class="fd-kicker">From people using Matchstick</h3>
+        <ul class="user-quotes">
+          {matchstickUsers.map((item) => (
+            <li class="user-quote">
+              <blockquote>
+                <p>{item.quote}</p>
+              </blockquote>
+              <p class="user-quote-meta">
+                <span>{item.author}</span>
+                <time datetime={item.datetime}>{item.date}</time>
+                <a href={item.href} rel="external noopener" aria-label={`Source, ${item.author}, ${item.date}`}>Source <span aria-hidden="true">↗</span></a>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="user-cluster" data-reveal>
+        <h3 class="fd-kicker">From the community on Discord</h3>
+        <ul class="user-quotes discord-quotes">
+          {discord.map((item) => (
+            <li class="user-quote">
+              <blockquote>
+                <p>{item.quote}</p>
+              </blockquote>
+              <p class="user-quote-meta">
+                <span>{item.author}</span>
+                <time datetime={item.datetime}>{item.date}</time>
+                <a href={item.href} rel="external noopener" aria-label={`${item.sourceLabel}, ${item.author}, ${item.date}`}>{item.sourceLabel} <span aria-hidden="true">↗</span></a>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="credit-row" data-reveal>
+        <h3 class="fd-kicker">Recognized by</h3>
+        <ul class="credits">
+          {credits.map((item) => (
+            <li>
+              <span class="credit-source">{item.source}</span>
+              <span class="credit-detail">{item.detail}</span>
+              <span class="quote-meta">
+                <time datetime={item.datetime}>{item.date}</time>
+                <a href={item.href} rel="external noopener" aria-label={`Source, ${item.source}, ${item.date}`}>Source <span aria-hidden="true">↗</span></a>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
   <section class="closer" id="contact">
